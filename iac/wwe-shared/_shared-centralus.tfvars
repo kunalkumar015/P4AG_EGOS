@@ -1,0 +1,5 @@
+subscription_id                       = "6f9f1e7d-bfc5-4c84-a02f-93152a27b55d"
+vnet_address_space                    = "10.81.0.0/23"
+privateendpoints_address_space        = "10.81.0.0/27"
+vnet_address_space_devops             = "10.120.0.0/24"
+devops_address_space                  = "10.120.0.0/27"

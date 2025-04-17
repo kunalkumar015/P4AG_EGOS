@@ -1,0 +1,73 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - iac/wwe-egos/*
+    - iac/modules
+    exclude:
+    - iac/wwe-ga/*
+    - iac/wwe-dr/*
+    - iac/wwe-shared/*
+    - pipelines/*
+
+resources:
+  repositories:
+  - repository: commonPipeline
+    type: git
+    name: Common.Pipelines
+
+variables:
+  # ========================================================================
+  #                          Mandatory variables 
+  # ========================================================================
+- name: poolImage
+  value: 'windows-latest'
+- name: pool
+  value: 'ap-wwe'  
+- name: TerraformStateContainer
+  value: 'egos'
+#sets the terraform version for use across the entire pipeline
+- name: terraformVersion 
+  value: 1.9.5
+
+stages:
+# - template: ./templates/deployEnv-wwe-egos.yaml
+#   parameters:
+#     stage_name: prod_Deploy_WWE_EGOS
+#     depends_on: []
+#     environment_name: 'WWE_EGOS_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: eastus2
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+- template: ./templates/deployEnv-wwe-egos.yaml
+  parameters:
+    stage_name: DEV_Deploy_WWE_EGOS
+    depends_on: []
+    environment_name: 'WWE_EGOS_DEV'
+    AzureServiceConnection: 'SC-UPS-DEV' #Platform Service Connection
+    AzureRegion: eastus2
+    SubscriptionId: 'b09bcb9d-e055-4950-a9dd-2ab6002ef86c'
+    Environment: 'dev'
+    OrganizationalPrefix: 'wwe'
+    BootstrapAzureRegion: eastus2
+    TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+# - template: ./templates/deployEnv-wwe-egos.yaml
+#   parameters:
+#     stage_name: prod_Deploy_WWE_EGOS_DR
+#     depends_on: [prod_Deploy_WWE_EGOS]
+#     environment_name: 'WWE_EGOS_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: centralus
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-centralus'
