@@ -25,7 +25,7 @@ variables:
 - name: poolImage
   value: 'windows-latest'
 - name: pool
-  value: 'ap-wwe'  
+  value: 'wwe'  
 - name: TerraformStateContainer
   value: 'egos'
 #sets the terraform version for use across the entire pipeline
@@ -51,7 +51,7 @@ stages:
     stage_name: DEV_Deploy_WWE_EGOS
     depends_on: []
     environment_name: 'WWE_EGOS_DEV'
-    AzureServiceConnection: 'SC-UPS-DEV' #Platform Service Connection
+    AzureServiceConnection: 'sc-ups-dev' #Platform Service Connection
     AzureRegion: eastus2
     SubscriptionId: 'b09bcb9d-e055-4950-a9dd-2ab6002ef86c'
     Environment: 'dev'
