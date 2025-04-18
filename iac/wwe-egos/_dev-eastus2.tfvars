@@ -1,4 +1,4 @@
-subscription_id                       = "6f9f1e7d-bfc5-4c84-a02f-93152a27b55d"
+subscription_id                       = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
 vnet_address_space                    = "10.62.0.0/22"
 privateendpoints_address_space        = "10.62.0.0/27"
 nuget_address_space                   = "10.62.0.32/27"
