@@ -61,7 +61,7 @@ stages:
 
 - template: ./templates/deployEnv-wwe-egos.yaml
   parameters:
-    stage_name: DEV_Deploy_WWE_EGOS
+    stage_name: UAT_Deploy_WWE_EGOS
     depends_on: []
     environment_name: 'WWE_EGOS_UAT'
     AzureServiceConnection: 'sc-ups-uat' #Platform Service Connection
