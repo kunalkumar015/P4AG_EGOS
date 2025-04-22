@@ -48,7 +48,6 @@ stages:
     - name: bootstrapAzureRegion
       value: ${{ parameters.BootstrapAzureRegion }}
   - name: TerraformBackingStoreStateFileName
-    # value: 'egos-eastus2/terraform.tfstate'
     value: 'wwe-egos-infrastructure/terraform.tfstate'
   - name: InfrastructureRelativePath
     value: iac\wwe-egos
@@ -58,7 +57,7 @@ stages:
     value: ""
   pool:
     name: $(pool)
-    #vmImage: $(poolImage)
+    
   jobs:
   - job: PlanWWEEGOSInfrastructure
     displayName: Run Plan for Deployment of WWE EGOS Infrastructure to Azure

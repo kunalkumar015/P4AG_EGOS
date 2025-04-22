@@ -59,6 +59,19 @@ stages:
     BootstrapAzureRegion: eastus2
     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
 
+- template: ./templates/deployEnv-wwe-egos.yaml
+  parameters:
+    stage_name: DEV_Deploy_WWE_EGOS
+    depends_on: []
+    environment_name: 'WWE_EGOS_UAT'
+    AzureServiceConnection: 'sc-ups-uat' #Platform Service Connection
+    AzureRegion: eastus2
+    SubscriptionId: '230c211e-8a74-478c-9999-e92284ae6e59'
+    Environment: 'uat'
+    OrganizationalPrefix: 'wwe'
+    BootstrapAzureRegion: eastus2
+    TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+    
 # - template: ./templates/deployEnv-wwe-egos.yaml
 #   parameters:
 #     stage_name: prod_Deploy_WWE_EGOS_DR
