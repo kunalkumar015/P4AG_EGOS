@@ -12,9 +12,6 @@ trigger:
 
 resources:
   repositories:
-  - repository: commonTerraform
-    type: git
-    name: Common.Terraform
   - repository: commonPipeline
     type: git
     name: Common.Pipelines
