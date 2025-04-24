@@ -23,7 +23,7 @@ variables:
 - name: poolImage
   value: 'windows-latest'
 - name: pool
-  value: 'ap-wwe-prd'
+  value: 'wwe'
 - name: TerraformStateContainer
   value: 'shared'
 #sets the terraform version for use across the entire pipeline
