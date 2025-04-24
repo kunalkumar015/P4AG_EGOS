@@ -1,6 +1,6 @@
 subscription_id                       = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
-vnet_address_space                    = "10.62.0.0/22"
-privateendpoints_address_space        = "10.62.0.0/27"
+vnet_address_space                    = "10.92.0.0/20"
+privateendpoints_address_space        = "10.92.0.0/27"
 nuget_address_space                   = "10.62.0.32/27"
 dao_address_space                     = "10.62.0.64/27"
 webservices_address_space             = "10.62.0.96/27"
