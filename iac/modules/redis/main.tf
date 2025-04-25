@@ -18,6 +18,6 @@ data "azurerm_resource_group" "resource_group" {
 data "azurerm_redis_cache" "redis_data" {
   depends_on = [ azurerm_redis_cache.redis ]
   name = "redis-wwe-${local.app_type}-${local.environment_sanitized}-eastus2"
-  resource_group_name = "rg-wwe-${local.app_type}-${local.environment_sanitized}-eastus2"
+  resource_group_name = "rg-wwe-${local.environment_sanitized}"
 
 }
