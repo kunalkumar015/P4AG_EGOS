@@ -2,7 +2,7 @@
 module "storage_accounts" {
   source   = "../modules/storage_account"
   #for_each = var.storage_accounts
-  storage_account_name     = "sawweegosprd${local.region_sanitized}"
+  storage_account_name     = "sawweegos${local.environment_sanitized}${local.region_sanitized}"
   account_replication_type = var.account_replication_type
   account_kind             = "StorageV2"
   account_tier             = "Standard"
