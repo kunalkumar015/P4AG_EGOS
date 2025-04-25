@@ -12,6 +12,7 @@ hangfire_address_space                = "10.62.1.0/27"
 princepdf_address_space               = "10.62.1.32/27"
 app_sku                               = "P2v2"
 app_type                              = "egos"
+account_replication_type              = "LRS"
 app_name                              = null
 create_redis_link                     = 0
 

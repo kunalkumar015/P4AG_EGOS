@@ -57,3 +57,8 @@ variable "app_type" {
 variable "create_redis_link" {
   type = any
 }
+
+variable "account_replication_type" {
+  type = any
+}
+
