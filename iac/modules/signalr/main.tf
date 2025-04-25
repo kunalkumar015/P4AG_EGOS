@@ -7,6 +7,6 @@ locals {
   }
 
 data "azurerm_resource_group" "resource_group" {
-  name = "rg-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  name = "rg-wwe-${local.environment_sanitized}"
 }
 

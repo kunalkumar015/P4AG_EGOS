@@ -7,8 +7,9 @@ locals {
   }
 
 data "azurerm_resource_group" "resource_group" {
-  name = "rg-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  name = "rg-wwe-${local.environment_sanitized}"
 }
+
 # data "azurerm_redis_cache" "redis_data" {
 #   name = "redis-wwe-${local.app_type}-${local.environment_sanitized}-centralus"
 #   resource_group_name = "rg-wwe-${local.app_type}-${local.environment_sanitized}-centralus"
