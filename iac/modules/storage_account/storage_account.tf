@@ -8,6 +8,7 @@ resource "azurerm_storage_account" "stacc" {
   access_tier                       = var.access_tier
   min_tls_version                   = "TLS1_2"
   https_traffic_only_enabled        = true
+  public_network_access_enabled     = false
   
     lifecycle {
     ignore_changes = [
