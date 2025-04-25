@@ -9,6 +9,7 @@ resource "azurerm_storage_account" "stacc" {
   min_tls_version                   = "TLS1_2"
   https_traffic_only_enabled        = true
   public_network_access_enabled     = false
+  allow_nested_items_to_be_public   = false
   
     lifecycle {
     ignore_changes = [
