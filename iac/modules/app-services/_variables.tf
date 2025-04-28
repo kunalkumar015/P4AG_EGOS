@@ -32,3 +32,7 @@ variable "app_name" {
   type = string
   description = "(required) app name for deployment"
 }
+variable "asp_zone_balancing_enabled" {
+  type = string
+  description = "(required) app name for deployment"
+}

@@ -4,7 +4,7 @@ resource "azurerm_service_plan" "app_plan" {
   resource_group_name    = data.azurerm_resource_group.resource_group.name
   os_type                = "Windows"
   sku_name               = var.app_sku
-  zone_balancing_enabled = true
+  zone_balancing_enabled = var.asp_zone_balancing_enabled
   #worker_count           = "3"
 }
 

@@ -61,4 +61,7 @@ variable "create_redis_link" {
 variable "account_replication_type" {
   type = any
 }
-
+variable "asp_zone_balancing_enabled" {
+  type = string
+  description = "(required) app name for deployment"
+}

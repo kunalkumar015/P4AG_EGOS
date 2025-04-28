@@ -15,4 +15,5 @@ app_type                              = "egos"
 account_replication_type              = "LRS"
 app_name                              = null
 create_redis_link                     = 0
+asp_zone_balancing_enabled                = false
 
