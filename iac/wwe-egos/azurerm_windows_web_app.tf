@@ -1,12 +1,12 @@
-# module "windows_web_app_dashboard" {
-#  source = "../modules/app-services"
-#   environment         = local.environment_sanitized
-#   organization_suffix = "wwe"
-#   app_name            = "dashboard"
-#   app_type            = local.app_type
-#   app_sku             = var.app_sku
-#   region              = local.region_sanitized
-# }
+module "windows_web_app_dashboard" {
+ source = "../modules/app-services"
+  environment         = local.environment_sanitized
+  organization_suffix = "wwe"
+  app_name            = "dashboard"
+  app_type            = local.app_type
+  app_sku             = var.app_sku
+  region              = local.region_sanitized
+}
 
 # module "windows_web_app_webservices" {
 #  source = "../modules/app-services"
