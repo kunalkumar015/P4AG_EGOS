@@ -1,4 +1,4 @@
-environment                           = "dev"
+# environment                           = "dev"
 subscription_id                       = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
 vnet_address_space                    = "10.62.0.0/22"
 privateendpoints_address_space        = "10.62.0.0/27"
@@ -16,5 +16,5 @@ app_type                              = "egos"
 account_replication_type              = "LRS"
 app_name                              = null
 create_redis_link                     = 0
-asp_zone_balancing_enabled                = false
+asp_zone_balancing_enabled            = false
 
