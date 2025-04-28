@@ -6,7 +6,7 @@ module "windows_web_app_dashboard" {
   app_type            = local.app_type
   app_sku             = var.app_sku
   region              = local.region_sanitized
-  zone_balancing_enabled = var.asp_zone_balancing_enabled
+  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
 }
 
 # module "windows_web_app_webservices" {
