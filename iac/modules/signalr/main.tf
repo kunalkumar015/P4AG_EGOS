@@ -2,7 +2,6 @@ locals {
   environment_sanitized       = lower(var.environment)
   org_suffix_sanitized        = lower(var.organization_suffix)
   region_sanitized            = lower(var.region)
-  # subscription_name_sanitized = substr(replace(replace(lower(data.azurerm_subscription.current.display_name), " ", ""), "_", ""), 0, 30)
   app_type                    = lower(var.app_type)
   }
 
