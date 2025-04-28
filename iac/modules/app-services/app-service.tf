@@ -39,10 +39,10 @@ resource "azurerm_windows_web_app" "windows_app" {
     identity_ids             = [data.azurerm_user_assigned_identity.mi_user.id]
   }
 
-  app_settings = {
-    APPINSIGHTS_INSTRUMENTATIONKEY = "${azurerm_application_insights.app-in.instrumentation_key}"
+  # app_settings = {
+  #   APPINSIGHTS_INSTRUMENTATIONKEY = "${azurerm_application_insights.app-in.instrumentation_key}"
 
-  }
+  # }
   
 lifecycle {
     ignore_changes = [
@@ -63,9 +63,9 @@ resource "azurerm_windows_web_app_slot" "windows_slot" {
     minimum_tls_version = 1.2
   }
 
-  app_settings = {
-    APPINSIGHTS_INSTRUMENTATIONKEY = "${azurerm_application_insights.app-in.instrumentation_key}"
-  }
+  # app_settings = {
+  #   APPINSIGHTS_INSTRUMENTATIONKEY = "${azurerm_application_insights.app-in.instrumentation_key}"
+  # }
 
 lifecycle {
     ignore_changes = [
@@ -77,12 +77,12 @@ lifecycle {
 }
 
 
-resource "azurerm_application_insights" "app-in" {
-  name                = "appi-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"
-  location            = data.azurerm_resource_group.resource_group.location
-  resource_group_name = data.azurerm_resource_group.resource_group.name
-  workspace_id        = data.azurerm_log_analytics_workspace.logs.id
-  application_type    = "web"
-}
+# resource "azurerm_application_insights" "app-in" {
+#   name                = "appi-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"
+#   location            = data.azurerm_resource_group.resource_group.location
+#   resource_group_name = data.azurerm_resource_group.resource_group.name
+#   workspace_id        = data.azurerm_log_analytics_workspace.logs.id
+#   application_type    = "web"
+# }
 
 
