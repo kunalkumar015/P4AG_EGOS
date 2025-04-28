@@ -1,5 +1,5 @@
 resource "azurerm_service_plan" "app_plan" {
-  name                   = "asp-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"
+  name                   = "asp2-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"
   location               = data.azurerm_resource_group.resource_group.location
   resource_group_name    = data.azurerm_resource_group.resource_group.name
   os_type                = "Windows"
@@ -9,7 +9,7 @@ resource "azurerm_service_plan" "app_plan" {
 }
 
 resource "azurerm_windows_web_app" "windows_app" {
-  name                = "ase-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"
+  name                = "ase2-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"
   location            = data.azurerm_resource_group.resource_group.location
   resource_group_name = data.azurerm_resource_group.resource_group.name
   service_plan_id     = azurerm_service_plan.app_plan.id
