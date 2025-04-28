@@ -1,7 +1,7 @@
 module "redis_cache" {
   source                   = "../modules/redis"
   sku_name                 = "Standard"
-  family                   = "P"
+  family                   = "C"
   capacity                 = 1
   create_redis_link        = var.create_redis_link                 
   environment              = local.environment_sanitized
