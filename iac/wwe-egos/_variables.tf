@@ -1,7 +1,7 @@
-variable "environment" {
-  type        = string
-  description = "(required) environment name for deployment"
-}
+# variable "environment" {
+#   type        = string
+#   description = "(required) environment name for deployment"
+# }
 variable "organization_suffix" {
   type        = string
   description = "(required) organizational suffix to seed into globaly unique names for resources"
