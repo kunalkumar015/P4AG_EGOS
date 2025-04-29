@@ -55,26 +55,26 @@ resource "azurerm_virtual_network" "wwe_ga" {
 #     }
 #   }
 # }
-# resource "azurerm_subnet" "dashboard" {
-#   name                 = "snet-dashboard"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.dashboard_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+resource "azurerm_subnet" "dashboard" {
+  name                 = "snet-dashboard"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.dashboard_address_space]
+  lifecycle {
+    ignore_changes = [
+     #delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
 
 # resource "azurerm_subnet" "carthandoff" {
 #   name                 = "snet-carthandoff"
