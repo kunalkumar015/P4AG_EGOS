@@ -72,3 +72,7 @@ variable "redis_sku" {
 variable "redis_sku_family" {
   type = string
 }
+variable "asp_zone_balancing_enabled" {
+  type = string
+  description = "(required) app name for deployment"
+}
