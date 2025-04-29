@@ -60,18 +60,18 @@ stages:
     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
 
 
-- template: ./templates/deployEnv-wwe-ga.yaml
-  parameters:
-    stage_name: UAT_Deploy_WWE_GA
-    depends_on: [DEV_Deploy_WWE_GA]
-    environment_name: 'WWE_GA_UAT'
-    AzureServiceConnection: 'sc-ups-uat' #Platform Service Connection
-    AzureRegion: eastus2
-    SubscriptionId: '230c211e-8a74-478c-9999-e92284ae6e59' #wwe-uat Subscription Id
-    Environment: 'uat'
-    OrganizationalPrefix: 'wwe'
-    BootstrapAzureRegion: eastus2
-    TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+# - template: ./templates/deployEnv-wwe-ga.yaml
+#   parameters:
+#     stage_name: UAT_Deploy_WWE_GA
+#     depends_on: [DEV_Deploy_WWE_GA]
+#     environment_name: 'WWE_GA_UAT'
+#     AzureServiceConnection: 'sc-ups-uat' #Platform Service Connection
+#     AzureRegion: eastus2
+#     SubscriptionId: '230c211e-8a74-478c-9999-e92284ae6e59' #wwe-uat Subscription Id
+#     Environment: 'uat'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
 
 # - template: ./templates/deployEnv-wwe-ga.yaml
 #   parameters:
