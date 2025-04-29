@@ -10,6 +10,9 @@ variable "location" {
   type        = string
   description = "(requied) azure region where resources will be deployed"
 }
+variable "tenant_id" {
+  type        = string
+}
 variable "subscription_id" {
   type = string
 }

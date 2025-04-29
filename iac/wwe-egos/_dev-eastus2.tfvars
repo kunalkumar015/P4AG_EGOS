@@ -1,3 +1,4 @@
+tenant_id                             = "e7520e4d-d5a0-488d-9e9f-949faae7dce8"
 subscription_id                       = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
 vnet_address_space                    = "10.62.0.0/22"
 privateendpoints_address_space        = "10.62.0.0/27"

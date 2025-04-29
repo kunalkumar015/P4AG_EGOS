@@ -1,5 +1,5 @@
 resource "azurerm_mssql_server" "dbserver" {
-  name                         = "dbsrv-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  name                         = "dbsrv2-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
   location                     = data.azurerm_resource_group.resource_group.location
   resource_group_name          = data.azurerm_resource_group.resource_group.name
   version                      = "12.0"
