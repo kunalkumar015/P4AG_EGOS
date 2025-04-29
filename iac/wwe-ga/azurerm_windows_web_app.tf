@@ -1,15 +1,15 @@
 #delete 1124 recreate 0125
 
-# module "windows_web_app_dashboard" {
-#  source = "../modules/app-services"
-#   environment         = local.environment_sanitized
-#   organization_suffix = "wwe"
-#   app_name            = "dashboard"
-#   app_type            = local.app_type
-#   app_sku             = var.app_sku
-#   region              = local.region_sanitized
-#   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-# }
+module "windows_web_app_dashboard" {
+ source = "../modules/app-services"
+  environment         = local.environment_sanitized
+  organization_suffix = "wwe"
+  app_name            = "dashboard"
+  app_type            = local.app_type
+  app_sku             = var.app_sku
+  region              = local.region_sanitized
+  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+}
 
 # module "windows_web_app_dashboard" {
 #  source = "../modules/app-services"
