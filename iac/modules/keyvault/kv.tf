@@ -8,6 +8,15 @@ resource "azurerm_key_vault" "keyvault" {
   purge_protection_enabled    = false
   enable_rbac_authorization   = true
   sku_name = "standard"
+  lifecycle {
+    ignore_changes = [
+      # These properties reference internally managed data in Azure
+      # Ignore secrets, keys, and certificates entirely
+      access_policy,
+      network_acls,
+      tags
+    ]
+  }
 }
 resource "azurerm_key_vault_access_policy" "user_mi" {
   key_vault_id = azurerm_key_vault.keyvault.id

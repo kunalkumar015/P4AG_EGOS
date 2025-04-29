@@ -17,4 +17,6 @@ account_replication_type              = "LRS"
 app_name                              = null
 create_redis_link                     = 0
 asp_zone_balancing_enabled            = false
+redis_sku                             = "Standard"
+redis_sku_family                      = "C"
 

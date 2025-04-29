@@ -66,3 +66,9 @@ variable "app_type" {
 variable "create_redis_link" {
   type = any
 }
+variable "redis_sku" {
+  type = string
+}
+variable "redis_sku_family" {
+  type = string
+}

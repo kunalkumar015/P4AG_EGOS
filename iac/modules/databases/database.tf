@@ -4,7 +4,7 @@ resource "azurerm_mssql_server" "dbserver" {
   resource_group_name          = data.azurerm_resource_group.resource_group.name
   version                      = "12.0"
   administrator_login          = "wweadmin"
-  administrator_login_password = "h8-G3ry82-3cr37-p455wrsed"
+  administrator_login_password = "null"
   azuread_administrator {
     login_username = "DevOps Team"
     object_id = "fb4e0092-7d4f-45b4-8438-db9b45006e80"

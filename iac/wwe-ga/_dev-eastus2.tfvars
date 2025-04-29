@@ -17,3 +17,5 @@ app_sku                               = "P2v2"
 app_type                              = "ga"
 app_name                              = null
 create_redis_link                     = 0
+redis_sku                             = "Standard"
+redis_sku_family                      = "C"

@@ -15,5 +15,6 @@ app_sku                               = "P2v2"
 app_type                              = "egos"
 account_replication_type              = "GRS"
 app_name                              = null
-#delete 1124 recreate 0125. Change the below value to 1 to redeploy
 create_redis_link                     = 0
+redis_sku                             = "Premium"
+redis_sku_family                      = "P2"
