@@ -19,3 +19,4 @@ app_name                              = null
 create_redis_link                     = 0
 redis_sku                             = "Standard"
 redis_sku_family                      = "C"
+asp_zone_balancing_enabled            = "false"
