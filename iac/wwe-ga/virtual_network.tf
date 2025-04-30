@@ -77,66 +77,68 @@ resource "azurerm_subnet" "dashboard" {
   }
 }
 
-# resource "azurerm_subnet" "carthandoff" {
-#   name                 = "snet-carthandoff"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.carthandoff_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+resource "azurerm_subnet" "carthandoff" {
+  name                 = "snet-carthandoff"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.carthandoff_address_space]
+  lifecycle {
+    ignore_changes = [
+     #delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "classifying" {
-#   name                 = "snet-classifying"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.classifying_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
+
+resource "azurerm_subnet" "classifying" {
+  name                 = "snet-classifying"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.classifying_address_space]
+  lifecycle {
+    ignore_changes = [
+     #delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "webjobs" {
-#   name                 = "snet-webjobs"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.webjobs_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
+
+resource "azurerm_subnet" "webjobs" {
+  name                 = "snet-webjobs"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.webjobs_address_space]
+  lifecycle {
+    ignore_changes = [
+     #delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
 resource "azurerm_subnet" "globalcheckout" {
   name                 = "snet-globalcheckout"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
@@ -157,69 +159,72 @@ resource "azurerm_subnet" "globalcheckout" {
     }
   }
 }
-# resource "azurerm_subnet" "hangfire" {
-#   name                 = "snet-hangfire"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.hangfire_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
-    
-#   delegation {
-#     name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "shopifyintegrationws" {
-#   name                 = "snet-shopifyintegrationws"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.shopifyintegrationws_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+resource "azurerm_subnet" "hangfire" {
+  name                 = "snet-hangfire"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.hangfire_address_space]
+  lifecycle {
+    ignore_changes = [
+     #delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "tracking" {
-#   name                 = "snet-tracking"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.tracking_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
+
+resource "azurerm_subnet" "shopifyintegrationws" {
+  name                 = "snet-shopifyintegrationws"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.shopifyintegrationws_address_space]
+  lifecycle {
+    ignore_changes = [
+     #delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "iaas" {
-#   name                 = "snet-iaas"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.iaas_address_space]
-# }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
+
+resource "azurerm_subnet" "tracking" {
+  name                 = "snet-tracking"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.tracking_address_space]
+  lifecycle {
+    ignore_changes = [
+     #delegation
+    ]
+  }
+    
+  delegation {
+    name = "delegation"
+
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
+resource "azurerm_subnet" "iaas" {
+  name                 = "snet-iaas"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
+  address_prefixes     = [var.iaas_address_space]
+}
