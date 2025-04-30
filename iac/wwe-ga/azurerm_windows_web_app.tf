@@ -13,27 +13,27 @@ module "windows_web_app_dashboard" {
 
 
 
-# module "windows_web_app_webservices" {
-#  source = "../modules/app-services"
-#   environment         = local.environment_sanitized
-#   organization_suffix = "wwe"
-#   app_name            = "webservices"
-#   app_type            = local.app_type
-#   app_sku             = var.app_sku
-#   region              = local.region_sanitized
-#   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-# }
+module "windows_web_app_webservices" {
+ source = "../modules/app-services"
+  environment         = local.environment_sanitized
+  organization_suffix = "wwe"
+  app_name            = "webservices"
+  app_type            = local.app_type
+  app_sku             = var.app_sku
+  region              = local.region_sanitized
+  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+}
 
-# module "windows_web_app_globalcheckout" {
-#  source = "../modules/app-services"
-#   environment         = local.environment_sanitized
-#   organization_suffix = "wwe"
-#   app_name            = "globalcheckout"
-#   app_type            = local.app_type
-#   app_sku             = var.app_sku
-#   region              = local.region_sanitized
-#   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-# }
+module "windows_web_app_globalcheckout" {
+ source = "../modules/app-services"
+  environment         = local.environment_sanitized
+  organization_suffix = "wwe"
+  app_name            = "globalcheckout"
+  app_type            = local.app_type
+  app_sku             = var.app_sku
+  region              = local.region_sanitized
+  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+}
 
 # module "windows_web_app_shopifyintegrationws" {
 #  source = "../modules/app-services"
