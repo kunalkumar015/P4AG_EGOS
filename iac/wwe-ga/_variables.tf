@@ -55,6 +55,11 @@ variable "tracking_address_space" {
 variable "iaas_address_space" {
   type = string
 }
+
+variable "consolidated_subnet_address" {
+  type = string
+}
+
 variable "app_sku" {
   type = string
   description = "(required) sku name for deployment"
@@ -75,4 +80,7 @@ variable "redis_sku_family" {
 variable "asp_zone_balancing_enabled" {
   type = string
   description = "(required) app name for deployment"
+}
+variable "subnet_id" {
+  type = string
 }
