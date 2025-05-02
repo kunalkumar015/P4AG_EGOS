@@ -81,6 +81,6 @@ variable "asp_zone_balancing_enabled" {
   type = string
   description = "(required) app name for deployment"
 }
-variable "subnet_id" {
+variable "wwe_ga_subnet_address_space" {
   type = string
 }

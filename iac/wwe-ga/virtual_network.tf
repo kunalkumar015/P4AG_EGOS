@@ -1,3 +1,4 @@
+
 resource "azurerm_virtual_network" "wwe_ga" {
   name                = "vnet-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name = "rg-wwe-${local.environment_sanitized}"
@@ -11,29 +12,6 @@ resource "azurerm_virtual_network" "wwe_ga" {
       dns_servers,
       tags
     ]
-  }
-}
-
-
-
-resource "azurerm_subnet" "consolidated" {
-  name                 = "snet-wwe-ga"
-  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-  virtual_network_name = azurerm_virtual_network.wwe_ga.name
-  address_prefixes     = [var.consolidated_subnet_address]
-  lifecycle {
-    ignore_changes = [
-     #delegation
-    ]
-  }
-    
-  delegation {
-    name = "delegation"
-
-    service_delegation {
-      name = "Microsoft.Web/serverFarms"
-      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-    }
   }
 }
 
