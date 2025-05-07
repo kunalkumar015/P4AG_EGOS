@@ -38,4 +38,5 @@ variable "asp_zone_balancing_enabled" {
 }
 variable "subnet_id" {
   type = string
+  description = "(required) subnet app service will integrate into"
 }
