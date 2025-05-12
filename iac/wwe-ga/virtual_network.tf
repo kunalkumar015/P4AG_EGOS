@@ -24,11 +24,12 @@ resource "azurerm_subnet" "wwe_ga" {
 }
 
 resource "azurerm_subnet" "consolidated" {
-  name                 = "snet-consolidated"
+  name                 = "consolidated-subnet"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_ga.name
   address_prefixes     = [var.consolidated_subnet_address]
 }
+
 
 # # resource "azurerm_subnet" "private_endpoint" {
 # #   name                 = "snet-privateendpoints"

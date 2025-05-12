@@ -19,40 +19,44 @@ variable "vnet_address_space" {
 variable "privateendpoints_address_space" {
   type = string
 }
-variable "appgw_subnet_web_address_space" {
-  type = string
-}
-variable "appgw_subnet_dash_address_space" {
-  type = string
-}
-variable "webservices_address_space" {
-  type = string
-}
-variable "dashboard_address_space" {
-  type = string
-}
-variable "carthandoff_address_space" {
-  type = string
-}
-variable "classifying_address_space" {
-  type = string
-}
-variable "webjobs_address_space" {
-  type = string
-}
-variable "globalcheckout_address_space" {
-  type = string
-}
-variable "hangfire_address_space" {
-  type = string
-}
-variable "shopifyintegrationws_address_space" {
-  type = string
-}
-variable "tracking_address_space" {
-  type = string
-}
-variable "iaas_address_space" {
+# variable "appgw_subnet_web_address_space" {
+#   type = string
+# }
+# variable "appgw_subnet_dash_address_space" {
+#   type = string
+# }
+# variable "webservices_address_space" {
+#   type = string
+# }
+# variable "dashboard_address_space" {
+#   type = string
+# }
+# variable "carthandoff_address_space" {
+#   type = string
+# }
+# variable "classifying_address_space" {
+#   type = string
+# }
+# variable "webjobs_address_space" {
+#   type = string
+# }
+# variable "globalcheckout_address_space" {
+#   type = string
+# }
+# variable "hangfire_address_space" {
+#   type = string
+# }
+# variable "shopifyintegrationws_address_space" {
+#   type = string
+# }
+# variable "tracking_address_space" {
+#   type = string
+# }
+# variable "iaas_address_space" {
+#   type = string
+# }
+
+variable "wwe_ga_subnet_address_space" {
   type = string
 }
 
@@ -80,7 +84,4 @@ variable "redis_sku_family" {
 variable "asp_zone_balancing_enabled" {
   type = string
   description = "(required) app name for deployment"
-}
-variable "wwe_ga_subnet_address_space" {
-  type = string
 }

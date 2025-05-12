@@ -9,8 +9,7 @@ module "windows_web_app_dashboard" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
- 
-  subnet_id               = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
+  subnet_id               =  data.azurerm_subnet.consolidated.id  
 }
 
 module "windows_web_app_webservices" {
@@ -22,8 +21,7 @@ module "windows_web_app_webservices" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-  
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
+  subnet_id                = data.azurerm_subnet.consolidated.id  
 
 }
 
@@ -36,8 +34,7 @@ module "windows_web_app_globalcheckout" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
+  subnet_id                = data.azurerm_subnet.consolidated.id 
 
 }
 
@@ -51,8 +48,7 @@ module "windows_web_app_carthandoff" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
+  subnet_id                = data.azurerm_subnet.consolidated.id  
 
 }
 
@@ -65,8 +61,7 @@ module "windows_web_app_classifying" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
+  subnet_id                = data.azurerm_subnet.consolidated.id  
 
 }
 
@@ -79,8 +74,7 @@ module "windows_web_app_webjobs" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
+  subnet_id                = data.azurerm_subnet.consolidated.id  
 
 }
 
@@ -93,9 +87,7 @@ module "windows_web_app_hangfire" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
-
+  subnet_id                = data.azurerm_subnet.consolidated.id  
 }
 
 
@@ -108,9 +100,7 @@ module "windows_web_app_shopifyintegrationws" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
-
+  subnet_id                = data.azurerm_subnet.consolidated.id  
 }
 
 module "windows_web_app_tracking" {
@@ -122,8 +112,7 @@ module "windows_web_app_tracking" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-
-  subnet_id                = azurerm_subnet.consolidated.id  # ✅ Reference consolidated subnet
+  subnet_id                = data.azurerm_subnet.consolidated.id  
 
 }
 
