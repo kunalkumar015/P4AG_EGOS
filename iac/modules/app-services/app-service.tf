@@ -52,6 +52,7 @@ lifecycle {
     ]
 }
 
+virtual_network_subnet_id = azurerm_subnet.wwe_ga.id
 }
 
 resource "azurerm_windows_web_app_slot" "windows_slot" {

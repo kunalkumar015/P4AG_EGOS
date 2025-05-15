@@ -7,6 +7,7 @@ module "windows_web_app_dashboard" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet
 }
 
 module "windows_web_app_webservices" {

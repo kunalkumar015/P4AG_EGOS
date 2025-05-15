@@ -64,6 +64,11 @@ variable "consolidated_subnet_address" {
   type = string
 }
 
+variable "app_name" {
+  type = string
+  description = "(required) appS name for deployment"
+}
+
 variable "app_sku" {
   type = string
   description = "(required) sku name for deployment"
