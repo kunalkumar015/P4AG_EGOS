@@ -45,6 +45,18 @@ stages:
 #     OrganizationalPrefix: 'wwe'
 #     BootstrapAzureRegion: eastus2
 #     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+- stage: CleanupLock
+  jobs:
+    - job: RemoveGitLock
+      steps:
+        - task: CmdLine@2
+          displayName: 'Remove stale Git Config lock'
+          inputs:
+            script: |
+              echo Removing stale .gitconfig.lock if it exists
+              del C:\Windows\ServiceProfiles\NetworkService\.gitconfig.lock 2>nul
+
+
 
 - template: ./templates/deployEnv-wwe-ga.yaml
   parameters:
