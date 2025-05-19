@@ -15,7 +15,7 @@ data "azurerm_user_assigned_identity" "mi_user" {
 }
 
 data "azurerm_subnet" "consolidated" {
-  name                 = "snet-${var.app_name}"
+  name                 = "consolidated-subnet"
   virtual_network_name = "vnet-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 }
