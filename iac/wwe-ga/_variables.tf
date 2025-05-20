@@ -65,16 +65,16 @@ variable "consolidated_subnet_address" {
 }
 
 variable "app_name" {
-  type = string
+  type        = string
   description = "(required) appS name for deployment"
 }
 
 variable "app_sku" {
-  type = string
+  type        = string
   description = "(required) sku name for deployment"
 }
 variable "app_type" {
-  type = string
+  type        = string
   description = "(required) app type for deployment"
 }
 variable "create_redis_link" {
@@ -87,6 +87,6 @@ variable "redis_sku_family" {
   type = string
 }
 variable "asp_zone_balancing_enabled" {
-  type = string
+  type        = string
   description = "(required) app name for deployment"
 }

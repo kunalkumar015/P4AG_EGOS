@@ -22,15 +22,15 @@
 # asp_zone_balancing_enabled            = "false"
 
 
-subscription_id                       = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
-vnet_address_space                    = "172.22.34.160/22"
-consolidated_subnet_address           = "172.22.34.160/27"
-privateendpoints_address_space        = "10.60.0.0/27"
-app_sku                               = "P2v2"
-app_type                              = "ga"
-app_name                              = null
-create_redis_link                     = 0
-redis_sku                             = "Standard"
-redis_sku_family                      = "C"
-asp_zone_balancing_enabled            = "false"
-wwe_ga_subnet_address_space           = "10.60.1.96/27"
+subscription_id                = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
+vnet_address_space             = "172.22.34.160/22"
+consolidated_subnet_address    = "172.22.34.160/27"
+privateendpoints_address_space = "10.60.0.0/27"
+app_sku                        = "P2v2"
+app_type                       = "ga"
+app_name                       = null
+create_redis_link              = 0
+redis_sku                      = "Standard"
+redis_sku_family               = "C"
+asp_zone_balancing_enabled     = "false"
+wwe_ga_subnet_address_space    = "10.60.1.96/27"

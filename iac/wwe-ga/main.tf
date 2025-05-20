@@ -7,10 +7,10 @@ terraform {
 }
 
 locals {
-  environment_sanitized        = lower(var.environment)
-  org_suffix_sanitized         = lower(var.organization_suffix)
-  region_sanitized             = lower(var.location)
+  environment_sanitized = lower(var.environment)
+  org_suffix_sanitized  = lower(var.organization_suffix)
+  region_sanitized      = lower(var.location)
   # wwe_subscription_id          = "6f9f1e7d-bfc5-4c84-a02f-93152a27b55d"
-  app_type                     = lower(var.app_type)
+  app_type = lower(var.app_type)
 
 }

@@ -62,7 +62,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -82,7 +82,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -103,7 +103,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -124,7 +124,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -145,7 +145,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -165,7 +165,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -186,7 +186,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -207,7 +207,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
@@ -228,7 +228,7 @@ resource "azurerm_subnet" "consolidated" {
 #      #delegation
 #     ]
 #   }
-    
+
 #   delegation {
 #     name = "delegation"
 
