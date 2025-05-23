@@ -56,9 +56,9 @@ variable "privateendpoints_address_space" {
 #   type = string
 # }
 
-variable "wwe_ga_subnet_address_space" {
-  type = string
-}
+# variable "wwe_ga_subnet_address_space" {
+#   type = string
+# }
 
 variable "consolidated_subnet_address" {
   type = string

@@ -13,10 +13,10 @@
 #   subnet_id                 = data.azurerm_subnet.subnet.id
 #   network_security_group_id = azurerm_network_security_group.nsg.id
 # }
-resource "azurerm_subnet_nat_gateway_association" "natgw" {
-  subnet_id      = data.azurerm_subnet.consolidated.id
-  nat_gateway_id = data.azurerm_nat_gateway.nat_gw.id
-}
+# resource "azurerm_subnet_nat_gateway_association" "natgw" {
+#   subnet_id      = data.azurerm_subnet.consolidated.id
+#   nat_gateway_id = data.azurerm_nat_gateway.nat_gw.id
+# }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet-int" {
   app_service_id = azurerm_windows_web_app.windows_app.id

@@ -16,12 +16,12 @@ resource "azurerm_virtual_network" "wwe_ga" {
 }
 
 
-resource "azurerm_subnet" "wwe_ga" {
-  name                 = "snet-wwe-ga"
-  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-  virtual_network_name = azurerm_virtual_network.wwe_ga.name
-  address_prefixes     = [var.wwe_ga_subnet_address_space]
-}
+# resource "azurerm_subnet" "wwe_ga" {
+#   name                 = "snet-wwe-ga"
+#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
+#   address_prefixes     = [var.wwe_ga_subnet_address_space]
+# }
 
 resource "azurerm_subnet" "consolidated" {
   name                 = "consolidated-subnet"
