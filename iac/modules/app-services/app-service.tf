@@ -52,7 +52,7 @@ lifecycle {
     ]
 }
 
-virtual_network_subnet_id = data.azurerm_subnet.consolidated.id
+virtual_network_subnet_id = var.subnet_id
 }
 
 resource "azurerm_windows_web_app_slot" "windows_slot" {

@@ -28,6 +28,14 @@ resource "azurerm_subnet" "consolidated" {
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_ga.name
   address_prefixes     = [var.consolidated_subnet_address]
+
+  delegation {
+    name = "delegation"
+    service_delegation {
+      name     = "Microsoft.Web/serverFarms"
+      actions  = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
 }
 
 

@@ -5,8 +5,10 @@ trigger:
   paths:
     include:
     - iac/wwe-shared/*
+    - iac/modules
     exclude:
     - iac/wwe-ga/*
+    - iac/wwe-egos/*
     - iac/wwe-dr/*
     - pipelines/*
 
