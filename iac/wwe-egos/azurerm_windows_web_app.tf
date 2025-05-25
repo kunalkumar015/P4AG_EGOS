@@ -7,7 +7,9 @@ module "windows_web_app_dashboard" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-  subnet_id = azurerm_subnet
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
 }
 
 module "windows_web_app_webservices" {
@@ -19,6 +21,10 @@ module "windows_web_app_webservices" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
+
 }
 
 module "windows_web_app_tradedirect" {
@@ -30,6 +36,10 @@ module "windows_web_app_tradedirect" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
+
 }
 
 module "windows_web_app_opstrackingwebapi" {
@@ -41,6 +51,10 @@ module "windows_web_app_opstrackingwebapi" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
+
 }
 
 module "windows_web_app_dao" {
@@ -52,6 +66,10 @@ module "windows_web_app_dao" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
+
 }
 
 module "windows_web_app_egosapi" {
@@ -63,6 +81,10 @@ module "windows_web_app_egosapi" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
+
 }
 
 module "windows_web_app_hangfire" {
@@ -74,6 +96,10 @@ module "windows_web_app_hangfire" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
+
 }
 
 module "windows_web_app_nuget" {
@@ -85,4 +111,8 @@ module "windows_web_app_nuget" {
   app_sku             = var.app_sku
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id = azurerm_subnet.consolidated.id
+
+  depends_on = [azurerm_subnet.consolidated]
+
 }

@@ -25,30 +25,40 @@ variable "privateendpoints_address_space" {
 variable "nuget_address_space" {
   type = string
 }
-variable "dao_address_space" {
+# variable "dao_address_space" {
+#   type = string
+# }
+# variable "webservices_address_space" {
+#   type = string
+# }
+# variable "dashboard_address_space" {
+#   type = string
+# }
+# variable "egosapi_address_space" {
+#   type = string
+# }
+# variable "tradedirect_address_space" {
+#   type = string
+# }
+# variable "opstrackingwebapi_address_space" {
+#   type = string
+# }
+# variable "hangfire_address_space" {
+#   type = string
+# }
+# variable "princepdf_address_space" {
+#   type = string
+# }
+
+variable "consolidated_subnet_address" {
   type = string
 }
-variable "webservices_address_space" {
-  type = string
+
+variable "app_name" {
+  type        = string
+  description = "(required) appS name for deployment"
 }
-variable "dashboard_address_space" {
-  type = string
-}
-variable "egosapi_address_space" {
-  type = string
-}
-variable "tradedirect_address_space" {
-  type = string
-}
-variable "opstrackingwebapi_address_space" {
-  type = string
-}
-variable "hangfire_address_space" {
-  type = string
-}
-variable "princepdf_address_space" {
-  type = string
-}
+
 variable "app_sku" {
   type = string
   description = "(required) sku name for deployment"
