@@ -22,9 +22,9 @@ variable "vnet_address_space" {
 variable "privateendpoints_address_space" {
   type = string
 }
-variable "nuget_address_space" {
-  type = string
-}
+# variable "nuget_address_space" {
+#   type = string
+# }
 # variable "dao_address_space" {
 #   type = string
 # }
