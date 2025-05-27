@@ -33,7 +33,7 @@ resource "azurerm_subnet" "private_endpoint" {
   name                 = "snet-privateendpoints"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-  address_prefixes     = [var.consolidated_subnet_address]
+  address_prefixes     = [var.privateendpoints_address_space]
   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
   private_endpoint_network_policies = "Disabled"
   
