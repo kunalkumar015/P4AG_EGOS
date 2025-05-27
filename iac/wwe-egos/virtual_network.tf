@@ -29,220 +29,222 @@ resource "azurerm_subnet" "consolidated" {
   }
 }
 
-# resource "azurerm_subnet" "private_endpoint" {
-#   name                 = "snet-privateendpoints"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.privateendpoints_address_space ]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
+resource "azurerm_subnet" "private_endpoint" {
+  name                 = "snet-privateendpoints"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.privateendpoints_address_space ]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
   
-#   lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+  lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
 
-# }
+}
 
-# resource "azurerm_subnet" "nuget" {
-#   name                 = "snet-nuget"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.nuget_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#   lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+resource "azurerm_subnet" "nuget" {
+  name                 = "snet-nuget"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+  lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
 
   
   
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
 
-# resource "azurerm_subnet" "dao" {
-#   name                 = "snet-dao"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.dao_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#     lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+resource "azurerm_subnet" "dao" {
+  name                 = "snet-dao"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+    lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
   
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-#   }
-# resource "azurerm_subnet" "webservices" {
-#   name                 = "snet-webservices"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.webservices_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#    lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   } 
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
+
+resource "azurerm_subnet" "webservices" {
+  name                 = "snet-webservices"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+   lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  } 
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "dashboard" {
-#   name                 = "snet-dashboard"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.dashboard_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#     lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
+resource "azurerm_subnet" "dashboard" {
+  name                 = "snet-dashboard"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+    lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "egosapi" {
-#   name                 = "snet-egosapi"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.egosapi_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#     lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
+resource "azurerm_subnet" "egosapi" {
+  name                 = "snet-egosapi"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+    lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "tradedirect" {
-#   name                 = "snet-tradedirect"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.tradedirect_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#     lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
+resource "azurerm_subnet" "tradedirect" {
+  name                 = "snet-tradedirect"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+    lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "opstrackingwebapi" {
-#   name                 = "snet-opstrackingwebapi"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.opstrackingwebapi_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#     lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
+
+resource "azurerm_subnet" "opstrackingwebapi" {
+  name                 = "snet-opstrackingwebapi"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+    lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "hangfire" {
-#   name                 = "snet-hangfire"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.hangfire_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#     lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
+resource "azurerm_subnet" "hangfire" {
+  name                 = "snet-hangfire"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+    lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "princepdf" {
-#   name                 = "snet-princepdf"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.princepdf_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
-#     lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
+resource "azurerm_subnet" "princepdf" {
+  name                 = "snet-princepdf"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.consolidated_subnet_address]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
+    lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
     
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-#     }
-#   }
-# }
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
+  }
+}
