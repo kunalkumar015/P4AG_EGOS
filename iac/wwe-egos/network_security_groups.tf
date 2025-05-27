@@ -42,7 +42,7 @@ resource "azurerm_network_security_group" "dao" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "dao" {
-  subnet_id                 = azurerm_subnet.dao.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.dao.id
 }
 resource "azurerm_network_security_group" "webservices" {
@@ -57,7 +57,7 @@ resource "azurerm_network_security_group" "webservices" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "webservices" {
-  subnet_id                 = azurerm_subnet.webservices.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.webservices.id
 }
 resource "azurerm_network_security_group" "dashboard" {
@@ -72,7 +72,7 @@ resource "azurerm_network_security_group" "dashboard" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "dashboard" {
-  subnet_id                 = azurerm_subnet.dashboard.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.dashboard.id
 }
 resource "azurerm_network_security_group" "egosapi" {
@@ -87,7 +87,7 @@ resource "azurerm_network_security_group" "egosapi" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "egosapi" {
-  subnet_id                 = azurerm_subnet.egosapi.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.egosapi.id
 }
 resource "azurerm_network_security_group" "tradedirect" {
@@ -102,7 +102,7 @@ resource "azurerm_network_security_group" "tradedirect" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "tradedirect" {
-  subnet_id                 = azurerm_subnet.tradedirect.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.tradedirect.id
 }
 resource "azurerm_network_security_group" "opstrackingwebapi" {
@@ -117,7 +117,7 @@ resource "azurerm_network_security_group" "opstrackingwebapi" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "opstrackingwebapi" {
-  subnet_id                 = azurerm_subnet.opstrackingwebapi.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.opstrackingwebapi.id
 }
 resource "azurerm_network_security_group" "hangfire" {
@@ -132,7 +132,7 @@ resource "azurerm_network_security_group" "hangfire" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "hangfire" {
-  subnet_id                 = azurerm_subnet.hangfire.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.hangfire.id
 }
 resource "azurerm_network_security_group" "princepdf" {
@@ -147,6 +147,6 @@ resource "azurerm_network_security_group" "princepdf" {
   }
 }
 resource "azurerm_subnet_network_security_group_association" "princepdf" {
-  subnet_id                 = azurerm_subnet.princepdf.id
+  subnet_id                 = azurerm_subnet.consolidated.id
   network_security_group_id = azurerm_network_security_group.princepdf.id
 }

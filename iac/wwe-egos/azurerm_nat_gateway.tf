@@ -22,5 +22,5 @@ resource "azurerm_nat_gateway_public_ip_prefix_association" "egos_nat" {
 
 resource "azurerm_subnet_nat_gateway_association" "natgw" {
   subnet_id      = azurerm_subnet.consolidated.id
-  nat_gateway_id = azurerm_nat_gateway.ga_nat.id
+  nat_gateway_id = azurerm_nat_gateway.egos_nat.id
 }
