@@ -6,11 +6,13 @@ trigger:
     include:
     - iac/wwe-shared/*
     - iac/modules
+    - pipelines/pipeline-wwe-shared-infrastructure.yml
+    - pipelines/templates/deplyEnv-wwe-shared.yaml
     exclude:
     - iac/wwe-ga/*
     - iac/wwe-egos/*
     - iac/wwe-dr/*
-    - pipelines/*
+    
 
 resources:
   repositories:
@@ -35,27 +37,40 @@ variables:
 stages:
 - template: ./templates/deployEnv-wwe-shared.yaml
   parameters:
-    stage_name: prod_Deploy_WWE_SHARED
+    stage_name: DEV_Deploy_WWE_SHARED
     depends_on: []
-    environment_name: 'WWE_Shared_Prod'
-    AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+    environment_name: 'WWE_SHARED_DEV'
+    AzureServiceConnection: 'sc-ups-dev' #Platform Service Connection
     AzureRegion: eastus2
-    SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
-    Environment: 'prod'
+    SubscriptionId: 'b09bcb9d-e055-4950-a9dd-2ab6002ef86c' #wwe-dev Subscription Id
+    Environment: 'dev'
     OrganizationalPrefix: 'wwe'
     BootstrapAzureRegion: eastus2
     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
 
-- template: ./templates/deployEnv-wwe-shared.yaml
-  parameters:
-    stage_name: prod_Deploy_WWE_SHARED_DR
-    depends_on: [prod_Deploy_WWE_SHARED]
-    environment_name: 'WWE_Shared_Prod'
-    AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
-    AzureRegion: centralus
-    SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
-    Environment: 'prod'
-    OrganizationalPrefix: 'wwe'
-    BootstrapAzureRegion: eastus2
-    TerraformBackingStoreContainerName: '$(TerraformStateContainer)-centralus'
+# - template: ./templates/deployEnv-wwe-shared.yaml
+#   parameters:
+#     stage_name: prod_Deploy_WWE_SHARED
+#     depends_on: []
+#     environment_name: 'WWE_Shared_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: eastus2
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+# - template: ./templates/deployEnv-wwe-shared.yaml
+#   parameters:
+#     stage_name: prod_Deploy_WWE_SHARED_DR
+#     depends_on: [prod_Deploy_WWE_SHARED]
+#     environment_name: 'WWE_Shared_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: centralus
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-centralus'
 
