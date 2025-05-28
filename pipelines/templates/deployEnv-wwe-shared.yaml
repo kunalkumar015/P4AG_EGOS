@@ -80,7 +80,7 @@ stages:
         InstanceNumber: $(TFInstanceNumber)
         TerraformBackingStoreResourceGroupName: rg-wwe-${{parameters.Environment}}
         TerraformBackingStoreContainerName: ${{parameters.TerraformBackingStoreContainerName}}
-        WorkingPath: $(Agent.BuildDirectory)/commonPipeline
+        WorkingPath: $(Agent.BuildDirectory)\commonPipeline
     - template: templates/deploy-infrastructure.yaml@commonPipeline
       parameters:
         Action: preview
@@ -98,7 +98,7 @@ stages:
         TerraformBackingStoreStateFileName: $(TerraformBackingStoreStateFileName)
         TerraformPlanName: 'wweshared_${{parameters.Environment}}'
         AdditionalTerraformVariables: $(AdditionalTerraformVariables)
-        WorkingPath: $(Agent.BuildDirectory)/self
+        WorkingPath: $(Agent.BuildDirectory)\self
         InfrastructureRelativePath: $(InfrastructureRelativePath)
   - job: waitForValidation
     dependsOn: ['PlanWWESharedInfrastructure']
@@ -138,7 +138,7 @@ stages:
               InstanceNumber: $(TFInstanceNumber)
               TerraformBackingStoreResourceGroupName: rg-wwe-${{parameters.Environment}}
               TerraformBackingStoreContainerName: ${{parameters.TerraformBackingStoreContainerName}}
-              WorkingPath: $(Agent.BuildDirectory)/commonPipeline
+              WorkingPath: $(Agent.BuildDirectory)\commonPipeline
           - template: templates/deploy-infrastructure.yaml@commonPipeline
             parameters:
               Action: deploy
@@ -155,5 +155,5 @@ stages:
               TerraformBackingStoreContainerName: ${{parameters.TerraformBackingStoreContainerName}}
               TerraformBackingStoreStateFileName: $(TerraformBackingStoreStateFileName)
               AdditionalTerraformVariables: $(AdditionalTerraformVariables)
-              WorkingPath: $(Agent.BuildDirectory)/self
+              WorkingPath: $(Agent.BuildDirectory)\self
               InfrastructureRelativePath: $(InfrastructureRelativePath)
