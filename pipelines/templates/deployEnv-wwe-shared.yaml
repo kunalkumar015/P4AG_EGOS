@@ -51,7 +51,7 @@ stages:
     #value: 'wwe-shared/terraform.tfstate'
     value: 'wwe-shared-infrastructure/terraform.tfstate'
   - name: InfrastructureRelativePath
-    value: iac/wwe-shared
+    value: iac\wwe-shared
   - name: TFInstanceNumber
     value: "01"
   - name: AdditionalTerraformVariables
