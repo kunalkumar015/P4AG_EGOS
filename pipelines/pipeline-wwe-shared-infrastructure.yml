@@ -6,13 +6,13 @@ trigger:
     include:
     - iac/wwe-shared/*
     - iac/modules
-    # - pipelines/pipeline-wwe-shared-infrastructure.yml
-    # - pipelines/templates/deplyEnv-wwe-shared.yaml
+    - pipelines/pipeline-wwe-shared-infrastructure.yml
+    - pipelines/templates/deplyEnv-wwe-shared.yaml
     exclude:
     - iac/wwe-ga/*
     - iac/wwe-egos/*
     - iac/wwe-dr/*
-    - pipelines/*
+    
 
 resources:
   repositories:
