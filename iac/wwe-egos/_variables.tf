@@ -19,9 +19,9 @@ variable "subscription_id" {
 variable "vnet_address_space" {
   type = string
 }
-variable "privateendpoints_address_space" {
-  type = string
-}
+# variable "privateendpoints_address_space" {
+#   type = string
+# }
 # variable "nuget_address_space" {
 #   type = string
 # }
@@ -50,9 +50,9 @@ variable "privateendpoints_address_space" {
 #   type = string
 # }
 
-variable "consolidated_subnet_address" {
-  type = string
-}
+# variable "consolidated_subnet_address" {
+#   type = string
+# }
 
 variable "app_name" {
   type        = string
