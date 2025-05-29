@@ -1,0 +1,49 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - iac/wwe-shared/*
+    - iac/modules
+    - pipelines/pipeline-wwe-shared-infrastructure.yml
+    - pipelines/templates/deplyEnv-wwe-shared.yaml
+    exclude:
+    - iac/wwe-ga/*
+    - iac/wwe-egos/*
+    - iac/wwe-dr/*
+
+
+resources:
+  repositories:
+  - repository: commonPipeline
+    type: git
+    name: Common.Pipelines
+
+variables:
+  # ========================================================================
+  #                          Mandatory variables 
+  # ========================================================================
+- name: poolImage
+  value: 'windows-latest'
+- name: pool
+  value: 'wwe'
+- name: TerraformStateContainer
+  value: 'shared'
+#sets the terraform version for use across the entire pipeline
+- name: terraformVersion 
+  value: 1.9.5
+
+stages:
+- template: ./templates/deployEnv-wwe-shared.yaml
+  parameters:
+    stage_name: DEV_Deploy_WWE_SHARED
+    depends_on: []
+    environment_name: 'WWE_SHARED_DEV'
+    AzureServiceConnection: 'sc-ups-dev' #Platform Service Connection
+    AzureRegion: eastus2
+    SubscriptionId: 'b09bcb9d-e055-4950-a9dd-2ab6002ef86c' #wwe-dev Subscription Id
+    Environment: 'dev'
+    OrganizationalPrefix: 'wwe'
+    BootstrapAzureRegion: eastus2
+    TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
