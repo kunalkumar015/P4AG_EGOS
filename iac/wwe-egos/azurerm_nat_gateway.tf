@@ -15,12 +15,12 @@ resource "azurerm_nat_gateway" "egos_nat" {
   zones                   = ["1"]
 }
 
-resource "azurerm_nat_gateway_public_ip_prefix_association" "egos_nat" {
-  nat_gateway_id      = azurerm_nat_gateway.egos_nat.id
-  public_ip_prefix_id = azurerm_public_ip_prefix.egos_nat.id
-}
+# resource "azurerm_nat_gateway_public_ip_prefix_association" "egos_nat" {
+#   nat_gateway_id      = azurerm_nat_gateway.egos_nat.id
+#   public_ip_prefix_id = azurerm_public_ip_prefix.egos_nat.id
+# }
 
-resource "azurerm_subnet_nat_gateway_association" "natgw" {
-  subnet_id      = azurerm_subnet.consolidated.id
-  nat_gateway_id = azurerm_nat_gateway.egos_nat.id
-}
+# resource "azurerm_subnet_nat_gateway_association" "natgw" {
+#   subnet_id      = azurerm_subnet.consolidated.id
+#   nat_gateway_id = azurerm_nat_gateway.egos_nat.id
+# }
