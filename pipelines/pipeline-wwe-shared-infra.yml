@@ -1,19 +1,76 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - iac/wwe-shared/*
+    - iac/modules
+    - pipelines/pipeline-wwe-shared-infrastructure.yml
+    - pipelines/templates/deplyEnv-wwe-shared.yaml
+    exclude:
+    - iac/wwe-ga/*
+    - iac/wwe-egos/*
+    - iac/wwe-dr/*
+    
 
-pool:
-  vmImage: ubuntu-latest
+resources:
+  repositories:
+  - repository: commonPipeline
+    type: git
+    name: Common.Pipelines
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  # ========================================================================
+  #                          Mandatory variables 
+  # ========================================================================
+- name: poolImage
+  value: 'windows-latest'
+- name: pool
+  value: 'wwe'
+- name: TerraformStateContainer
+  value: 'shared'
+#sets the terraform version for use across the entire pipeline
+- name: terraformVersion 
+  value: 1.9.5
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+- template: ./templates/deployEnv-wwe-shared.yaml
+  parameters:
+    stage_name: DEV_Deploy_WWE_SHARED
+    depends_on: []
+    environment_name: 'WWE_SHARED_DEV'
+    AzureServiceConnection: 'sc-ups-dev' #Platform Service Connection
+    AzureRegion: eastus2
+    SubscriptionId: 'b09bcb9d-e055-4950-a9dd-2ab6002ef86c' #wwe-dev Subscription Id
+    Environment: 'dev'
+    OrganizationalPrefix: 'wwe'
+    BootstrapAzureRegion: eastus2
+    TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+# - template: ./templates/deployEnv-wwe-shared.yaml
+#   parameters:
+#     stage_name: prod_Deploy_WWE_SHARED
+#     depends_on: []
+#     environment_name: 'WWE_Shared_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: eastus2
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+# - template: ./templates/deployEnv-wwe-shared.yaml
+#   parameters:
+#     stage_name: prod_Deploy_WWE_SHARED_DR
+#     depends_on: [prod_Deploy_WWE_SHARED]
+#     environment_name: 'WWE_Shared_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: centralus
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-centralus'
+
