@@ -19,40 +19,13 @@ variable "subscription_id" {
 variable "vnet_address_space" {
   type = string
 }
-# variable "privateendpoints_address_space" {
-#   type = string
-# }
-# variable "nuget_address_space" {
-#   type = string
-# }
-# variable "dao_address_space" {
-#   type = string
-# }
-# variable "webservices_address_space" {
-#   type = string
-# }
-# variable "dashboard_address_space" {
-#   type = string
-# }
-# variable "egosapi_address_space" {
-#   type = string
-# }
-# variable "tradedirect_address_space" {
-#   type = string
-# }
-# variable "opstrackingwebapi_address_space" {
-#   type = string
-# }
-# variable "hangfire_address_space" {
-#   type = string
-# }
-# variable "princepdf_address_space" {
-#   type = string
-# }
+variable "privateendpoints_address_space" {
+  type = string
+}
 
-# variable "consolidated_subnet_address" {
-#   type = string
-# }
+variable "webapps_subnet_address" {
+  type = string
+}
 
 variable "app_name" {
   type        = string
@@ -84,3 +57,31 @@ variable "redis_sku" {
 variable "redis_sku_family" {
   type = string
 }
+
+# variable "nuget_address_space" {
+#   type = string
+# }
+# variable "dao_address_space" {
+#   type = string
+# }
+# variable "webservices_address_space" {
+#   type = string
+# }
+# variable "dashboard_address_space" {
+#   type = string
+# }
+# variable "egosapi_address_space" {
+#   type = string
+# }
+# variable "tradedirect_address_space" {
+#   type = string
+# }
+# variable "opstrackingwebapi_address_space" {
+#   type = string
+# }
+# variable "hangfire_address_space" {
+#   type = string
+# }
+# variable "princepdf_address_space" {
+#   type = string
+# }

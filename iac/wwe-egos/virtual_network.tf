@@ -14,42 +14,42 @@ resource "azurerm_virtual_network" "wwe_egos" {
   }
 }
 
-# resource "azurerm_subnet" "consolidated" {
-#   name                 = "consolidated-subnet"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+resource "azurerm_subnet" "webapps" {
+  name                 = "webapps-subnet"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.webapps_subnet_address]
 
-#   delegation {
-#     name = "delegation"
-#     service_delegation {
-#       name     = "Microsoft.Web/serverFarms"
-#       actions  = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
+  delegation {
+    name = "delegation"
+    service_delegation {
+      name     = "Microsoft.Web/serverFarms"
+      actions  = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
 
-# resource "azurerm_subnet" "private_endpoint" {
-#   name                 = "snet-privateendpoints"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.privateendpoints_address_space]
-#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-#   private_endpoint_network_policies = "Disabled"
+resource "azurerm_subnet" "private_endpoint" {
+  name                 = "snet-privateendpoints"
+  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.privateendpoints_address_space]
+  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+  private_endpoint_network_policies = "Disabled"
   
-#   lifecycle {
-#     ignore_changes = [
-#      delegation
-#     ]
-#   }
+  lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
 
-# }
+}
 
 # resource "azurerm_subnet" "nuget" {
 #   name                 = "snet-nuget"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #   lifecycle {
@@ -74,7 +74,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-dao"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #     lifecycle {
@@ -97,7 +97,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-webservices"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #    lifecycle {
@@ -119,7 +119,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-dashboard"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #     lifecycle {
@@ -141,7 +141,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-egosapi"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #     lifecycle {
@@ -163,7 +163,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-tradedirect"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #     lifecycle {
@@ -186,7 +186,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-opstrackingwebapi"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #     lifecycle {
@@ -208,7 +208,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-hangfire"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #     lifecycle {
@@ -230,7 +230,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
 #   name                 = "snet-princepdf"
 #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 #   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-#   address_prefixes     = [var.consolidated_subnet_address]
+#   address_prefixes     = [var.webapps_subnet_address]
 #   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
 #   private_endpoint_network_policies = "Disabled"
 #     lifecycle {

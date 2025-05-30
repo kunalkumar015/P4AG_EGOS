@@ -7,9 +7,9 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 # }
 
 # module "windows_web_app_webservices" {
@@ -21,9 +21,9 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 
 # }
 
@@ -36,9 +36,9 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 
 # }
 
@@ -51,9 +51,9 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 
 # }
 
@@ -66,9 +66,9 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 
 # }
 
@@ -81,9 +81,9 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 
 # }
 
@@ -96,9 +96,9 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 
 # }
 
@@ -111,8 +111,8 @@
 #   app_sku             = var.app_sku
 #   region              = local.region_sanitized
 #   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-#   subnet_id = azurerm_subnet.consolidated.id
+#   subnet_id = azurerm_subnet.webapps.id
 
-#   depends_on = [azurerm_subnet.consolidated]
+#   depends_on = [azurerm_subnet.webapps]
 
 # }
