@@ -11,6 +11,10 @@ module "storage_accounts" {
   organization_suffix      = "wwe"
   app_type                 = local.app_type
   region                   = local.region_sanitized
+
+  # network_rules {
+  #   default_action = "Deny" #Default public access block
+  # }
 }
 
 output "storage_accounts" {
