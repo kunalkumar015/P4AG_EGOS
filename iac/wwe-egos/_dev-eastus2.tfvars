@@ -23,9 +23,9 @@
 
 tenant_id                      = "e7520e4d-d5a0-488d-9e9f-949faae7dce8"
 subscription_id                = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
-vnet_address_space             = "172.22.34.128/26" #172.22.34.160/27 --32 ips-5=27
+vnet_address_space             = "172.22.34.128/26" #172.22.34.160/27 (too small)
 webapps_subnet_address         = "172.22.34.128/27"
-# privateendpoints_address_space = "172.22.34.192/27"
+privateendpoints_address_space = "172.22.34.160/27"
 app_sku                        = "S1"
 app_type                       = "egos"
 account_replication_type       = "LRS"
