@@ -60,7 +60,7 @@ variable "privateendpoints_address_space" {
 #   type = string
 # }
 
-variable "consolidated_subnet_address" {
+variable "webapps_subnet_address" {
   type = string
 }
 

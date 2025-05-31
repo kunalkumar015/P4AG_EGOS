@@ -23,11 +23,11 @@ resource "azurerm_virtual_network" "wwe_ga" {
 #   address_prefixes     = [var.wwe_ga_subnet_address_space]
 # }
 
-resource "azurerm_subnet" "consolidated" {
-  name                 = "consolidated-subnet"
+resource "azurerm_subnet" "webapps" {
+  name                 = "webapps-subnet"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-  address_prefixes     = [var.consolidated_subnet_address]
+  address_prefixes     = [var.webapps_subnet_address]
 
   delegation {
     name = "delegation"
