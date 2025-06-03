@@ -30,6 +30,7 @@ variable "webapps_subnet_address" {
 variable "app_name" {
   type        = string
   description = "(required) appS name for deployment"
+  default = null
 }
 
 variable "app_sku" {
@@ -45,7 +46,8 @@ variable "create_redis_link" {
 }
 
 variable "account_replication_type" {
-  type = any
+  type = string
+  default = "LRS"
 }
 variable "asp_zone_balancing_enabled" {
   type = string
