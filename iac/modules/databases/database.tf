@@ -18,7 +18,7 @@ resource "azurerm_mssql_database" "sqldb" {
   license_type   = "LicenseIncluded"
   #max_size_gb    = var.db_max_size_gb
   read_scale     = false
-  sku_name       = var.sku_name
+  sku_name       = "S1"#var.sku_name
   zone_redundant = var.zone_redundant
   enclave_type   = "VBS"
   transparent_data_encryption_enabled = true
