@@ -5,6 +5,7 @@ resource "azurerm_mssql_server" "dbserver" {
   version                      = "12.0"
   administrator_login          = "wweadmin"
   administrator_login_password = "null"
+  public_network_access_enabled = false
   azuread_administrator {
     login_username = "DevOps Team"
     object_id = "fb4e0092-7d4f-45b4-8438-db9b45006e80"
