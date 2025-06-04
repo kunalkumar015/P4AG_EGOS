@@ -36,3 +36,4 @@ variable "zone_redundant" {
   type = string
   
 }
+

@@ -50,11 +50,13 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
 
   free_tier_enabled = false
   public_network_access_enabled = false
-
+  multiple_write_locations_enabled = false
+  
   geo_location {
     location          = data.azurerm_resource_group.resource_group.location
     failover_priority = 0
   }
+
 }
 
 resource "azurerm_cosmosdb_sql_database" "cosmosdb_sql" {
