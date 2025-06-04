@@ -30,10 +30,10 @@ variable "app_type" {
 }
 variable "sku_name" {
   type = string
+  default = "Standard"
   
 }
 variable "zone_redundant" {
   type = string
   
 }
-
