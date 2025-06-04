@@ -17,3 +17,8 @@ data "azurerm_key_vault_secret" "sql_admin_password" {
   name         = "sql-password"
   key_vault_id = data.azurerm_key_vault.kv.id
 }
+
+data "azurerm_key_vault_secret" "cosmosdb_admin_password" {
+  name         = "cosmosdb-password"
+  key_vault_id = data.azurerm_key_vault.kv.id
+}

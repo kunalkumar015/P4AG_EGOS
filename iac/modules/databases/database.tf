@@ -34,3 +34,32 @@ resource "azurerm_mssql_database" "sqldb" {
     prevent_destroy = true
   }
 }
+
+resource "azurerm_cosmosdb_account" "cosmosdb" {
+  name                = "cosmosdb-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  location            = data.azurerm_resource_group.resource_group.location
+  resource_group_name = data.azurerm_resource_group.resource_group.name
+  offer_type          = "Standard"
+  kind                = "GlobalDocumentDB"
+
+  consistency_policy {
+    consistency_level = "BoundedStaleness"
+    max_interval_in_seconds = 300
+    max_staleness_prefix    = 100000
+  }
+
+  free_tier_enabled = false
+  public_network_access_enabled = false
+
+  geo_location {
+    location          = data.azurerm_resource_group.resource_group.location
+    failover_priority = 0
+  }
+}
+
+resource "azurerm_cosmosdb_sql_database" "cosmosdb_sql" {
+  name                = "cosmosdb-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  resource_group_name = data.azurerm_resource_group.resource_group.name
+  account_name        = azurerm_cosmosdb_account.cosmosdb.name
+}
+

@@ -60,6 +60,22 @@ variable "redis_sku_family" {
   type = string
 }
 
+# variable "enable_geo_replication" {
+#   type    = bool
+#   default = false
+# }
+
+# variable "enable_multiple_write_locations" {
+#   type    = bool
+#   default = false
+# }
+
+# variable "public_network_access_enabled" {
+#   type    = bool
+#   default = false
+# }
+
+
 # variable "nuget_address_space" {
 #   type = string
 # }
