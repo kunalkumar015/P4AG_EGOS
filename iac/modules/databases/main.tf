@@ -14,7 +14,7 @@ data "azurerm_key_vault" "kv" {
 }
 
 data "azurerm_key_vault_secret" "sql_admin_password" {
-  name         = "sql-password"
+  name         = "test"
   key_vault_id = data.azurerm_key_vault.kv.id
 }
 
