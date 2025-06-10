@@ -34,3 +34,8 @@ create_redis_link              = 0
 redis_sku                      = "Standard"
 redis_sku_family               = "C"
 asp_zone_balancing_enabled     = "false"
+
+
+subnet_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-app-dev-eastus/subnets/snet-privateendpoints"
+cosmosdb_private_dns_zone_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/privateDnsZones/privatelink.documents.azure.com"
+sql_private_dns_zone_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net"

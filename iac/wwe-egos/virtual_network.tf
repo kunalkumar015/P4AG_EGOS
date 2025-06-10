@@ -36,6 +36,7 @@ resource "azurerm_subnet" "private_endpoint" {
   address_prefixes     = [var.privateendpoints_address_space]
   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
   private_endpoint_network_policies = "Disabled"
+  private_link_service_network_policies_enabled = true
   
   lifecycle {
     ignore_changes = [

@@ -1,5 +1,5 @@
-module "cosmos_database" {
-  source              = "../modules/databases"
+module "cosmosdb" {
+  source              = "../modules/cosmosdb"
   sku_name            = "Standard"
   zone_redundant      = false
   environment         = local.environment_sanitized
@@ -7,5 +7,8 @@ module "cosmos_database" {
   app_type            = local.app_type
   region              = local.region_sanitized
 
-
+  private_endpoint_subnet_id = var.subnet_id
+  subnet_id                   = azurerm_subnet.webapps.id
+  cosmosdb_private_dns_zone_id = azurerm_private_dns_zone.cosmosdb.id  # for Cosmos DB
 }
+

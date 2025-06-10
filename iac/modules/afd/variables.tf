@@ -10,30 +10,9 @@ variable "region" {
   type        = string
   description = "(requied) azure region where resources will be deployed"
 }
-# variable "subnet" {
-#   type = object({
-#     id                   = string
-#     name                 = string
-#     resource_group_name  = string
-#     virtual_network_name = string
-#   })
-# }
-
-
-# variable "db_max_size_gb" {
-#   type = any
-  
-# }
+variable "tenant_id" {
+  type        = string
+}
 variable "app_type" {
   type = string
-  
-}
-variable "sku_name" {
-  type = string
-  default = "S0"
-  
-}
-variable "zone_redundant" {
-  type = string
-  
 }

@@ -60,6 +60,19 @@ variable "redis_sku_family" {
   type = string
 }
 
+variable "sql_private_dns_zone_id" {
+  type        = string
+  description = "ID of the private DNS zone for Azure SQL"
+}
+
+variable "cosmosdb_private_dns_zone_id" {
+  type        = string
+  description = "ID of the Private DNS Zone for Cosmos DB"
+}
+variable "subnet_id" {
+  type        = string
+  description = "ID of the Private DNS Zone for Cosmos DB"
+}
 
 # variable "nuget_address_space" {
 #   type = string
