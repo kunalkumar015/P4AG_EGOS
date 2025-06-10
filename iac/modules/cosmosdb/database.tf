@@ -1,5 +1,5 @@
 resource "azurerm_private_endpoint" "cosmosdb" {
-  name                = "pep-cosmosdb-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  name                = "pep-cosmosdb-${local.environment_sanitized}-${local.region_sanitized}"
   location            = data.azurerm_resource_group.resource_group.location
   resource_group_name = data.azurerm_resource_group.resource_group.name
   subnet_id           = var.private_endpoint_subnet_id
@@ -16,7 +16,7 @@ resource "azurerm_private_endpoint" "cosmosdb" {
 
 
 resource "azurerm_cosmosdb_account" "cosmosdb" {
-  name                = "cosmosdb-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  name                = "cosmosdb-wwe-${local.environment_sanitized}-${local.region_sanitized}"
   location            = data.azurerm_resource_group.resource_group.location
   resource_group_name = data.azurerm_resource_group.resource_group.name
   offer_type          = "Standard"
@@ -40,7 +40,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
 }
 
 resource "azurerm_cosmosdb_sql_database" "cosmosdb_sql" {
-  name                = "cosmosdb-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
+  name                = "cosmosdb-wwe-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name = data.azurerm_resource_group.resource_group.name
   account_name        = azurerm_cosmosdb_account.cosmosdb.name
 }
