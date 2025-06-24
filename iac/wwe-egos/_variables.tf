@@ -74,6 +74,41 @@ variable "subnet_id" {
   description = "ID of the Private DNS Zone for Cosmos DB"
 }
 
+variable "afd_profile_name" {
+  type        = string
+  description = "name of az front door"
+}
+
+variable "waf_policy_id" {
+  description = "The resource ID of the Azure Web Application Firewall Policy."
+  type        = string
+}
+
+variable "kv_id" {
+  description = "The resource ID of the Azure Key Vault containing secrets used by AFD."
+  type        = string
+}
+
+variable "waf_policies" {
+  description = "Map of Web Application Firewall policies configuration."
+  type = map(object({
+    waf_enabled = bool
+    # Add other WAF-specific properties if needed
+  }))
+  default = {}
+}
+
+variable "resource_group_name" {
+  description = "The name of the resource group where resources will be deployed."
+  type        = string
+}
+
+
+variable "tags" {
+  description = "A map of tags to assign to resources."
+  type        = map(string)
+  default     = {}
+}
 # variable "nuget_address_space" {
 #   type = string
 # }
