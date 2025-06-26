@@ -111,8 +111,6 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
-variable custom_domain_name{}
-variable custom_domain_hostname{}
 variable waf_policies{}
 variable "custom_domain_name" {
   description = "The name of the custom domain resource"
