@@ -114,3 +114,12 @@ variable "tags" {
 variable custom_domain_name{}
 variable custom_domain_hostname{}
 variable waf_policies{}
+variable "custom_domain_name" {
+  description = "The name of the custom domain resource"
+  type        = string
+}
+
+variable "custom_domain_hostname" {
+  description = "The full hostname (FQDN) for the custom domain"
+  type        = string
+}

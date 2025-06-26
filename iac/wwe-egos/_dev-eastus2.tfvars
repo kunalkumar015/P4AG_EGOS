@@ -42,3 +42,6 @@ cosmosdb_private_dns_zone_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef
 sql_private_dns_zone_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net"
 kv_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.KeyVault/vaults/kv2-wwe-dev-eastus2"
 waf_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/egos-dev/providers/Microsoft.Cdn/frontDoorWebApplicationFirewallPolicies/egosDashboardDevWaf"
+
+custom_domain_name     = "egosapp-dev-custom-domain"
+custom_domain_hostname = "webapp-dev.yourdomain.com"
