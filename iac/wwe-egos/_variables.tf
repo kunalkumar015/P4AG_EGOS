@@ -109,6 +109,16 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "custom_domain_name" {
+  description = "The name of the custom domain resource"
+  type        = string
+}
+
+variable "custom_domain_hostname" {
+  description = "The full hostname (FQDN) for the custom domain"
+  type        = string
+}
 # variable "nuget_address_space" {
 #   type = string
 # }
