@@ -129,15 +129,6 @@ variable "identity_ids" {
 variable "backend_fqdn" {}
 
 variable "ssl_certificate_name" {}
-variable "ssl_certificate_data" {
-  type      = string
-  sensitive = true
-}
-variable "ssl_certificate_password" {
-  type      = string
-  sensitive = true
-  default   = null
-}
 
 # variable "nuget_address_space" {
 #   type = string
