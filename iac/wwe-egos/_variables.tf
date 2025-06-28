@@ -121,16 +121,11 @@ variable "custom_domain_hostname" {
 }
 
 variable "agw_name" {}
-variable "location" {}
-variable "resource_group_name" {}
-variable "environment" {}
 variable "firewall_policy_id" {}
 variable "public_ip_address_id" {}
-variable "subnet_id" {}
 variable "identity_ids" {
   type = list(string)
 }
-variable "ssl_certificate_name" {}
 variable "backend_fqdn" {}
 
 variable "ssl_certificate_name" {}

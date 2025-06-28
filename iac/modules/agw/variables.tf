@@ -23,18 +23,8 @@ variable "environment" {}
 variable "firewall_policy_id" {}
 variable "public_ip_address_id" {}
 variable "subnet_id" {}
-variable "ssl_certificate_name" {}
 variable "backend_fqdn" {}
 variable "ssl_certificate_name" {}
-variable "ssl_certificate_data" {
-  type      = string
-  sensitive = true
-}
-variable "ssl_certificate_password" {
-  type      = string
-  sensitive = true
-  default   = null
-}
 variable "identity_ids" {
   type = list(string)
 }

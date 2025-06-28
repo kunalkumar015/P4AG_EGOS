@@ -116,5 +116,8 @@ resource "azurerm_application_gateway" "main" {
     backend_http_settings_name  = "bs-ga-webservices"
   }
 
-  ssl_certificate {} # Sensitive value must be handled via a separate file or Key Vault ref
+ ssl_certificate {
+  name     = var.ssl_certificate_name
+}
+# Sensitive value must be handled via a separate file or Key Vault ref
 }

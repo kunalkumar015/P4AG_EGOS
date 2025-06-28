@@ -47,17 +47,13 @@ custom_domain_name     = "egosapp-dev-custom-domain"
 custom_domain_hostname = "webapp-dev.yourdomain.com"
 
 #------AGW------------------------------------------
-agw_name             = "agw-wwe-ga-webservices-dev-eastus2"
+agw_name                      = "wwe-ga-webservices-dev-eastus2"
+
 location             = "eastus2"
-resource_group_name  = "rg-wwe-ga-dev"
 environment          = "dev"
 firewall_policy_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-ga-webservices-dev-eastus2"
 public_ip_address_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/publicIPAddresses/pip-wwe-ga-webservices-dev-eastus2"
-subnet_id            = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-ga-dev-eastus2/subnets/sn-appgw-webservices"
 identity_ids         = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-wwe-dev-eastus2"]
-ssl_certificate_name = "yellow-wweconomy-ups-com"
 backend_fqdn         = "ase-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
+ssl_certificate_name     = "egosapp-dev-cert"
 
-ssl_certificate_name     = "yellow-wweconomy-ups-com"
-ssl_certificate_data     = "BASE64_PFX_STRING_HERE"
-ssl_certificate_password = "optional-password-if-any"
