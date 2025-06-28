@@ -27,6 +27,7 @@ resource "azurerm_cdn_frontdoor_custom_domain" "afdSecrets" {
 
   tls {
     certificate_type = "CustomerCertificate"
+    cdn_frontdoor_secret_id  = azurerm_cdn_frontdoor_secret.afdSecret.id
   }
 }
 

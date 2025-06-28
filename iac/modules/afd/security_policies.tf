@@ -1,7 +1,7 @@
 resource "azurerm_cdn_frontdoor_firewall_policy" "afdFirewall_policy" {
   name                = "webAppsDevWaf"
   resource_group_name = "rg-wwe-dev"
-  sku_name = "Standard_AzureFrontDoor"
+  sku_name = "Premium_AzureFrontDoor"
   mode                = "Prevention"
   enabled             = true
 
