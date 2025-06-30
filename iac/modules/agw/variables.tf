@@ -19,7 +19,6 @@ variable "app_type" {
 variable "agw_name" {}
 variable "location" {}
 variable "resource_group_name" {}
-variable "environment" {}
 variable "firewall_policy_id" {}
 variable "public_ip_address_id" {}
 variable "subnet_id" {}
