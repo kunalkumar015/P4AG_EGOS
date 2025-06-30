@@ -36,7 +36,7 @@
 #   }
 # }
 
-resource "azurerm_application_gateway" "main" {
+resource "azurerm_application_gateway" "agw" {
   name                              = var.agw_name
   location                          = var.location
   resource_group_name               = var.resource_group_name
@@ -116,8 +116,9 @@ resource "azurerm_application_gateway" "main" {
     backend_http_settings_name  = "bs-ga-webservices"
   }
 
- ssl_certificate {
-  name     = var.ssl_certificate_name
+ssl_certificate {
+  name                = var.ssl_certificate_name
+  key_vault_secret_id = data.azurerm_key_vault_secret.cert.id
 }
 # Sensitive value must be handled via a separate file or Key Vault ref
 }

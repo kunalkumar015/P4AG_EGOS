@@ -157,3 +157,9 @@ variable "ssl_certificate_name" {}
 # variable "princepdf_address_space" {
 #   type = string
 # }
+
+variable "region" {
+  type        = string
+  description = "(requied) azure region where resources will be deployed"
+}
+
