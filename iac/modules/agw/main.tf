@@ -15,3 +15,13 @@ resource "azurerm_public_ip" "public_ip" {
   allocation_method   = "Static"
   sku                 = "Standard"
 }
+
+data "azurerm_key_vault" "KeyVault" {
+  name                = var.key_vault_name
+  resource_group_name = var.key_vault_rg
+}
+
+data "azurerm_key_vault_secret" "cert" {
+  name         = var.ssl_certificate_name
+  key_vault_id = data.azurerm_key_vault.example.id
+}

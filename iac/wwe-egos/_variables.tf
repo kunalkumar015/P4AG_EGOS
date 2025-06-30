@@ -129,6 +129,8 @@ variable "identity_ids" {
 variable "backend_fqdn" {}
 
 variable "ssl_certificate_name" {}
+variable "key_vault_rg"{}
+variable "key_vault_name"{}
 
 # variable "nuget_address_space" {
 #   type = string

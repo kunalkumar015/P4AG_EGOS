@@ -25,6 +25,8 @@ module "agw" {
   app_type                      = var.app_type
   organization_suffix           = var.organization_suffix
   tenant_id                     = var.tenant_id
+  key_vault_name                = var.key_vault_name
+  key_vault_rg                  = var.key_vault_rg
 }
 
 

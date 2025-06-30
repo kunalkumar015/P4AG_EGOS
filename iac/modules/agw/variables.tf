@@ -27,3 +27,5 @@ variable "ssl_certificate_name" {}
 variable "identity_ids" {
   type = list(string)
 }
+variable "key_vault_rg"{}
+variable "key_vault_name"{}

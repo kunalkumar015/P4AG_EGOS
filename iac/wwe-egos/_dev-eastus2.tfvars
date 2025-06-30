@@ -55,5 +55,3 @@ public_ip_address_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/reso
 identity_ids         = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-wwe-dev-eastus2"]
 backend_fqdn         = "ase-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
 ssl_certificate_name     = "egosapp-dev-cert"
-
-
