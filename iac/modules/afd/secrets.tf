@@ -16,6 +16,7 @@ resource "azurerm_cdn_frontdoor_secret" "afdSecret" {
   secret {
     customer_certificate {
       key_vault_certificate_id = data.azurerm_key_vault_certificate.custom_cert.id
+ 
     }
   }
 }

@@ -5,7 +5,7 @@ locals {
 }
 
 data "azurerm_resource_group" "resource_group" {
-  name = "rg-${local.environment_sanitized}"
+  name = "rg-wwe-dev"
 }
 
 resource "azurerm_public_ip" "public_ip" {
@@ -23,5 +23,5 @@ data "azurerm_key_vault" "KeyVault" {
 
 data "azurerm_key_vault_secret" "cert" {
   name         = var.ssl_certificate_name
-  key_vault_id = data.azurerm_key_vault.example.id
+  key_vault_id = data.azurerm_key_vault.KeyVault.id
 }

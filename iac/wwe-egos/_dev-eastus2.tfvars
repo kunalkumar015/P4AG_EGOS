@@ -34,7 +34,9 @@ create_redis_link              = 0
 redis_sku                      = "Standard"
 redis_sku_family               = "C"
 asp_zone_balancing_enabled     = "false"
-resource_group_name             = "rg-wwe-dev"
+resource_group_name            = "rg-wwe-dev"
+key_vault_name                 = "kv2-wwe-dev-eastus2"
+region                         = "eastus2"
 
 #------AFD---------------------------------------
 afd_profile_name               = "afd-wwe-dev"
