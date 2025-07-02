@@ -37,7 +37,7 @@ asp_zone_balancing_enabled     = "false"
 resource_group_name            = "rg-wwe-dev"
 key_vault_name                 = "kv2-wwe-dev-eastus2"
 region                         = "eastus2"
-
+key_vault_rg                   = "rg-wwe-dev"
 #------AFD---------------------------------------
 afd_profile_name               = "afd-wwe-dev"
 subnet_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/snet-privateendpoints"
