@@ -39,10 +39,6 @@ resource "azurerm_windows_web_app" "windows_app" {
     identity_ids             = [data.azurerm_user_assigned_identity.mi_user.id]
   }
 
-  # app_settings = {
-  #   APPINSIGHTS_INSTRUMENTATIONKEY = "${azurerm_application_insights.app-in.instrumentation_key}"
-
-  # }
   
 lifecycle {
     ignore_changes = [

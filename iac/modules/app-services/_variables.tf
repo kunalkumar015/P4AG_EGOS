@@ -10,15 +10,6 @@ variable "region" {
   type        = string
   description = "(requied) azure region where resources will be deployed"
 }
-# variable "subnet" {
-#   type = object({
-#     id                   = string
-#     name                 = string
-#     resource_group_name  = string
-#     virtual_network_name = string
-#   })
-# }
-
 
 variable "app_sku" {
   type = string

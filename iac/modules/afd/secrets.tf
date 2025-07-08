@@ -5,7 +5,7 @@ data "azurerm_key_vault" "egos_kv" {
 }
 
 data "azurerm_key_vault_certificate" "custom_cert" {
-  name         = "egosapp-dev-cert"            
+  name         = "dev-cert-eastus2"            
   key_vault_id = data.azurerm_key_vault.egos_kv.id
 }
 

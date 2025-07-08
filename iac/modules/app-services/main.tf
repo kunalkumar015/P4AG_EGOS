@@ -20,11 +20,6 @@ data "azurerm_subnet" "webapps" {
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 }
 
-# data "azurerm_log_analytics_workspace" "logs" {
-#   name                = "log-wwe-${local.environment_sanitized}-${local.region_sanitized}"
-#   resource_group_name = "rg-wwe-shared-prd-${local.region_sanitized}"
-# }
-
 data "azurerm_nat_gateway" "nat_gw" {
   name                    = "nat-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name     = "rg-wwe-${local.environment_sanitized}"
