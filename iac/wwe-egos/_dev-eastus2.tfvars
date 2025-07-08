@@ -58,5 +58,5 @@ public_ip_address_id           = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bf
 backend_fqdn                   = "ase-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
 ssl_certificate_name           = "dev-cert-eastus2"
 identity_ids = [
-  "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
+  "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
 ]
