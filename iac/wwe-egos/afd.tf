@@ -6,7 +6,7 @@ module "afd" {
   afd_sku                 = "Standard_AzureFrontDoor"
   origin_group_name       = "webapp-dev-origin-group"
   origin_name             = "webapp-dev-origin"
-  origin_hostname         = "yourapp-dev.azurewebsites.net"  
+  origin_hostname         = "ase2-wwe-egos-egosapi-dev-eastus2.azurewebsites.net"  
   route_name              = "webapp-dev-route"
   resource_group_name     = var.resource_group_name
   location                = var.location
@@ -14,7 +14,7 @@ module "afd" {
   # Required inputs
   organization_suffix     = "wwe"
   kv_secret_version       = "cb172d73f5ad486da950bd056abb415a"
-  custom_domain_hostname  = "www.yourapp-dev.com"            
+  custom_domain_hostname  = "egosapi.yellow.wweconomy.ups.com"   //gfegosapi.wweconomy.ups.com         
   app_type                = "egos"
   custom_domain_name      = "egosapp-dev-custom-domain"
   tenant_id               = var.tenant_id
@@ -24,8 +24,8 @@ module "afd" {
   waf_policies            = var.waf_policies
   resource_group          = var.resource_group_name
   endpoint_name           = "afd-webapp-dev-endpoint"
-  kv_secret_name          = "test"
-  secret_name             = "yourapp-dev-cert"
+  kv_secret_name          = "dev-cert-eastus2"
+  secret_name             = "dev-cert-eastus2"
   region                  = var.location
   security_policy_name    = "afd-webapp-dev-security-policy"
   environment             = "dev"
