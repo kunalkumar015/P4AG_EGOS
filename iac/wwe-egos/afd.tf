@@ -14,9 +14,9 @@ module "afd" {
   # Required inputs
   organization_suffix     = "wwe"
   kv_secret_version       = "cb172d73f5ad486da950bd056abb415a"
-  custom_domain_hostname  = "egosapi.yellow.wweconomy.ups.com"   //gfegosapi.wweconomy.ups.com         
+  custom_domain_hostname  = "yellow.wweconomy.ups.com"   //gfegosapi.wweconomy.ups.com         
   app_type                = "egos"
-  custom_domain_name      = "egosapp-dev-custom-domain"
+  custom_domain_name      = "egosapp-dev-custom-domain" //yellow.wweconomy.ups.com
   tenant_id               = var.tenant_id
   profile_name            = "afd-webapp-dev-profile"
   waf_policy_id           = var.waf_policy_id
@@ -24,12 +24,13 @@ module "afd" {
   waf_policies            = var.waf_policies
   resource_group          = var.resource_group_name
   endpoint_name           = "afd-webapp-dev-endpoint"
-  kv_secret_name          = "dev-cert-eastus2"
+  kv_secret_name          = "test"
   secret_name             = "dev-cert-eastus2"
   region                  = var.location
   security_policy_name    = "afd-webapp-dev-security-policy"
   environment             = "dev"
 }
+
 
 
 

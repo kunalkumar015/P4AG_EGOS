@@ -1,4 +1,24 @@
 
+
+
+resource "azurerm_web_application_firewall_policy" "agwwaf" {
+  name                = "agw-wafpolicy-dev-eastus2"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+
+  policy_settings {
+    enabled = true
+    mode    = "Prevention"  # or "Detection"
+  }
+
+  managed_rules {
+    managed_rule_set {
+      type    = "OWASP"
+      version = "3.2"
+    }
+  }
+}
+
 resource "azurerm_application_gateway" "agw" {
   name                              = var.agw_name
   location                          = var.location
@@ -6,7 +26,7 @@ resource "azurerm_application_gateway" "agw" {
   enable_http2                      = true
   fips_enabled                      = false
   zones                             = ["1", "2", "3"]
-  firewall_policy_id                = var.firewall_policy_id
+  firewall_policy_id                = azurerm_web_application_firewall_policy.agwwaf.id
   force_firewall_policy_association = false
 
   tags = {

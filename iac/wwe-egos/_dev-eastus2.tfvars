@@ -53,11 +53,10 @@ custom_domain_hostname         = "egosapi.yellow.wweconomy.ups.com"
 agw_name                       = "wwe-ga-webservices-dev-eastus2"
 location                       = "eastus2"
 environment                    = "dev"
-firewall_policy_id             = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-ga-webservices-dev-eastus2"
 public_ip_address_id           = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/publicIPAddresses/pip-wwe-ga-webservices-dev-eastus2"
 
 backend_fqdn                   = "ase-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
 ssl_certificate_name           = "dev-cert-eastus2"
 identity_ids = [
-  "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
+  "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
 ]
