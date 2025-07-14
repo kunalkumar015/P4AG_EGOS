@@ -15,7 +15,7 @@ module "agw" {
   region                        = var.region
   environment                   = var.environment
   agw_name                      = var.agw_name
-  subnet_id                     = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-ga-dev-eastus2/subnets/sn-appgw-webservices"
+  subnet_id                     = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/webapps-subnet"
   resource_group_name           = var.resource_group_name
   public_ip_address_id          = var.public_ip_address_id
   identity_ids                  = var.identity_ids
