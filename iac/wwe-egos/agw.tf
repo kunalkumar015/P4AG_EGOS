@@ -25,6 +25,9 @@ module "agw" {
   tenant_id                     = var.tenant_id
   key_vault_name                = var.key_vault_name
   key_vault_rg                  = var.key_vault_rg
+  agw_subnet_id                 = var.agw_subnet_id
+
+
 }
 
 
