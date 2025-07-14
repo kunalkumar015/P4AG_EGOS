@@ -121,7 +121,6 @@ variable "custom_domain_hostname" {
 }
 
 variable "agw_name" {}
-variable "public_ip_address_id" {}
 variable "identity_ids" {
   type = list(string)
 }

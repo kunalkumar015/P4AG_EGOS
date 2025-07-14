@@ -19,7 +19,6 @@ variable "app_type" {
 variable "agw_name" {}
 variable "location" {}
 variable "resource_group_name" {}
-variable "public_ip_address_id" {}
 variable "subnet_id" {}
 variable "backend_fqdn" {}
 variable "ssl_certificate_name" {}

@@ -1,3 +1,13 @@
+resource "azurerm_public_ip" "agw_pip" {
+  name                = "agw-public-ip-eastus2"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+
+  allocation_method   = "Static"              # or "Dynamic"
+  sku                 = "Standard"            # "Basic" is deprecated for many services
+
+  zones               = ["1", "2", "3"]        # Optional: for zone-redundant IP
+}
 
 
 
@@ -56,8 +66,8 @@ resource "azurerm_application_gateway" "agw" {
 
   frontend_ip_configuration {
     name                          = "appGwPublicFrontendIpIPv4"
-    public_ip_address_id          = var.public_ip_address_id
-    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.agw_pip.id
+    private_ip_address_allocation = "Static"
   }
 
   frontend_port {
