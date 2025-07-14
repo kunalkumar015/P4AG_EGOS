@@ -44,19 +44,19 @@ subnet_id                      = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002
 cosmosdb_private_dns_zone_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/privateDnsZones/privatelink.documents.azure.com"
 sql_private_dns_zone_id        = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net"
 kv_id                          = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.KeyVault/vaults/kv2-wwe-dev-eastus2"
-waf_policy_id                  = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/egos-dev/providers/Microsoft.Cdn/frontDoorWebApplicationFirewallPolicies/egosDashboardDevWaf"
+waf_policy_id                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/egos-dev/providers/Microsoft.Cdn/frontDoorWebApplicationFirewallPolicies/egosDashboardDevWaf"
 custom_domain_name             = "egosapi-dev-custom-domain"
 custom_domain_hostname         = "egosapi.yellow.wweconomy.ups.com"
 
 
 #------AGW------------------------------------------
-agw_name                       = "wwe-ga-webservices-dev-eastus2"
+agw_name                       = "agw-dev-eastus2"
 location                       = "eastus2"
 environment                    = "dev"
-public_ip_address_id           = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/publicIPAddresses/pip-wwe-ga-webservices-dev-eastus2"
+public_ip_address_id           = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-ga-dev/providers/Microsoft.Network/publicIPAddresses/pip-wwe-ga-webservices-dev-eastus2"
 
-backend_fqdn                   = "ase-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
+backend_fqdn                   = "ase2-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
 ssl_certificate_name           = "dev-cert-eastus2"
 identity_ids = [
-  "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
+  "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
 ]
