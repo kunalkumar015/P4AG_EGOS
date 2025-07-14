@@ -68,6 +68,7 @@ resource "azurerm_application_gateway" "agw" {
     name                          = "appGwPublicFrontendIpIPv4"
     public_ip_address_id          = azurerm_public_ip.agw_pip.id
     private_ip_address_allocation = "Static"
+    private_ip_address = "172.22.34.134"
   }
 
   frontend_port {
