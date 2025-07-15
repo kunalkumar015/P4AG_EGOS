@@ -25,7 +25,7 @@
 subscription_id                = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
 vnet_address_space             = "172.22.34.128/26" #172.22.34.160/27 (too small)
 webapps_subnet_address         = "172.22.34.128/27"
-privateendpoints_address_space = "172.22.34.160/27"
+privateendpoints_address_space = "172.22.34.160/28"
 app_sku                        = "P2v2"
 app_type                       = "ga"
 app_name                       = null
