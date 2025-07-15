@@ -3,7 +3,7 @@ resource "azurerm_public_ip" "agw_pip" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  allocation_method   = "Static"              # or "Dynamic"
+  allocation_method   = "Dynamic"              # or "Dynamic"
   sku                 = "Standard"            # "Basic" is deprecated for many services
 
   zones               = ["1", "2", "3"]        # Optional: for zone-redundant IP
@@ -61,15 +61,21 @@ resource "azurerm_application_gateway" "agw" {
 
   gateway_ip_configuration {
     name      = "appGatewayIpConfig"
-    subnet_id = var.subnet_id
+    subnet_id = var.agw_subnet_id
   }
 
   frontend_ip_configuration {
-    name                          = "appGwPublicFrontendIpIPv4"
-    public_ip_address_id          = azurerm_public_ip.agw_pip.id
-    private_ip_address_allocation = "Static"
-    private_ip_address = "172.22.34.134"
-  }
+  name                          = "appGwPublicFrontendIpIPv4"
+  public_ip_address_id          = azurerm_public_ip.agw_pip.id
+  private_ip_address_allocation = "Dynamic" # or remove this line
+}
+
+frontend_ip_configuration {
+  name                          = "appGwPrivateFrontendIp"
+  subnet_id                     = var.agw_subnet_id
+  private_ip_address_allocation = "Static"
+  private_ip_address            = "172.22.34.178" 
+}
 
   frontend_port {
     name = "port_443"

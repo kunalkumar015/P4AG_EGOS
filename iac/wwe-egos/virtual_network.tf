@@ -50,7 +50,7 @@ resource "azurerm_subnet" "agw_subnet" {
   name                 = "snet-agw"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-  address_prefixes     = ["172.22.34.192/28"]
+  address_prefixes     =  [var.agwsnet_address_space]
 
 }
 

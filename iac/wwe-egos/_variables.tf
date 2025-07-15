@@ -129,7 +129,7 @@ variable "agw_subnet_id" {}
 variable "ssl_certificate_name" {}
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
-
+variable "agwsnet_address_space"{}
 # variable "nuget_address_space" {
 #   type = string
 # }
