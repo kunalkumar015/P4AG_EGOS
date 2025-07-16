@@ -24,8 +24,8 @@ module "windows_web_app_webservices" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
-
-  depends_on = [azurerm_subnet.webapps]
+  
+   depends_on = [azurerm_subnet.webapps]
 }
 
 module "windows_web_app_globalcheckout" {
@@ -129,5 +129,33 @@ module "windows_web_app_tracking" {
 }
 
 
+module "windows_web_app_ga_addinfo" {
+  source                     = "../modules/app-services"
+  environment                = local.environment_sanitized
+  organization_suffix        = "wwe"
+  app_name                   = "ga-addinfo"
+  app_type                   = local.app_type
+  app_sku                    = var.app_sku
+  region                     = local.region_sanitized
+  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id                  = azurerm_subnet.webapps.id
+
+  depends_on = [azurerm_subnet.webapps]
+}
+
+
+module "windows_web_app_ga_shop" {
+  source                     = "../modules/app-services"
+  environment                = local.environment_sanitized
+  organization_suffix        = "wwe"
+  app_name                   = "ga-shop"
+  app_type                   = local.app_type
+  app_sku                    = var.app_sku
+  region                     = local.region_sanitized
+  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id                  = azurerm_subnet.webapps.id
+
+  depends_on = [azurerm_subnet.webapps]
+}
 
 

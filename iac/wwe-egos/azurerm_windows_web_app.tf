@@ -116,3 +116,17 @@ module "windows_web_app_nuget" {
   depends_on = [azurerm_subnet.webapps]
 
 }
+
+module "windows_web_app_tracking_api" {
+  source                     = "../modules/app-services"
+  environment                = local.environment_sanitized
+  organization_suffix        = "wwe"
+  app_name                   = "egos-tracking-api"
+  app_type                   = local.app_type
+  app_sku                    = var.app_sku
+  region                     = local.region_sanitized
+  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+  subnet_id                  = azurerm_subnet.webapps.id
+
+  depends_on = [azurerm_subnet.webapps]
+}
