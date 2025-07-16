@@ -125,7 +125,7 @@ variable "identity_ids" {
   type = list(string)
 }
 variable "backend_fqdn" {}
-variable "agw_subnet_id" {} 
+variable "snet-agw_id" {} 
 variable "ssl_certificate_name" {}
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
