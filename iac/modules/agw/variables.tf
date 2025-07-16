@@ -27,4 +27,4 @@ variable "identity_ids" {
 }
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
-variable "agw_subnet_id" {} 
+variable "snet-agw_id" {} 

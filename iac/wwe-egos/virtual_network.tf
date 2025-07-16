@@ -46,14 +46,6 @@ resource "azurerm_subnet" "private_endpoint" {
 
 }
 
-resource "azurerm_subnet" "agw_subnet" {
-  name                 = "snet-agw"
-  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-  virtual_network_name = azurerm_virtual_network.wwe_egos.name
-  address_prefixes     =  [var.agwsnet_address_space]
-
-}
-
 
 
 # resource "azurerm_subnet" "nuget" {

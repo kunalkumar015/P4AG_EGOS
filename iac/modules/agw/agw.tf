@@ -61,7 +61,7 @@ resource "azurerm_application_gateway" "agw" {
 
   gateway_ip_configuration {
     name      = "appGatewayIpConfig"
-    subnet_id = var.agw_subnet_id
+    subnet_id = var.snet-agw_id
   }
 
   frontend_ip_configuration {
@@ -72,7 +72,7 @@ resource "azurerm_application_gateway" "agw" {
 
 frontend_ip_configuration {
   name                          = "appGwPrivateFrontendIp"
-  subnet_id                     = var.agw_subnet_id
+  subnet_id                     = var.snet-agw_id
   private_ip_address_allocation = "Static"
   private_ip_address            = "172.22.34.178" 
 }
