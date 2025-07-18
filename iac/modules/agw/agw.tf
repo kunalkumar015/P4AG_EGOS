@@ -42,6 +42,10 @@ resource "azurerm_application_gateway" "agw" {
   tags = {
     environment = var.environment
   }
+  
+   depends_on = [
+    azurerm_subnet.snet_agw
+  ]
 
   identity {
     type         = "UserAssigned"
