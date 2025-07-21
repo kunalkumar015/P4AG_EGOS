@@ -43,10 +43,6 @@ resource "azurerm_application_gateway" "agw" {
     environment = var.environment
   }
 
-   depends_on = [
-    azurerm_subnet.agw_subnet
-    ]
-
   identity {
     type         = "UserAssigned"
     identity_ids = var.identity_ids
@@ -65,7 +61,7 @@ resource "azurerm_application_gateway" "agw" {
 
   gateway_ip_configuration {
     name      = "appGatewayIpConfig"
-    subnet_id = var.snet-agw_id
+    subnet_id = var.snet_agw_id
   }
 
   frontend_ip_configuration {
@@ -76,7 +72,7 @@ resource "azurerm_application_gateway" "agw" {
 
 frontend_ip_configuration {
   name                          = "appGwPrivateFrontendIp"
-  subnet_id                     = var.snet-agw_id
+  subnet_id                     = var.snet_agw_id
   private_ip_address_allocation = "Static"
   private_ip_address            = "172.22.34.178" 
 }

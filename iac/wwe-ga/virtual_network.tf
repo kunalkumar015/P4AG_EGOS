@@ -15,6 +15,21 @@ resource "azurerm_virtual_network" "wwe_ga" {
   }
 }
 
+resource "azurerm_virtual_network" "wwe_ga_v2" {
+  name                = "vnet-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}-v2"
+  resource_group_name = "rg-wwe-${local.environment_sanitized}"
+  location            = data.azurerm_resource_group.resource_group.location
+
+  address_space = ["172.22.34.128/27"]
+  lifecycle {
+    ignore_changes = [
+      ddos_protection_plan,
+      subnet,
+      dns_servers,
+      tags
+    ]
+  }
+}
 
 # resource "azurerm_subnet" "wwe_ga" {
 #   name                 = "snet-wwe-ga"

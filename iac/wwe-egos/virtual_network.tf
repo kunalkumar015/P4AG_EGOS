@@ -48,7 +48,7 @@ resource "azurerm_subnet" "private_endpoint" {
 
 
 resource "azurerm_subnet" "agw_subnet" {
-  name                 = "snet-agw"
+  name                 = "snet_agw"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.wwe_egos.id
   address_prefixes     = [var.agwsnet_address_space]
