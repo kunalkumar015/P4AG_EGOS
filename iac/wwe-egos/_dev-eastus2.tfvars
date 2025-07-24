@@ -23,7 +23,7 @@
 
 tenant_id                      = "e7520e4d-d5a0-488d-9e9f-949faae7dce8"
 subscription_id                = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
-vnet_address_space             = "172.22.34.128/27" #172.22.34.160/27 (too small)
+vnet_address_space             = "172.22.34.160/27" #172.22.34.160/27 (too small)
 webapps_subnet_address         = "172.22.34.128/28"
 privateendpoints_address_space = "172.22.34.160/29" # previously 172.22.34.128/27,changed to create space for agw
 agwsnet_address_space          = "172.22.34.176/29"
