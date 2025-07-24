@@ -9,9 +9,10 @@ data "azurerm_resource_group" "resource_group" {
   name = "rg-wwe-${local.environment_sanitized}"
 }
 
-data "azurerm_user_assigned_identity" "mi_user" {
+resource "azurerm_user_assigned_identity" "mi_user" {
   name                = "mi-wwe-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name = "rg-wwe-${local.environment_sanitized}"
+  location = var.region
 }
 
 data "azurerm_subnet" "webapps" {
@@ -20,7 +21,8 @@ data "azurerm_subnet" "webapps" {
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 }
 
-data "azurerm_nat_gateway" "nat_gw" {
+resource "azurerm_nat_gateway" "nat_gw" {
   name                    = "nat-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name     = "rg-wwe-${local.environment_sanitized}"
+  location = var.region
 }

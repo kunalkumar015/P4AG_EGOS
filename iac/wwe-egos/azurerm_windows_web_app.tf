@@ -8,6 +8,7 @@ module "windows_web_app_dashboard" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -22,6 +23,7 @@ module "windows_web_app_webservices" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 
@@ -37,6 +39,7 @@ module "windows_web_app_tradedirect" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 
@@ -52,6 +55,7 @@ module "windows_web_app_opstrackingwebapi" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 
@@ -67,6 +71,7 @@ module "windows_web_app_dao" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 
@@ -82,6 +87,7 @@ module "windows_web_app_egosapi" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 
@@ -97,6 +103,7 @@ module "windows_web_app_hangfire" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 
@@ -112,6 +119,7 @@ module "windows_web_app_nuget" {
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 
@@ -127,6 +135,7 @@ module "windows_web_app_tracking_api" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }

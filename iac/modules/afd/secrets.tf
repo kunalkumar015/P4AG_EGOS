@@ -1,7 +1,8 @@
 
 data "azurerm_key_vault" "egos_kv" {
   name                = "kv2-wwe-dev-eastus2"         
-  resource_group_name = "rg-wwe-dev"          
+  resource_group_name = "rg-wwe-dev" 
+          
 }
 
 data "azurerm_key_vault_certificate" "custom_cert" {

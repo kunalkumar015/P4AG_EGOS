@@ -29,6 +29,7 @@ module "afd" {
   region                  = var.location
   security_policy_name    = "afd-webapp-dev-security-policy"
   environment             = "dev"
+  depends_on = [module.keyvault]
 }
 
 

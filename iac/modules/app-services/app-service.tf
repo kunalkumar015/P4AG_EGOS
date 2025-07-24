@@ -36,7 +36,7 @@ resource "azurerm_windows_web_app" "windows_app" {
 
   identity {
     type                     = "UserAssigned"
-    identity_ids             = [data.azurerm_user_assigned_identity.mi_user.id]
+    identity_ids             = [azurerm_user_assigned_identity.mi_user.id]
   }
 
   
@@ -73,6 +73,11 @@ lifecycle {
 
 }
 
+# resource "azurerm_user_assigned_identity" "mi_user" {
+#   name                = "mi-${var.app_name}-${var.environment}"
+#   resource_group_name = var.resource_group_name
+#   location            = var.region
+# }
 
 # resource "azurerm_application_insights" "app-in" {
 #   name                = "appi-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"

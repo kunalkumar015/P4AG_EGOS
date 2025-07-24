@@ -130,6 +130,7 @@ variable "ssl_certificate_name" {}
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
 variable "agwsnet_address_space"{}
+variable "sql_admin_password" {}
 # variable "nuget_address_space" {
 #   type = string
 # }

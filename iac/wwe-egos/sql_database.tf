@@ -12,7 +12,7 @@ module "sql" {
   # Required network-related variables
   private_endpoint_subnet_id  = azurerm_subnet.private_endpoint.id
   subnet_id                   = azurerm_subnet.webapps.id
-
+  sql_admin_password          = var.sql_admin_password
   # DNS zone variables
   sql_private_dns_zone_id         = azurerm_private_dns_zone.sql.id        # for Azure SQL
   

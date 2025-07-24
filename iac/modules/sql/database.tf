@@ -4,7 +4,7 @@ resource "azurerm_mssql_server" "dbserver" {
   resource_group_name          = data.azurerm_resource_group.resource_group.name
   version                      = "12.0"
   administrator_login          = "wweadmin"
-  administrator_login_password = data.azurerm_key_vault_secret.sql_admin_password.value
+  administrator_login_password = var.sql_admin_password //data.azurerm_key_vault_secret.sql_admin_password.value
   public_network_access_enabled = false
   azuread_administrator {
     login_username = "DevOps Team"
@@ -31,7 +31,7 @@ resource "azurerm_mssql_database" "sqldb" {
 
   # prevent the possibility of accidental data loss
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 

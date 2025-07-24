@@ -70,13 +70,6 @@ resource "azurerm_application_gateway" "agw" {
   private_ip_address_allocation = "Dynamic" # or remove this line
 }
 
-frontend_ip_configuration {
-  name                          = "appGwPrivateFrontendIp"
-  subnet_id                     = var.snet_agw_id
-  private_ip_address_allocation = "Static"
-  private_ip_address            = "172.22.34.178" 
-}
-
   frontend_port {
     name = "port_443"
     port = 443

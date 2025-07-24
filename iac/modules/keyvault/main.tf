@@ -9,7 +9,10 @@ data "azurerm_resource_group" "resource_group" {
   name = "rg-wwe-${local.environment_sanitized}"
 }
 data "azurerm_client_config" "current" {}
-data "azurerm_user_assigned_identity" "user_mi" {
+
+resource "azurerm_user_assigned_identity" "user_mi" {
   name = "mi-wwe-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name = "rg-wwe-${local.environment_sanitized}"
+  location = var.region
+
 }

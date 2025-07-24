@@ -11,6 +11,9 @@ variable "region" {
   description = "(requied) azure region where resources will be deployed"
 }
 
+variable "resource_group_name" {}
+
+
 variable "app_sku" {
   type = string
   description = "(required) sku name for deployment"

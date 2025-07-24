@@ -23,9 +23,9 @@
 
 tenant_id                      = "e7520e4d-d5a0-488d-9e9f-949faae7dce8"
 subscription_id                = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
-vnet_address_space             = "172.22.34.128/26" #172.22.34.160/27 (too small)
-webapps_subnet_address         = "172.22.34.128/27"
-privateendpoints_address_space = "172.22.34.160/28" # previously 172.22.34.128/27,changed to create space for agw
+vnet_address_space             = "172.22.34.128/27" #172.22.34.160/27 (too small)
+webapps_subnet_address         = "172.22.34.128/28"
+privateendpoints_address_space = "172.22.34.160/29" # previously 172.22.34.128/27,changed to create space for agw
 agwsnet_address_space          = "172.22.34.176/29"
 app_sku                        = "S1"
 app_type                       = "egos"
@@ -39,6 +39,7 @@ resource_group_name            = "rg-wwe-dev"
 key_vault_name                 = "kv2-wwe-dev-eastus2"
 region                         = "eastus2"
 key_vault_rg                   = "rg-wwe-dev"
+sql_admin_password             ="sqlasminpassword"
 #------AFD---------------------------------------
 afd_profile_name               = "afd-wwe-dev"
 subnet_id                      = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/snet-privateendpoints"
