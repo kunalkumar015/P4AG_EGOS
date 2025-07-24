@@ -19,6 +19,9 @@ variable "vnet_address_space" {
 variable "privateendpoints_address_space" {
   type = string
 }
+variable "resource_group_name" {
+  type = string
+}
 # variable "appgw_subnet_web_address_space" {
 #   type = string
 # }

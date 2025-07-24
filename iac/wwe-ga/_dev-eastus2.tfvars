@@ -33,4 +33,5 @@ create_redis_link              = 0
 redis_sku                      = "Standard"
 redis_sku_family               = "C"
 asp_zone_balancing_enabled     = "false"
+resource_group_name            = "rg-wwe-dev"
 #wwe_ga_subnet_address_space    = "10.60.1.96/27"
