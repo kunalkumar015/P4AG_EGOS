@@ -10,6 +10,7 @@ module "windows_web_app_dashboard" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -24,7 +25,8 @@ module "windows_web_app_webservices" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
-  
+  resource_group_name = var.resource_group_name
+ 
    depends_on = [azurerm_subnet.webapps]
 }
 
@@ -38,6 +40,7 @@ module "windows_web_app_globalcheckout" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -53,6 +56,7 @@ module "windows_web_app_carthandoff" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -67,6 +71,7 @@ module "windows_web_app_classifying" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -81,6 +86,7 @@ module "windows_web_app_webjobs" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -95,6 +101,7 @@ module "windows_web_app_hangfire" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -110,6 +117,7 @@ module "windows_web_app_shopifyintegrationws" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -124,6 +132,7 @@ module "windows_web_app_tracking" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name        = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -139,6 +148,7 @@ module "windows_web_app_ga_addinfo" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
@@ -154,6 +164,7 @@ module "windows_web_app_ga_shop" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
+  resource_group_name = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }
