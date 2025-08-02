@@ -21,7 +21,7 @@ resource "azurerm_key_vault" "KeyVault" {
   resource_group_name = var.key_vault_rg
   tenant_id = var.tenant_id
   location = var.location
-  sku_name = var.sku_name
+  sku_name = "standard"
 }
 
 data "azurerm_key_vault_secret" "cert" {
