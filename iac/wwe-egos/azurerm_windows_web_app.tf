@@ -135,7 +135,7 @@ module "windows_web_app_tracking_api" {
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.webapps.id
-  resource_group_name = var.resource_group_name
+  resource_group_name        = var.resource_group_name
 
   depends_on = [azurerm_subnet.webapps]
 }

@@ -11,14 +11,14 @@ data "azurerm_resource_group" "resource_group" {
 
 data "azurerm_client_config" "current" {}
 
-resource "azurerm_key_vault" "kv" {
-  name                        = "kv2-wwe-${local.environment_sanitized}-${local.region_sanitized}"
+data "azurerm_key_vault" "kv" {
+  name                        = "kv2-wwe-${local.environment_sanitized}-${local.region_sanitized}-v2"
   location                    = data.azurerm_resource_group.resource_group.location
   resource_group_name         = data.azurerm_resource_group.resource_group.name
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   sku_name                    = "standard"
 
-  purge_protection_enabled    = false
+  purge_protection_enabled    = true
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id

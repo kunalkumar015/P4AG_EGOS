@@ -1,3 +1,7 @@
+data "azurerm_resource_group" "resource_group" {
+  name = var.resource_group_name
+}
+
 resource "azurerm_service_plan" "app_plan" {
   name                   = "asp-wwe-${local.app_type}-${var.app_name}-${local.environment_sanitized}-${local.region_sanitized}"
   location               = data.azurerm_resource_group.resource_group.location
@@ -72,6 +76,8 @@ lifecycle {
   }
 
 }
+
+
 
 # resource "azurerm_user_assigned_identity" "mi_user" {
 #   name                = "mi-${var.app_name}-${var.environment}"

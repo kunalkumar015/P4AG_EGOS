@@ -5,8 +5,9 @@ locals {
   app_type                    = lower(var.app_type)
   }
 
-data "azurerm_resource_group" "resource_group" {
+resource "azurerm_resource_group" "resource_group" {
   name = "rg-wwe-${local.environment_sanitized}"
+  location = var.region
 }
 
 resource "azurerm_user_assigned_identity" "mi_user" {
@@ -15,10 +16,12 @@ resource "azurerm_user_assigned_identity" "mi_user" {
   location = var.region
 }
 
-data "azurerm_subnet" "webapps" {
+resource "azurerm_subnet" "webapps" {
   name                 = "webapps-subnet"
-  virtual_network_name = "vnet-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}-v2"
+  virtual_network_name = "vnet-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+
+  address_prefixes = ["172.22.34.128/28"]
 }
 
 resource "azurerm_nat_gateway" "nat_gw" {

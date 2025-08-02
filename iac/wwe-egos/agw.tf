@@ -25,7 +25,8 @@ module "agw" {
   tenant_id                     = var.tenant_id
   key_vault_name                = var.key_vault_name
   key_vault_rg                  = var.key_vault_rg
-  snet_agw_id                 = var.snet_agw_id
+  snet_agw_id                   = var.snet_agw_id
+  sku_name                      = var.app_sku
 
 depends_on = [
     azurerm_subnet.agw_subnet

@@ -28,3 +28,6 @@ variable "identity_ids" {
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
 variable "snet_agw_id" {} 
+variable "sku_name" {
+  
+}
