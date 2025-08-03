@@ -5,10 +5,6 @@ locals {
   app_type                    = lower(var.app_type)
   }
 
-data "azurerm_resource_group" "resource_group" {
-  name = "rg-wwe-${local.environment_sanitized}"
-  
-}
 
 resource "azurerm_user_assigned_identity" "mi_user" {
   name                = "mi-wwe-${local.environment_sanitized}-${local.region_sanitized}"
