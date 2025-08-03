@@ -19,12 +19,9 @@ resource "azurerm_public_ip" "public_ip" {
 data "azurerm_key_vault" "KeyVault" {
   name                = var.key_vault_name
   resource_group_name = var.key_vault_rg
-  tenant_id = var.tenant_id
-  location = var.location
-  sku_name = "standard"
 }
 
 data "azurerm_key_vault_secret" "cert" {
   name         = var.ssl_certificate_name
-  key_vault_id = azurerm_key_vault.KeyVault.id
+  key_vault_id = data.azurerm_key_vault.KeyVault.id
 }
