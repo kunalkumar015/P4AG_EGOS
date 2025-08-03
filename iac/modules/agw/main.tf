@@ -19,6 +19,8 @@ resource "azurerm_public_ip" "public_ip" {
 data "azurerm_key_vault" "KeyVault" {
   name                = var.key_vault_name
   resource_group_name = var.key_vault_rg
+
+  depends_on = [module.keyvault]
 }
 
 data "azurerm_key_vault_secret" "cert" {
