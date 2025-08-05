@@ -19,7 +19,8 @@ resource "azurerm_subnet" "webapps" {
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
   address_prefixes     = [var.webapps_subnet_address]
-
+  depends_on = [azurerm_virtual_network.wwe_egos]
+  
   delegation {
     name = "delegation"
     service_delegation {
