@@ -10,7 +10,7 @@
 
 module "agw" {
   source = "../modules/agw"
-
+ 
   location                      = var.location
   region                        = var.region
   environment                   = var.environment
@@ -30,6 +30,7 @@ module "agw" {
 
 depends_on = [
     azurerm_subnet.agw_subnet
+  
   ]
 }
 
