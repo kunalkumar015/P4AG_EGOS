@@ -87,7 +87,7 @@
 # resource "azurerm_cdn_frontdoor_endpoint" "fde" {
 #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
 #   enabled                  = true
-#   name                     = "ep-wwe"
+#   name                     = "ep-afd-wwe-dev"
 #   tags                     = {}
 # }
 
@@ -513,256 +513,251 @@
 
 
 
-# #--------------------------frontdoor_route-------------------------------------
+# # --------------------------frontdoor_route-------------------------------------
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_api" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-yellow-wweconomy-ups-com-e6ee"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-egosapi"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "HttpsOnly"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-api"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_egos_api" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-yellow-wweconomy-ups-com-e6ee"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-egosapi"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "HttpsOnly"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-egos-api"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/nuget"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-nuget"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/nuget"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-nuget"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-addinfo"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-addinfo"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-addinfo"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-ga-addinfo"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_shop" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-shop"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-shop"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_ga_shop" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-shop"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-ga-shop"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-hangfire"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-hangfire"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-hangfire"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-ga-hangfire"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tracking"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-tracking"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tracking"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-egos-tracking"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-hangfire"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-hangfire"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-hangfire"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-egos-hangfire"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-globalcheckout"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-globalcheckout"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-globalcheckout"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-ga-globalcheckout"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-dashboard"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-dashboard"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-dashboard"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-egos-dashboard"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tradedirect"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-tradedirect"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tradedirect"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-egos-tradedirect"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-tracking"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-tracking"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-tracking"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-ga-tracking"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-webservices"
-#   cdn_frontdoor_origin_ids        = null
-#   cdn_frontdoor_origin_path       = null
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-webservices"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
-
-
+# # # __generated__ by Terraform
+# # resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
+# #   cdn_frontdoor_custom_domain_ids = ["/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-yellow-wweconomy-ups-com"]
+# #   cdn_frontdoor_endpoint_id       = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
+# #   cdn_frontdoor_origin_group_id   = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-webservices"
+# #   cdn_frontdoor_origin_ids        = null
+# #   cdn_frontdoor_origin_path       = null
+# #   cdn_frontdoor_rule_set_ids      = []
+# #   enabled                         = true
+# #   forwarding_protocol             = "MatchRequest"
+# #   https_redirect_enabled          = true
+# #   link_to_default_domain          = false
+# #   name                            = "rt-egos-webservices"
+# #   patterns_to_match               = ["/*"]
+# #   supported_protocols             = ["Http", "Https"]
+# # }
 
 
 
 
 
+# # #------------------------frontdoor secrets---------------------------------------
 
 
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-yellow-wweconomy-ups-com-latest"
+# # resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_yellow_wweconomy_ups_com_latest" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "kv-wwe-dev-eastus2-yellow-wweconomy-ups-com-latest"
+# #   secret {
+# #     customer_certificate {
+# #       key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/yellow-wweconomy-ups-com"
+# #     }
+# #   }
+# # }
 
-# #------------------------frontdoor secrets---------------------------------------
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-tradedirect-latest"
+# # resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_tradedirect_latest" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "kv-wwe-dev-eastus2-tradedirect-latest"
+# #   secret {
+# #     customer_certificate {
+# #       key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/tradedirect"
+# #     }
+# #   }
+# # }
 
-
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-yellow-wweconomy-ups-com-latest"
-# resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_yellow_wweconomy_ups_com_latest" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "kv-wwe-dev-eastus2-yellow-wweconomy-ups-com-latest"
-#   secret {
-#     customer_certificate {
-#       key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/yellow-wweconomy-ups-com"
-#     }
-#   }
-# }
-
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-tradedirect-latest"
-# resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_tradedirect_latest" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "kv-wwe-dev-eastus2-tradedirect-latest"
-#   secret {
-#     customer_certificate {
-#       key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/tradedirect"
-#     }
-#   }
-# }
-
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-wwe-dev-latest"
-# resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "kv-wwe-dev-eastus2-wwe-dev-latest"
-#   secret {
-#     customer_certificate {
-#       key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/wwe-dev"
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-wwe-dev-latest"
+# # resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "kv-wwe-dev-eastus2-wwe-dev-latest"
+# #   secret {
+# #     customer_certificate {
+# #       key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/wwe-dev"
+# #     }
+# #   }
+# # }
 
 
 
@@ -773,224 +768,227 @@
 
 
 
-# #------------------------frontdoor security policy---------------------------------------
+# # #------------------------frontdoor security policy---------------------------------------
 
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea60ee" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea60ee"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafLogsDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/logs-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea60ee" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea60ee"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafLogsDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/logs-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea604b"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea604b" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea604b"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosWebservicesDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea604b"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea604b" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea604b"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosWebservicesDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/sp-egosapi-dev"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_egosapi_dev" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "sp-egosapi-dev"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosApiDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-yellow-wweconomy-ups-com-e6ee"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/sp-egosapi-dev"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_egosapi_dev" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "sp-egosapi-dev"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosApiDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-yellow-wweconomy-ups-com-e6ee"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a0b4"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a0b4" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a0b4"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosTrackingDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a0b4"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a0b4" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a0b4"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosTrackingDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a0e0"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a0e0" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a0e0"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaAddinfoDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a0e0"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a0e0" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a0e0"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaAddinfoDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a086"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a086" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a086"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosDashboardDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a086"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a086" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a086"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosDashboardDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea6024"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea6024" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea6024"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosHangfireDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea6024"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea6024" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea6024"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafEgosHangfireDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea6097"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea6097" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea6097"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaShopDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea6097"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea6097" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea6097"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaShopDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a106"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a106" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a106"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaGlobalDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a106"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a106" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a106"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaGlobalDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a159"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a159" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a159"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafNugetDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a159"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a159" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a159"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafNugetDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea6072"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea6072" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea6072"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaHangfireDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea6072"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea6072" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea6072"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaHangfireDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a12c"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a12c" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a12c"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaTrackingDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/97bfe544-ef9f-4f60-b64f-ad493a43a12c"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_97bfe544_ef9f_4f60_b64f_ad493a43a12c" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "97bfe544-ef9f-4f60-b64f-ad493a43a12c"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/wafGaTrackingDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
 
-# # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea60c1"
-# resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea60c1" {
-#   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea60c1"
-#   security_policies {
-#     firewall {
-#       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/waftradeDirectDev"
-#       association {
-#         patterns_to_match = ["/*"]
-#         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-yellow-wweconomy-ups-com"
-#         }
-#       }
-#     }
-#   }
-# }
+# # # __generated__ by Terraform from "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourcegroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/securityPolicies/b20fbf86-dcfa-450f-a33f-ef71ffea60c1"
+# # resource "azurerm_cdn_frontdoor_security_policy" "sp_b20fbf86_dcfa_450f_a33f_ef71ffea60c1" {
+# #   cdn_frontdoor_profile_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+# #   name                     = "b20fbf86-dcfa-450f-a33f-ef71ffea60c1"
+# #   security_policies {
+# #     firewall {
+# #       cdn_frontdoor_firewall_policy_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/waftradeDirectDev"
+# #       association {
+# #         patterns_to_match = ["/*"]
+# #         domain {
+# #           cdn_frontdoor_domain_id = "/subscriptions/4adfceca-1634-4dcf-96f9-a0c93bfae4ea/resourceGroups/rg-network-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-yellow-wweconomy-ups-com"
+# #         }
+# #       }
+# #     }
+# #   }
+# # }
+
+
+
