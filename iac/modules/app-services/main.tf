@@ -12,8 +12,8 @@ resource "azurerm_user_assigned_identity" "mi_user" {
   location = var.region
 }
 
-resource "azurerm_subnet" "webapps" {
-  name                 = "webapps-subnet"
+resource "azurerm_subnet" "shared" {
+  name                 = "shared-subnet"
   virtual_network_name = "vnet-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
 

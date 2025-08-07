@@ -14,8 +14,8 @@ resource "azurerm_virtual_network" "wwe_egos" {
   }
 }
 
-resource "azurerm_subnet" "webapps" {
-  name                 = "webapps-subnet"
+resource "azurerm_subnet" "shared" {
+  name                 = "shared-subnet"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
   address_prefixes     = [var.shared_subnet_address]
@@ -30,22 +30,22 @@ resource "azurerm_subnet" "webapps" {
   }
 }
 
-resource "azurerm_subnet" "private_endpoint" {
-  name                 = "snet-privateendpoints"
-  resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-  virtual_network_name = azurerm_virtual_network.wwe_egos.name
-  address_prefixes     = [var.shared_subnet_address]
-  service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
-  private_endpoint_network_policies = "Disabled"
-  private_link_service_network_policies_enabled = true
+# resource "azurerm_subnet" "private_endpoint" {
+#   name                 = "snet-privateendpoints"
+#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
+#   virtual_network_name = azurerm_virtual_network.wwe_egos.name
+#   address_prefixes     = [var.shared_subnet_address]
+#   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
+#   private_endpoint_network_policies = "Disabled"
+#   private_link_service_network_policies_enabled = true
   
-  lifecycle {
-    ignore_changes = [
-     delegation
-    ]
-  }
+#   lifecycle {
+#     ignore_changes = [
+#      delegation
+#     ]
+#   }
 
-}
+# }
 
 
 resource "azurerm_subnet" "agw_subnet" {
