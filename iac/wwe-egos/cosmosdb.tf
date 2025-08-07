@@ -8,7 +8,8 @@ module "cosmosdb" {
   region              = local.region_sanitized
 
   private_endpoint_subnet_id = var.subnet_id
-  subnet_id                   = azurerm_subnet.webapps.id
+  subnet_id                   = azurerm_subnet.shared.id
   cosmosdb_private_dns_zone_id = azurerm_private_dns_zone.cosmosdb.id  # for Cosmos DB
+  
 }
 
