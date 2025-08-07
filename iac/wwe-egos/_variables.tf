@@ -19,11 +19,16 @@ variable "subscription_id" {
 variable "vnet_address_space" {
   type = string
 }
-variable "privateendpoints_address_space" {
-  type = string
-}
+# variable "privateendpoints_address_space" {
+#   type = string
+# }
 
-variable "webapps_subnet_address" {
+# variable "webapps_subnet_address" {
+#   type = string
+# }
+
+
+variable "shared_subnet_address" {
   type = string
 }
 

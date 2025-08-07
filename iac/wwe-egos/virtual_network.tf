@@ -18,7 +18,7 @@ resource "azurerm_subnet" "webapps" {
   name                 = "webapps-subnet"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-  address_prefixes     = [var.webapps_subnet_address]
+  address_prefixes     = [var.shared_subnet_address]
   depends_on = [azurerm_virtual_network.wwe_egos]
   
   delegation {
@@ -34,7 +34,7 @@ resource "azurerm_subnet" "private_endpoint" {
   name                 = "snet-privateendpoints"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-  address_prefixes     = [var.privateendpoints_address_space]
+  address_prefixes     = [var.shared_subnet_address]
   service_endpoints    = ["Microsoft.Storage","Microsoft.KeyVault","Microsoft.Web","Microsoft.Sql"]
   private_endpoint_network_policies = "Disabled"
   private_link_service_network_policies_enabled = true
