@@ -10,6 +10,6 @@ module "cosmosdb" {
   private_endpoint_subnet_id = var.subnet_id
   subnet_id                   = azurerm_subnet.shared.id
   cosmosdb_private_dns_zone_id = azurerm_private_dns_zone.cosmosdb.id  # for Cosmos DB
-  
+  //32 length password for cosmos.
 }
 

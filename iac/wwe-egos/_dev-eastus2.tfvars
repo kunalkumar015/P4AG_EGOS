@@ -40,7 +40,7 @@ resource_group_name            = "rg-wwe-dev"
 key_vault_name                 = "kv2-wwe-dev-eastus2-v3"
 region                         = "eastus2"
 key_vault_rg                   = "rg-wwe-dev"
-sql_admin_password             ="sqlasminpassword"
+sql_admin_password             ="nY3f@xCz#Vq2Lb8J%pK7$Mw9UzD1^tR6"
 #------AFD---------------------------------------
 afd_profile_name               = "afd-wwe-dev"
 subnet_id                      = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/snet-privateendpoints"

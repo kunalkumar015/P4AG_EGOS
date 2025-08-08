@@ -16,7 +16,7 @@ module "sql" {
   # DNS zone variables
   sql_private_dns_zone_id         = azurerm_private_dns_zone.sql.id        # for Azure SQL
   
- 
+ //32 length pw for SQL.
 }
 
 
