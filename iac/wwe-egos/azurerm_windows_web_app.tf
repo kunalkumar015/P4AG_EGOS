@@ -4,7 +4,7 @@ module "windows_web_app_dashboard" {
   organization_suffix = "wwe"
   app_name            = "dashboard"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B3"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -19,7 +19,7 @@ module "windows_web_app_webservices" {
   organization_suffix = "wwe"
   app_name            = "webservices"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B3"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -35,7 +35,7 @@ module "windows_web_app_tradedirect" {
   organization_suffix = "wwe"
   app_name            = "tradedirect"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B2"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -51,7 +51,7 @@ module "windows_web_app_opstrackingwebapi" {
   organization_suffix = "wwe"
   app_name            = "opstrackingwebapi"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B2"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -67,7 +67,7 @@ module "windows_web_app_dao" {
   organization_suffix = "wwe"
   app_name            = "dao"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B2"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -83,7 +83,7 @@ module "windows_web_app_egosapi" {
   organization_suffix = "wwe"
   app_name            = "egosapi"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B2"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -99,7 +99,7 @@ module "windows_web_app_hangfire" {
   organization_suffix = "wwe"
   app_name            = "hangfire"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B2"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -115,7 +115,7 @@ module "windows_web_app_nuget" {
   organization_suffix = "wwe"
   app_name            = "nuget"
   app_type            = local.app_type
-  app_sku             = var.app_sku
+  app_sku             = "B2"
   region              = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id = azurerm_subnet.shared.id
@@ -131,7 +131,7 @@ module "windows_web_app_tracking_api" {
   organization_suffix        = "wwe"
   app_name                   = "egos-tracking-api"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id

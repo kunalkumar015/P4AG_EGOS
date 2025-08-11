@@ -6,7 +6,7 @@ module "windows_web_app_dashboard" {
   organization_suffix        = "wwe"
   app_name                   = "dashboard"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B3"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -21,7 +21,7 @@ module "windows_web_app_webservices" {
   organization_suffix        = "wwe"
   app_name                   = "webservices"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B3"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -36,7 +36,7 @@ module "windows_web_app_globalcheckout" {
   organization_suffix        = "wwe"
   app_name                   = "globalcheckout"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -52,7 +52,7 @@ module "windows_web_app_carthandoff" {
   organization_suffix        = "wwe"
   app_name                   = "carthandoff"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -67,7 +67,7 @@ module "windows_web_app_classifying" {
   organization_suffix        = "wwe"
   app_name                   = "classifying"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -82,7 +82,7 @@ module "windows_web_app_webjobs" {
   organization_suffix        = "wwe"
   app_name                   = "webjobs"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -97,7 +97,7 @@ module "windows_web_app_hangfire" {
   organization_suffix        = "wwe"
   app_name                   = "hangfire"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -113,7 +113,7 @@ module "windows_web_app_shopifyintegrationws" {
   organization_suffix        = "wwe"
   app_name                   = "shopifyintegrationws"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -128,7 +128,7 @@ module "windows_web_app_tracking" {
   organization_suffix        = "wwe"
   app_name                   = "tracking"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -144,7 +144,7 @@ module "windows_web_app_ga_addinfo" {
   organization_suffix        = "wwe"
   app_name                   = "ga-addinfo"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id
@@ -160,7 +160,7 @@ module "windows_web_app_ga_shop" {
   organization_suffix        = "wwe"
   app_name                   = "ga-shop"
   app_type                   = local.app_type
-  app_sku                    = var.app_sku
+  app_sku                    = "B2"
   region                     = local.region_sanitized
   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
   subnet_id                  = azurerm_subnet.shared.id

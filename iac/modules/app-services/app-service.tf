@@ -55,27 +55,28 @@ lifecycle {
 virtual_network_subnet_id = var.subnet_id
 }
 
-resource "azurerm_windows_web_app_slot" "windows_slot" {
-  name           = "staging"
-  app_service_id = azurerm_windows_web_app.windows_app.id
 
-  site_config {
-    always_on           = true
-    minimum_tls_version = 1.2
-  }
+# resource "azurerm_windows_web_app_slot" "windows_slot" {
+#   name           = "staging"
+#   app_service_id = azurerm_windows_web_app.windows_app.id
 
-  # app_settings = {
-  #   APPINSIGHTS_INSTRUMENTATIONKEY = "${azurerm_application_insights.app-in.instrumentation_key}"
-  # }
+#   site_config {
+#     always_on           = true
+#     minimum_tls_version = 1.2
+#   }
 
-lifecycle {
-    ignore_changes = [
-        app_settings,
-        site_config
-    ]
-  }
+#   # app_settings = {
+#   #   APPINSIGHTS_INSTRUMENTATIONKEY = "${azurerm_application_insights.app-in.instrumentation_key}"
+#   # }
 
-}
+# lifecycle {
+#     ignore_changes = [
+#         app_settings,
+#         site_config
+#     ]
+#   }
+
+# }
 
 
 

@@ -27,7 +27,7 @@ vnet_address_space             = "10.235.89.160/27" #172.22.34.160/27 (too small
 shared_subnet_address         = "10.235.89.160/28"
 //privateendpoints_address_space = "10.235.89.176/29"
 
-app_sku                        = "P2v2"
+//app_sku                        = "P2v2"
 app_type                       = "ga"
 app_name                       = null
 create_redis_link              = 0
