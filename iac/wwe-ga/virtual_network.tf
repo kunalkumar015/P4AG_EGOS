@@ -38,7 +38,18 @@ resource "azurerm_subnet" "shared" {
   }
 }
 
+resource "azurerm_subnet" "agw_subnet" {
+  name                 = "snet_agw"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  address_prefixes     = [var.agwsnet_address_space]
 
+  lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
+}
 # # resource "azurerm_subnet" "private_endpoint" {
 # #   name                 = "snet-privateendpoints"
 # #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"

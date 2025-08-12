@@ -97,3 +97,6 @@ variable "asp_zone_balancing_enabled" {
     type        = string
   description = "(required) sql password"
  }
+ variable "agwsnet_address_space"{
+  type = string
+ }
