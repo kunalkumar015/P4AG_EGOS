@@ -93,3 +93,7 @@ variable "asp_zone_balancing_enabled" {
   type        = string
   description = "(required) app name for deployment"
 }
+ variable "sql_admin_password" {
+    type        = string
+  description = "(required) sql password"
+ }
