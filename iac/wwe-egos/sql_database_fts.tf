@@ -1,11 +1,11 @@
 
-module "sql" {
+module "sql_fts" {
   source = "../modules/sql"
 
   environment                 = local.environment_sanitized
   organization_suffix         = "wwe"
   region                      = local.region_sanitized
-  app_type                    = local.app_type
+  app_type                    = "FTS"
   sku_name                    = "S0"
   zone_redundant              = false
 
@@ -18,4 +18,3 @@ module "sql" {
   
  //32 length pw for SQL.
 }
-

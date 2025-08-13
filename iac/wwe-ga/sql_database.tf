@@ -1,4 +1,5 @@
-  module "sql" {
+
+module "sql" {
   source = "../modules/sql"
 
   environment                 = local.environment_sanitized
