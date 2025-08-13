@@ -1,11 +1,11 @@
 
 module "sql_fts" {
-  source = "../modules/sql"
+  source = "../modules/sql_fts"
 
   environment                 = local.environment_sanitized
   organization_suffix         = "wwe"
   region                      = local.region_sanitized
-  app_type                    = "FTS"
+  app_type                    = "fts"
   sku_name                    = "S0"
   zone_redundant              = false
 

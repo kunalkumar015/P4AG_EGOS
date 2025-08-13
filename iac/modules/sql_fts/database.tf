@@ -1,5 +1,5 @@
 resource "azurerm_mssql_server" "dbserver" {
-  name                         = "dbsrv2-wwe-FTS-${local.environment_sanitized}-${local.region_sanitized}"
+  name                         = "dbsrv2-wwe-fts-${local.environment_sanitized}-${local.region_sanitized}"
   location                     = data.azurerm_resource_group.resource_group.location
   resource_group_name          = data.azurerm_resource_group.resource_group.name
   version                      = "12.0"
@@ -38,13 +38,13 @@ resource "azurerm_mssql_database" "sqldb" {
 }
 
 resource "azurerm_private_endpoint" "sql" {
-  name                = "pep-sql-${local.environment_sanitized}-${local.region_sanitized}"
+  name                = "pep-sql-fts-${local.environment_sanitized}-${local.region_sanitized}"
   location            = data.azurerm_resource_group.resource_group.location
   resource_group_name = data.azurerm_resource_group.resource_group.name
   subnet_id           = var.private_endpoint_subnet_id
 
   private_service_connection {
-    name                           = "psc-sql-${local.environment_sanitized}"
+    name                           = "psc-sql-fts${local.environment_sanitized}"
     private_connection_resource_id = azurerm_mssql_server.dbserver.id
     is_manual_connection           = false
     subresource_names              = ["sqlServer"]
