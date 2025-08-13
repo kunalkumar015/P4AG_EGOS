@@ -1,60 +1,60 @@
-variable "environment" {
-  type        = string
-  description = "(required) environment name for deployment"
-}
-variable "organization_suffix" {
-  type        = string
-  description = "(required) organizational suffix to seed into globaly unique names for resources"
-}
-variable "region" {
-  type        = string
-  description = "(requied) azure region where resources will be deployed"
-}
-# variable "subnet" {
-#   type = object({
-#     id                   = string
-#     name                 = string
-#     resource_group_name  = string
-#     virtual_network_name = string
-#   })
+# variable "environment" {
+#   type        = string
+#   description = "(required) environment name for deployment"
+# }
+# variable "organization_suffix" {
+#   type        = string
+#   description = "(required) organizational suffix to seed into globaly unique names for resources"
+# }
+# variable "region" {
+#   type        = string
+#   description = "(requied) azure region where resources will be deployed"
+# }
+# # variable "subnet" {
+# #   type = object({
+# #     id                   = string
+# #     name                 = string
+# #     resource_group_name  = string
+# #     virtual_network_name = string
+# #   })
+# # }
+
+
+# # variable "db_max_size_gb" {
+# #   type = any
+  
+# # }
+# variable "app_type" {
+#   type = string
+  
+# }
+# variable "sku_name" {
+#   type = string
+#   default = "S0"
+  
+# }
+# variable "zone_redundant" {
+#   type = string
+  
 # }
 
-
-# variable "db_max_size_gb" {
-#   type = any
-  
+# variable "private_endpoint_subnet_id" {
+#   type        = string
+#   description = "ID of the subnet for private endpoint"
 # }
-variable "app_type" {
-  type = string
-  
-}
-variable "sku_name" {
-  type = string
-  default = "S0"
-  
-}
-variable "zone_redundant" {
-  type = string
-  
-}
 
-variable "private_endpoint_subnet_id" {
-  type        = string
-  description = "ID of the subnet for private endpoint"
-}
+# variable "sql_private_dns_zone_id" { #for sql
+#   type        = string
+#   description = "ID of the private DNS zone for Azure SQL"
+# }
 
-variable "sql_private_dns_zone_id" { #for sql
-  type        = string
-  description = "ID of the private DNS zone for Azure SQL"
-}
+# variable "subnet_id" {
+#   type = string
+#   description = "ID of subnet used for private endpoints"
+# }
 
-variable "subnet_id" {
-  type = string
-  description = "ID of subnet used for private endpoints"
-}
-
-variable "sql_admin_password" {
-  description = "SQL admin password"
-  type        = string
-  sensitive   = true
-}
+# variable "sql_admin_password" {
+#   description = "SQL admin password"
+#   type        = string
+#   sensitive   = true
+# }
