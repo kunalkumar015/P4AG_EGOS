@@ -100,11 +100,7 @@ variable "asp_zone_balancing_enabled" {
  variable "agwsnet_address_space"{
   type = string
  }
- variable "agw_subnet"{
-  type = string
- }
-
- 
+  
 variable "sql_private_dns_zone_id" {
   type        = string
   description = "ID of the private DNS zone for Azure SQL"

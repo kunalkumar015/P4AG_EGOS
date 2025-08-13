@@ -14,7 +14,7 @@ module "sql" {
   subnet_id                   = azurerm_subnet.shared.id
   sql_admin_password          = var.sql_admin_password
   # DNS zone variables
-  sql_private_dns_zone_id         = azurerm_private_dns_zone.sql.id        # for Azure SQL
+  sql_private_dns_zone_id         = var.sql_private_dns_zone_id       # for Azure SQL
   
  //32 length pw for SQL.
 }
