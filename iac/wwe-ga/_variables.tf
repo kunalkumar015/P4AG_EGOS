@@ -103,9 +103,7 @@ variable "asp_zone_balancing_enabled" {
  variable "agw_subnet"{
   type = string
  }
- variable "agwsnet_address_space"{
-  type = string
- }
+
  
 variable "sql_private_dns_zone_id" {
   type        = string
