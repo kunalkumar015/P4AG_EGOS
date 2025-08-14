@@ -43,7 +43,7 @@ key_vault_rg                   = "rg-wwe-dev"
 sql_admin_password             ="nY3f@xCz#Vq2Lb8J%pK7$Mw9UzD1^tR6"
 #------AFD---------------------------------------
 afd_profile_name               = "afd-wwe-dev"
-subnet_id                      = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/agw-snet"
+subnet_id                      = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/snet_pe"
 cosmosdb_private_dns_zone_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/privateDnsZones/privatelink.documents.azure.com"
 sql_private_dns_zone_id        = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net"
 kv_id                          = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.KeyVault/vaults/kv2-wwe-dev-eastus2"

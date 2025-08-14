@@ -4,7 +4,9 @@ module "sql" {
 
  database_names = [
     "sqldb-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}",
-    "sqldb-wwe-fts-${local.environment_sanitized}-${local.region_sanitized}"
+    "sqldb-wwe-fts-${local.environment_sanitized}-${local.region_sanitized}",
+    "sqldb-wwe-ga-${local.environment_sanitized}-${local.region_sanitized}"
+
   ]
 
   environment                 = local.environment_sanitized
