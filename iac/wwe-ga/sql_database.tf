@@ -2,6 +2,9 @@
 module "sql" {
   source = "../modules/sql"
 
+  database_names = [
+    "sqldb-wwe-${local.app_type}-${local.environment_sanitized}-${local.region_sanitized}",
+  ]
   environment                 = local.environment_sanitized
   organization_suffix         = "wwe"
   region                      = local.region_sanitized

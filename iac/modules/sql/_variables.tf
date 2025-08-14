@@ -58,3 +58,9 @@ variable "sql_admin_password" {
   type        = string
   sensitive   = true
 }
+
+
+variable "database_names" {
+  description = "List of database names to create"
+  type        = set(string)
+}

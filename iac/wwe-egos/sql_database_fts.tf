@@ -10,7 +10,7 @@
 #   zone_redundant              = false
 
 #   # Required network-related variables
-#   private_endpoint_subnet_id  = azurerm_subnet.agw_subnet.id // using this (agw_subnet) because shared subnet is already delegated to a specific service (Microsoft.Web/serverFarms)
+#   private_endpoint_subnet_id  = azurerm_subnet.pe_subnet.id // using this (pe_subnet) because shared subnet is already delegated to a specific service (Microsoft.Web/serverFarms)
 #   subnet_id                   = azurerm_subnet.shared.id
 #   sql_admin_password          = var.sql_admin_password
 #   # DNS zone variables

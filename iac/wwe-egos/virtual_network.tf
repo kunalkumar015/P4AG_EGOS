@@ -48,8 +48,8 @@ resource "azurerm_subnet" "shared" {
 # }
 
 
-resource "azurerm_subnet" "agw_subnet" {
-  name                 = "snet_agw"
+resource "azurerm_subnet" "pe_subnet" {
+  name                 = "snet_pe"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
   address_prefixes     = [var.agwsnet_address_space]

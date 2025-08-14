@@ -61,7 +61,7 @@ resource "azurerm_application_gateway" "agw" {
 
   gateway_ip_configuration {
     name      = "appGatewayIpConfig"
-    subnet_id = var.snet_agw_id
+    subnet_id = var.snet_pe_id
   }
 
   frontend_ip_configuration {

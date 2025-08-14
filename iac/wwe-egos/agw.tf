@@ -15,7 +15,7 @@ module "agw" {
   region                        = var.region
   environment                   = var.environment
   agw_name                      = var.agw_name
-  subnet_id                     = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/webapps-subnet"
+  subnet_id                     = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-ga-dev-eastus2/subnets/snet_agw"
   resource_group_name           = var.resource_group_name
   identity_ids                  = var.identity_ids
   ssl_certificate_name          = var.ssl_certificate_name
@@ -25,11 +25,11 @@ module "agw" {
   tenant_id                     = var.tenant_id
   key_vault_name                = var.key_vault_name
   key_vault_rg                  = var.key_vault_rg
-  snet_agw_id                   = var.snet_agw_id
+  snet_pe_id                   = var.snet_pe_id
   sku_name                      = var.app_sku
 
 depends_on = [
-    azurerm_subnet.agw_subnet
+    azurerm_subnet.pe_subnet
   ]
 }
 
