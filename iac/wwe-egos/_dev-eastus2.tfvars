@@ -61,5 +61,5 @@ ssl_certificate_name           = "yellow-wweconomy-ups-com"
 identity_ids = [
   "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
 ]
-snet_pe_id                    = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-egos-dev-eastus2/subnets/snet_pe"
+snet_agw_id                    = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-ga-dev-eastus2/subnets/snet_agw"
 

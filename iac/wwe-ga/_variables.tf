@@ -105,3 +105,23 @@ variable "sql_private_dns_zone_id" {
   type        = string
   description = "ID of the private DNS zone for Azure SQL"
 }
+variable "region" {
+  type        = string
+  description = "(requied) azure region where resources will be deployed"
+}
+
+variable "agw_name" {}
+variable "identity_ids" {
+  type = list(string)
+}
+
+variable "ssl_certificate_name" {}
+variable "backend_fqdn" {}
+
+variable "tenant_id" {
+  type        = string
+}
+
+variable "key_vault_rg"{}
+variable "key_vault_name"{}
+variable "snet_agw_id" {} 
