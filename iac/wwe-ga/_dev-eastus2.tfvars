@@ -52,4 +52,7 @@ identity_ids = [
   "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
 ]
 snet_agw_id                    = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-ga-dev-eastus2/subnets/snet_agw"
-
+region                          = "eastus2"
+tenant_id                      = "e7520e4d-d5a0-488d-9e9f-949faae7dce8"
+key_vault_rg                   = "rg-wwe-dev"
+key_vault_name                 = "kv2-wwe-dev-eastus2-v3"

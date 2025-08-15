@@ -133,7 +133,7 @@ variable "snet_agw_id" {}
 variable "ssl_certificate_name" {}
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
-variable "agwsnet_address_space"{}
+variable "pe_snet_address_space"{}
 variable "sql_admin_password" {}
 # variable "nuget_address_space" {
 #   type = string

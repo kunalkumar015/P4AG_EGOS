@@ -27,7 +27,7 @@ vnet_address_space             = "10.235.89.128/27"
 shared_subnet_address          = "10.235.89.128/28"
 //webapps_subnet_address         = "10.235.89.128/28"
 //privateendpoints_address_space = "10.235.89.128/28"//"10.235.89.144/29"//merge this with webapp
-agwsnet_address_space          = "10.235.89.144/28" 
+pe_snet_address_space          = "10.235.89.144/28" 
 app_sku                        = "B2"
 app_type                       = "egos"
 account_replication_type       = "LRS"
@@ -50,16 +50,4 @@ kv_id                          = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002
 waf_policy_id                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/egos-dev/providers/Microsoft.Cdn/frontDoorWebApplicationFirewallPolicies/egosDashboardDevWaf"
 custom_domain_name             = "egosapi-dev-custom-domain"
 custom_domain_hostname         = "egosapi.yellow.wweconomy.ups.com"
-
-
-#------AGW------------------------------------------
-agw_name                       = "agw-dev-eastus2"
-location                       = "eastus2"
-environment                    = "dev"
-backend_fqdn                   = "ase2-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
-ssl_certificate_name           = "yellow-wweconomy-ups-com"
-identity_ids = [
-  "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
-]
-snet_agw_id                    = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Network/virtualNetworks/vnet-wwe-ga-dev-eastus2/subnets/snet_agw"
 

@@ -29,7 +29,7 @@ module "agw" {
   sku_name                      = var.app_sku
 
 depends_on = [
-    azurerm_subnet.snet_agw_id
+    azurerm_subnet.agw_subnet
   ]
 }
 
