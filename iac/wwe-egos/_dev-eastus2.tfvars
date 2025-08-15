@@ -51,3 +51,7 @@ waf_policy_id                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002
 custom_domain_name             = "egosapi-dev-custom-domain"
 custom_domain_hostname         = "egosapi.yellow.wweconomy.ups.com"
 
+# identity_ids = [
+#   "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
+# ]
+# backend_fqdn                   = "ase2-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
