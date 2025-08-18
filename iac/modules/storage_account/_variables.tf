@@ -59,3 +59,7 @@ variable "app_type" {
   type = string
   description = "(required) app type for deployment"
 }
+variable "private_endpoint_subnet_id" {
+  type = string
+  description = "(required) pe for sa"
+}

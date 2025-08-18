@@ -138,11 +138,11 @@ module "windows_web_app_tracking" {
 }
 
 
-module "windows_web_app_ga_addinfo" {
+module "windows_web_app_ga_label" {
   source                     = "../modules/app-services"
   environment                = local.environment_sanitized
   organization_suffix        = "wwe"
-  app_name                   = "ga-addinfo"
+  app_name                   = "ga-label"
   app_type                   = local.app_type
   app_sku                    = "B2"
   region                     = local.region_sanitized
@@ -153,20 +153,35 @@ module "windows_web_app_ga_addinfo" {
   depends_on = [azurerm_subnet.shared]
 }
 
+# module "windows_web_app_ga_addinfo" {
+#   source                     = "../modules/app-services"
+#   environment                = local.environment_sanitized
+#   organization_suffix        = "wwe"
+#   app_name                   = "ga-addinfo"
+#   app_type                   = local.app_type
+#   app_sku                    = "B2"
+#   region                     = local.region_sanitized
+#   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+#   subnet_id                  = azurerm_subnet.shared.id
+#   resource_group_name = var.resource_group_name
 
-module "windows_web_app_ga_shop" {
-  source                     = "../modules/app-services"
-  environment                = local.environment_sanitized
-  organization_suffix        = "wwe"
-  app_name                   = "ga-shop"
-  app_type                   = local.app_type
-  app_sku                    = "B2"
-  region                     = local.region_sanitized
-  asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
-  subnet_id                  = azurerm_subnet.shared.id
-  resource_group_name = var.resource_group_name
+#   depends_on = [azurerm_subnet.shared]
+# }
 
-  depends_on = [azurerm_subnet.shared]
-}
+
+# module "windows_web_app_ga_shop" {
+#   source                     = "../modules/app-services"
+#   environment                = local.environment_sanitized
+#   organization_suffix        = "wwe"
+#   app_name                   = "ga-shop"
+#   app_type                   = local.app_type
+#   app_sku                    = "B2"
+#   region                     = local.region_sanitized
+#   asp_zone_balancing_enabled = var.asp_zone_balancing_enabled
+#   subnet_id                  = azurerm_subnet.shared.id
+#   resource_group_name = var.resource_group_name
+
+#   depends_on = [azurerm_subnet.shared]
+# }
 
 

@@ -31,3 +31,19 @@ resource "azurerm_key_vault_access_policy" "user_mi" {
     "Get",
   ]
 }
+
+resource "azurerm_private_endpoint" "kv_pe" {
+  name                = "pep-kv-${local.environment_sanitized}-${local.region_sanitized}"
+  location            = data.azurerm_resource_group.resource_group.location
+  resource_group_name = data.azurerm_resource_group.resource_group.name
+  subnet_id           = var.private_endpoint_subnet_id
+
+  private_service_connection {
+    name                           = "psc-kv-${local.environment_sanitized}"
+    private_connection_resource_id = azurerm_key_vault.keyvault.id
+    is_manual_connection           = false
+    subresource_names              = ["Sql"] # Use "Sql" for Cosmos DB SQL API
+  }
+
+  depends_on = [azurerm_key_vault.keyvault]
+}

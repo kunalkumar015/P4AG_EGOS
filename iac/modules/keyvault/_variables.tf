@@ -16,3 +16,7 @@ variable "tenant_id" {
 variable "app_type" {
   type = string
 }
+variable "private_endpoint_subnet_id" {
+  type = string
+  description = "(required) pe for kv"
+}
