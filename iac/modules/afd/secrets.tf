@@ -1,12 +1,12 @@
 
 data "azurerm_key_vault" "egos_kv" {
-  name                = "kv2-wwe-dev-eastus2"         
+  name                = "kv2-wwe-dev-eastus2-v3"         
   resource_group_name = "rg-wwe-dev" 
   depends_on = [azurerm_key_vault.keyvault]
 }
 
 data "azurerm_key_vault_certificate" "custom_cert" {
-  name         = "dev-cert-eastus2"            
+  name         = "dev-afd-cert-eastus2"            
   key_vault_id = data.azurerm_key_vault.egos_kv.id
 }
 

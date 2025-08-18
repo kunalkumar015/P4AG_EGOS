@@ -142,7 +142,7 @@ module "windows_web_app_ga_label" {
   source                     = "../modules/app-services"
   environment                = local.environment_sanitized
   organization_suffix        = "wwe"
-  app_name                   = "ga-label"
+  app_name                   = "label"
   app_type                   = local.app_type
   app_sku                    = "B2"
   region                     = local.region_sanitized
