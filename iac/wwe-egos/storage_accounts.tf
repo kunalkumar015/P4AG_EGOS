@@ -11,7 +11,7 @@ module "storage_accounts" {
   organization_suffix      = "wwe"
   app_type                 = local.app_type
   region                   = local.region_sanitized
-
+  private_endpoint_subnet_id = var.subnet_id
   # network_rules {
   #   default_action = "Deny" #Default public access block
   # }
