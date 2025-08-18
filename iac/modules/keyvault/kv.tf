@@ -1,5 +1,5 @@
 resource "azurerm_key_vault" "keyvault" {
-  name                        = "kv2-wwe-${local.environment_sanitized}-${local.region_sanitized}-v2"
+  name                        = "kv2-wwe-${local.environment_sanitized}-${local.region_sanitized}-v3"
   location                    = data.azurerm_resource_group.resource_group.location
   resource_group_name         = data.azurerm_resource_group.resource_group.name
   enabled_for_disk_encryption = true
