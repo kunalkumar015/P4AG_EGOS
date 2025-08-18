@@ -8,7 +8,7 @@
 # }
 
 
-module "agw" {
+module "agw_ga_dashboard" {
   source = "../modules/agw"
 
   
@@ -35,10 +35,8 @@ depends_on = [
 }
 
 
-module "agw" {
+module "agw_ga_webservices" {
   source = "../modules/agw"
-
-  
   location                      = var.location
   region                        = var.region
   environment                   = var.environment
