@@ -42,7 +42,7 @@ resource "azurerm_private_endpoint" "kv_pe" {
     name                           = "psc-kv-${local.environment_sanitized}"
     private_connection_resource_id = azurerm_key_vault.keyvault.id
     is_manual_connection           = false
-    subresource_names              = ["Sql"] # Use "Sql" for Cosmos DB SQL API
+    subresource_names              = ["vault"]
   }
 
   depends_on = [azurerm_key_vault.keyvault]

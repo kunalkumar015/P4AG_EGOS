@@ -25,7 +25,7 @@ resource "azurerm_private_endpoint" "storage_account" {
     name                           = "psc-storage-${local.environment_sanitized}"
     private_connection_resource_id = azurerm_storage_account.stacc.id
     is_manual_connection           = false
-    subresource_names              = ["Sql"] # Use "Sql" for Cosmos DB SQL API
+    subresource_names              = ["blob"] # Use "Sql" for Cosmos DB SQL API
   }
 
   depends_on = [azurerm_storage_account.stacc]
