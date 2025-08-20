@@ -5,32 +5,44 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   location            = data.azurerm_resource_group.resource_group.location
   resource_group_name = data.azurerm_resource_group.resource_group.name
   offer_type          = "Standard"
-  kind                = "GlobalDocumentDB"
+  kind                = "MongoDB"
 
   consistency_policy {
-    consistency_level = "BoundedStaleness"
+    consistency_level       = "BoundedStaleness"
     max_interval_in_seconds = 300
     max_staleness_prefix    = 100000
   }
 
-  free_tier_enabled = false
-  public_network_access_enabled = false
+  free_tier_enabled                 = false
+  public_network_access_enabled     = false
   multiple_write_locations_enabled = false
-  
+
   geo_location {
     location          = data.azurerm_resource_group.resource_group.location
     failover_priority = 0
   }
 
+  capabilities {
+    name = "EnableMongo"
+  }
 
+  capabilities {
+    name = "MongoDBv3.4" # Change as needed (e.g., v4.0 or v5.0)
+  }
 
+  tags = {
+    environment = local.environment_sanitized
+  }
 }
 
-resource "azurerm_cosmosdb_sql_database" "cosmosdb_sql" {
-  name                = "cosmosdb-wwe-${local.environment_sanitized}-${local.region_sanitized}"
+
+resource "azurerm_cosmosdb_mongo_database" "mongo_db" {
+  name                = "mongodb-wwe-${local.environment_sanitized}-${local.region_sanitized}"
   resource_group_name = data.azurerm_resource_group.resource_group.name
   account_name        = azurerm_cosmosdb_account.cosmosdb.name
+  throughput          = 400
 }
+
 
 
 resource "azurerm_private_endpoint" "cosmosdb" {
@@ -43,7 +55,7 @@ resource "azurerm_private_endpoint" "cosmosdb" {
     name                           = "psc-cosmosdb-${local.environment_sanitized}"
     private_connection_resource_id = azurerm_cosmosdb_account.cosmosdb.id
     is_manual_connection           = false
-    subresource_names              = ["Sql"] # Use "Sql" for Cosmos DB SQL API
+    subresource_names              = ["MongoDB"] # Use "Sql" for Cosmos DB SQL API
   }
 
   depends_on = [azurerm_cosmosdb_account.cosmosdb]

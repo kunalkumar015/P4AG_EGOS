@@ -1,86 +1,55 @@
-# resource "azurerm_web_application_firewall_policy" "waf_policy" {
-#   name                = var.waf_policy_name
-#   resource_group_name = "rg-wwe-dev"
-#   location            = "Global"
+resource "azurerm_web_application_firewall_policy" "this" {
+  name                = var.name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  tags                = var.tags
 
-#   tags = var.tags
+  dynamic "custom_rules" {
+    for_each = var.custom_rules
+    content {
+      name      = custom_rules.value.name
+      priority  = custom_rules.value.priority
+      rule_type = custom_rules.value.rule_type
+      action    = custom_rules.value.action
+    #   state     = try(custom_rules.value.state, "Enabled")
 
-#   sku {
-#     name = "Classic_AzureFrontDoor"
-#   }
+      dynamic "match_conditions" {
+        for_each = custom_rules.value.match_conditions
+        content {
+          match_variables {
+            variable_name = match_conditions.value.match_variables[0].variable_name
+          }
+          operator            = match_conditions.value.operator
+          negation_condition  = try(match_conditions.value.negationConditon, false)
+          match_values        = match_conditions.value.match_values
+          transforms          = try(match_conditions.value.transforms, [])
+        }
+      }
+    }
+  }
 
-#   policy_settings {
-#     enabled                     = true
-#     mode                        = "Prevention"
-#     request_body_check          = false
-#     custom_block_response_status_code = 403
-#   }
+  policy_settings {
+    request_body_check      = var.policy_settings.requestBodyCheck
+    # max_request_body_size_kb = var.policy_settings.maxRequestBodySizeInKb
+    # file_upload_limit_mb     = var.policy_settings.fileUploadLimitInMb
+    # state                    = var.policy_settings.state
+    mode                     = var.policy_settings.mode
+  }
 
-#   dynamic "custom_rules" {
-#     for_each = var.custom_rules
-#     content {
-#       name      = custom_rules.value.name
-#       priority  = custom_rules.value.priority
-#       rule_type = custom_rules.value.rule_type
-#       action    = custom_rules.value.action
-#       enabled   = lookup(custom_rules.value, "enabled", true)
+  managed_rules {
+    dynamic "managed_rule_set" {
+      for_each = var.managed_rules.managedRuleSets
+      content {
+        type    = managed_rule_set.value.ruleSetType
+        version = managed_rule_set.value.ruleSetVersion
+      }
+    }
+  }
 
-#       dynamic "match_conditions" {
-#   for_each = custom_rules.value.match_conditions
-#   content {
-#     operator       = match_conditions.value.operator
-#     match_values   = match_conditions.value.match_values
-
-#     selector   = try(match_conditions.value.selector, null)
-#     transforms = try(match_conditions.value.transforms, null)
-#   }
-# }
-
-
-#       rate_limit_threshold           = lookup(custom_rules.value, "rate_limit_threshold", null)
-#     }
-#   }
-
-#   managed_rules {
-#     dynamic "managed_rule_set" {
-#       for_each = var.managed_rule_sets
-#       content {
-#         type    = managed_rule_set.value.type
-#         version = managed_rule_set.value.version
-
-#         dynamic "rule_group_override" {
-#           for_each = lookup(managed_rule_set.value, "rule_group_overrides", [])
-#           content {
-#             rule_group_name = rule_group_override.value.rule_group_name
-
-#             dynamic "rule" {
-#               for_each = rule_group_override.value.rules
-#               content {
-#                 rule_id = rule.value.rule_id
-#                 action  = rule.value.action
-
-#                 dynamic "exclusion" {
-#                   for_each = lookup(rule.value, "exclusions", [])
-#                   content {
-#                     match_variable          = exclusion.value.match_variable
-#                     selector_match_operator = exclusion.value.selector_match_operator
-#                     selector                = exclusion.value.selector
-#                   }
-#                 }
-#               }
-#             }
-#           }
-#         }
-
-#         dynamic "exclusion" {
-#           for_each = lookup(managed_rule_set.value, "exclusions", [])
-#           content {
-#             match_variable          = exclusion.value.match_variable
-#             selector_match_operator = exclusion.value.selector_match_operator
-#             selector                = exclusion.value.selector
-#           }
-#         }
-#       }
-#     }
-#   }
-# }
+  dynamic "application_gateway" {
+    for_each = var.application_gateway_ids
+    content {
+      id = application_gateway.value
+    }
+  }
+}

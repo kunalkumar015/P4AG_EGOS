@@ -167,4 +167,3 @@ variable "region" {
   type        = string
   description = "(requied) azure region where resources will be deployed"
 }
-
