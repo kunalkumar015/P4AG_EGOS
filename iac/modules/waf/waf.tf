@@ -1,11 +1,11 @@
-resource "azurerm_web_application_firewall_policy" "this" {
+resource "azurerm_web_application_firewall_policy" "waf_policy" {
   name                = var.name
   location            = var.location
   resource_group_name = var.resource_group_name
   tags                = var.tags
 
   dynamic "custom_rules" {
-    for_each = var.custom_rules
+    for_each = local.dashboard_custom_rules
     content {
       name      = custom_rules.value.name
       priority  = custom_rules.value.priority
@@ -46,10 +46,4 @@ resource "azurerm_web_application_firewall_policy" "this" {
     }
   }
 
-  dynamic "application_gateway" {
-    for_each = var.application_gateway_ids
-    content {
-      id = application_gateway.value
-    }
-  }
 }

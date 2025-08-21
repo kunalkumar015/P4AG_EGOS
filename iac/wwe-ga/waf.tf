@@ -29,7 +29,7 @@
 #   app_type                 = var.app_type
 #   organization_suffix      = var.organization_suffix
 
-#   custom_rules        = local.dashboard_custom_rules
+#   custom_rules        = local.webservices_custom_rules
 #   policy_settings     = local.policy_settings
 #   managed_rules       = local.managed_rules
 
