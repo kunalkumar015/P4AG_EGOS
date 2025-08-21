@@ -27,7 +27,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   }
 
   capabilities {
-    name = "MongoDBv3.4" # Change as needed (e.g., v4.0 or v5.0)
+    name = "MongoDBv7.0" # Change as needed (e.g., v4.0 or v5.0)
   }
 
   tags = {
