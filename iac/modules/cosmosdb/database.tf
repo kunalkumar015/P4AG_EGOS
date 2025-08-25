@@ -26,9 +26,9 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     name = "EnableMongo"
   }
 
-  capabilities {
-    name = "MongoDBv7.0" # Change as needed (e.g., v4.0 or v5.0)
-  }
+  # capabilities {
+  #   name = "MongoDBv7.0" # Change as needed (e.g., v4.0 or v5.0)//There is no direct way to set MongoDB version (like v7.0) via Terraform 
+  # }
 
   tags = {
     environment = local.environment_sanitized
