@@ -114,4 +114,6 @@ ssl_certificate {
   key_vault_secret_id = data.azurerm_key_vault_secret.cert.id
 }
 # Sensitive value must be handled via a separate file or Key Vault ref
+
+depends_on = [azurerm_public_ip.agw_pip]
 }
