@@ -1,0 +1,106 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - iac/wwe-infra-full/*
+    - iac/modules
+    - pipelines/pipeline-wwe-uat-infrastructure.yml
+    exclude:
+    - iac/wwe-egos/*
+    - iac/wwe-ga/*
+    - iac/wwe-dr/*
+    - iac/wwe-shared/*
+    - pipelines/pipeline-wwe-egos-infrastructure.yml
+    - pipelines/pipeline-wwe-ga-infrastructure.yml
+   
+
+resources:
+  repositories:
+  - repository: commonPipeline
+    type: git
+    name: Common.Pipelines
+
+variables:
+  # ========================================================================
+  #                          Mandatory variables 
+  # ========================================================================
+- name: poolImage
+  value: 'windows-latest'
+- name: pool
+  value: 'wwe'
+- name: TerraformStateContainer
+  value: 'uat'
+#sets the terraform version for use across the entire pipeline
+- name: terraformVersion 
+  value: 1.9.5
+
+stages:
+# - template: ./templates/deployEnv-wwe-ga.yaml
+#   parameters:
+#     stage_name: Prod_Deploy_WWE_GA
+#     depends_on: []
+#     environment_name: 'WWE_GA_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: eastus2
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+# stages:
+#   - stage: CleanupLock
+#     jobs:
+#       - job: RemoveGitLock
+#         steps:
+#           - task: CmdLine@2
+#             displayName: 'Remove stale Git Config lock'
+#             inputs:
+#               script: |
+#                 echo Removing stale .gitconfig.lock if it exists
+#                 del C:\Windows\ServiceProfiles\NetworkService\.gitconfig.lock 2>nul
+
+
+
+- template: ./templates/deployEnv-wwe-uat.yaml
+  parameters:
+    stage_name: DEV_Deploy_WWE_UAT
+    depends_on: []
+    environment_name: 'WWE_FULL_UAT'
+    AzureServiceConnection: 'sc-ups-uat' #Platform Service Connection
+    AzureRegion: eastus2
+    SubscriptionId: 'b09bcb9d-e055-4950-a9dd-2ab6002ef86c' #wwe-dev Subscription Id
+    Environment: 'uat'
+    OrganizationalPrefix: 'wwe'
+    BootstrapAzureRegion: eastus2
+    TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+
+# - template: ./templates/deployEnv-wwe-ga.yaml
+#   parameters:
+#     stage_name: UAT_Deploy_WWE_GA
+#     depends_on: [DEV_Deploy_WWE_GA]
+#     environment_name: 'WWE_GA_UAT'
+#     AzureServiceConnection: 'sc-ups-uat' #Platform Service Connection
+#     AzureRegion: eastus2
+#     SubscriptionId: '230c211e-8a74-478c-9999-e92284ae6e59' #wwe-uat Subscription Id
+#     Environment: 'uat'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-eastus2'
+
+# - template: ./templates/deployEnv-wwe-ga.yaml
+#   parameters:
+#     stage_name: Prod_Deploy_WWE_GA_DR
+#     depends_on: [Prod_Deploy_WWE_GA]
+#     environment_name: 'WWE_GA_Prod'
+#     AzureServiceConnection: 'ASC-WWE-Prod' #Platform Service Connection
+#     AzureRegion: centralus
+#     SubscriptionId: '6f9f1e7d-bfc5-4c84-a02f-93152a27b55d' #wwe-prod Subscription Id
+#     Environment: 'prod'
+#     OrganizationalPrefix: 'wwe'
+#     BootstrapAzureRegion: eastus2
+#     TerraformBackingStoreContainerName: '$(TerraformStateContainer)-centralus'
+
