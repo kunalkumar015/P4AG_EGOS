@@ -125,3 +125,5 @@ variable "tenant_id" {
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
 variable "snet_agw_id" {} 
+variable "backend_fqdn_dashboard" {}
+variable "backend_fqdn_webservices" {}
