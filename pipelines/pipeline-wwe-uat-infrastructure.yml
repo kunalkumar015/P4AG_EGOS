@@ -1,3 +1,5 @@
+name: 
+ Platform.Management.UAT
 trigger:
   branches:
     include:
