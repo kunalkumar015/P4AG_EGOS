@@ -116,7 +116,7 @@ variable "identity_ids" {
 }
 
 variable "ssl_certificate_name" {}
-variable "backend_fqdn" {}
+
 
 variable "tenant_id" {
   type        = string

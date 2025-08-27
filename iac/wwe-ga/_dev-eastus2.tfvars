@@ -46,7 +46,8 @@ sql_private_dns_zone_id        = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002
 agw_name                       = "agw-dev-eastus2"
 location                       = "eastus2"
 environment                    = "dev"
-backend_fqdn                   = "ase2-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
+backend_fqdn_webservices = "ase2-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
+backend_fqdn_dashboard = "ase2-wwe-ga-dashboard-dev-eastus2.azurewebsites.net"
 ssl_certificate_name           = "yellow-wweconomy-ups-com"
 identity_ids = [
   "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-agw-dev-eastus2"
