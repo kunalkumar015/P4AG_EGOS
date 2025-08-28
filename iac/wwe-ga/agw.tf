@@ -21,7 +21,7 @@ resource "azurerm_public_ip" "pip_dashboard" {
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
   sku                 = "Standard"
-  zones               = ["1", "2", "3"]
+  zones               = ["1", "2"]
 }
 
 resource "azurerm_public_ip" "pip_webservices" {
@@ -30,7 +30,7 @@ resource "azurerm_public_ip" "pip_webservices" {
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
   sku                 = "Standard"
-  zones               = ["1", "2", "3"]
+  zones               = ["1", "2"]
 }
 
 # -------------------- WAF Policies ----------------------
@@ -78,7 +78,6 @@ resource "azurerm_application_gateway" "agw_dashboard" {
   location                          = var.location
   resource_group_name               = var.resource_group_name
   enable_http2                      = true
-  zones                             = ["1", "2", "3"]
   firewall_policy_id                = azurerm_web_application_firewall_policy.waf_dashboard.id
 
   identity {
@@ -89,12 +88,7 @@ resource "azurerm_application_gateway" "agw_dashboard" {
   sku {
     name     = "WAF_v2"
     tier     = "WAF_v2"
-    capacity = 0
-  }
-
-  autoscale_configuration {
-    min_capacity = 0
-    max_capacity = 10
+    capacity = 2
   }
 
   gateway_ip_configuration {
@@ -113,16 +107,16 @@ resource "azurerm_application_gateway" "agw_dashboard" {
   }
 
   backend_address_pool {
-    name         = "bp-ga-dashboard-eastus2"
-    fqdns        = [var.backend_fqdn_dashboard]
+    name  = "bp-ga-dashboard-eastus2"
+    fqdns = [var.backend_fqdn_dashboard]
   }
 
   backend_http_settings {
-    name                                = "bs-ga-dashboard"
-    port                                = 443
-    protocol                            = "Https"
-    request_timeout                     = 20
-    cookie_based_affinity               = "Disabled"
+    name                                 = "bs-ga-dashboard"
+    port                                 = 443
+    protocol                             = "Https"
+    request_timeout                      = 20
+    cookie_based_affinity                = "Disabled"
     pick_host_name_from_backend_address = true
   }
 
@@ -156,7 +150,6 @@ resource "azurerm_application_gateway" "agw_webservices" {
   location                          = var.location
   resource_group_name               = var.resource_group_name
   enable_http2                      = true
-  zones                             = ["1", "2", "3"]
   firewall_policy_id                = azurerm_web_application_firewall_policy.waf_webservices.id
 
   identity {
@@ -167,12 +160,7 @@ resource "azurerm_application_gateway" "agw_webservices" {
   sku {
     name     = "WAF_v2"
     tier     = "WAF_v2"
-    capacity = 0
-  }
-
-  autoscale_configuration {
-    min_capacity = 0
-    max_capacity = 10
+    capacity = 2
   }
 
   gateway_ip_configuration {
@@ -191,16 +179,16 @@ resource "azurerm_application_gateway" "agw_webservices" {
   }
 
   backend_address_pool {
-    name         = "bp-ga-webservices-eastus2"
-    fqdns        = [var.backend_fqdn_webservices]
+    name  = "bp-ga-webservices-eastus2"
+    fqdns = [var.backend_fqdn_webservices]
   }
 
   backend_http_settings {
-    name                                = "bs-ga-webservices"
-    port                                = 443
-    protocol                            = "Https"
-    request_timeout                     = 20
-    cookie_based_affinity               = "Disabled"
+    name                                 = "bs-ga-webservices"
+    port                                 = 443
+    protocol                             = "Https"
+    request_timeout                      = 20
+    cookie_based_affinity                = "Disabled"
     pick_host_name_from_backend_address = true
   }
 
@@ -226,6 +214,164 @@ resource "azurerm_application_gateway" "agw_webservices" {
     key_vault_secret_id = data.azurerm_key_vault_secret.cert.id
   }
 }
+
+
+
+# # -------------------- AGW: Dashboard ----------------------
+
+# resource "azurerm_application_gateway" "agw_dashboard" {
+#   name                              = "agw-wwe-ga-dashboard-dev-eastus2"
+#   location                          = var.location
+#   resource_group_name               = var.resource_group_name
+#   enable_http2                      = true
+#   zones                             = ["1", "2", "3"]
+#   firewall_policy_id                = azurerm_web_application_firewall_policy.waf_dashboard.id
+
+#   identity {
+#     type         = "UserAssigned"
+#     identity_ids = var.identity_ids
+#   }
+
+#   sku {
+#     name     = "WAF_v2"
+#     tier     = "WAF_v2"
+#     capacity = 0
+#   }
+
+#   autoscale_configuration {
+#     min_capacity = 0
+#     max_capacity = 10
+#   }
+
+#   gateway_ip_configuration {
+#     name      = "appGatewayIpConfig"
+#     subnet_id = var.snet_agw_id
+#   }
+
+#   frontend_ip_configuration {
+#     name                 = "appGwPublicFrontendIpIPv4"
+#     public_ip_address_id = azurerm_public_ip.pip_dashboard.id
+#   }
+
+#   frontend_port {
+#     name = "port_443"
+#     port = 443
+#   }
+
+#   backend_address_pool {
+#     name         = "bp-ga-dashboard-eastus2"
+#     fqdns        = [var.backend_fqdn_dashboard]
+#   }
+
+#   backend_http_settings {
+#     name                                = "bs-ga-dashboard"
+#     port                                = 443
+#     protocol                            = "Https"
+#     request_timeout                     = 20
+#     cookie_based_affinity               = "Disabled"
+#     pick_host_name_from_backend_address = true
+#   }
+
+#   http_listener {
+#     name                           = "listener-ga-dashboard-dev"
+#     frontend_ip_configuration_name = "appGwPublicFrontendIpIPv4"
+#     frontend_port_name             = "port_443"
+#     protocol                       = "Https"
+#     ssl_certificate_name           = var.ssl_certificate_name
+#   }
+
+#   request_routing_rule {
+#     name                       = "rt-ga-dashboard"
+#     rule_type                  = "Basic"
+#     priority                   = 1
+#     http_listener_name         = "listener-ga-dashboard-dev"
+#     backend_address_pool_name  = "bp-ga-dashboard-eastus2"
+#     backend_http_settings_name = "bs-ga-dashboard"
+#   }
+
+#   ssl_certificate {
+#     name                = var.ssl_certificate_name
+#     key_vault_secret_id = data.azurerm_key_vault_secret.cert.id
+#   }
+# }
+
+# # -------------------- AGW: Webservices ----------------------
+
+# resource "azurerm_application_gateway" "agw_webservices" {
+#   name                              = "agw-wwe-ga-webservices-dev-eastus2"
+#   location                          = var.location
+#   resource_group_name               = var.resource_group_name
+#   enable_http2                      = true
+#   zones                             = ["1", "2", "3"]
+#   firewall_policy_id                = azurerm_web_application_firewall_policy.waf_webservices.id
+
+#   identity {
+#     type         = "UserAssigned"
+#     identity_ids = var.identity_ids
+#   }
+
+#   sku {
+#     name     = "WAF_v2"
+#     tier     = "WAF_v2"
+#     capacity = 0
+#   }
+
+#   autoscale_configuration {
+#     min_capacity = 0
+#     max_capacity = 10
+#   }
+
+#   gateway_ip_configuration {
+#     name      = "appGatewayIpConfig"
+#     subnet_id = var.snet_agw_id
+#   }
+
+#   frontend_ip_configuration {
+#     name                 = "appGwPublicFrontendIpIPv4"
+#     public_ip_address_id = azurerm_public_ip.pip_webservices.id
+#   }
+
+#   frontend_port {
+#     name = "port_443"
+#     port = 443
+#   }
+
+#   backend_address_pool {
+#     name         = "bp-ga-webservices-eastus2"
+#     fqdns        = [var.backend_fqdn_webservices]
+#   }
+
+#   backend_http_settings {
+#     name                                = "bs-ga-webservices"
+#     port                                = 443
+#     protocol                            = "Https"
+#     request_timeout                     = 20
+#     cookie_based_affinity               = "Disabled"
+#     pick_host_name_from_backend_address = true
+#   }
+
+#   http_listener {
+#     name                           = "listener-ga-webservices-dev"
+#     frontend_ip_configuration_name = "appGwPublicFrontendIpIPv4"
+#     frontend_port_name             = "port_443"
+#     protocol                       = "Https"
+#     ssl_certificate_name           = var.ssl_certificate_name
+#   }
+
+#   request_routing_rule {
+#     name                       = "rt-ga-webservices"
+#     rule_type                  = "Basic"
+#     priority                   = 1
+#     http_listener_name         = "listener-ga-webservices-dev"
+#     backend_address_pool_name  = "bp-ga-webservices-eastus2"
+#     backend_http_settings_name = "bs-ga-webservices"
+#   }
+
+#   ssl_certificate {
+#     name                = var.ssl_certificate_name
+#     key_vault_secret_id = data.azurerm_key_vault_secret.cert.id
+#   }
+# }
 
 
 
