@@ -16,13 +16,6 @@ resource "azurerm_virtual_network" "wwe_ga" {
 }
 
 
-# resource "azurerm_subnet" "wwe_ga" {
-#   name                 = "snet-wwe-ga"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.wwe_ga_subnet_address_space]
-# }
-
 resource "azurerm_subnet" "shared" {
   name                 = "shared-subnet"
   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
@@ -50,216 +43,100 @@ resource "azurerm_subnet" "agw_subnet" {
     ]
   }
 }
-# # resource "azurerm_subnet" "private_endpoint" {
-# #   name                 = "snet-privateendpoints"
-# #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-# #   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-# #   address_prefixes     = [var.privateendpoints_address_space ]
-# # }
 
-# # resource "azurerm_subnet" "appgw_web" {
-# #   name                 = "snet-appgateway-web"
-# #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-# #   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-# #   address_prefixes     = [var.appgw_subnet_web_address_space]
-# # }
 
-# # resource "azurerm_subnet" "appgw_dash" {
-# #   name                 = "snet-appgateway-dash"
-# #   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-# #   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-# #   address_prefixes     = [var.appgw_subnet_dash_address_space]
-# # }
+# ------------------UAT(eastus2)--------------------------------
 
-# resource "azurerm_subnet" "webservices" {
-#   name                 = "snet-webservices"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.webservices_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+resource "azurerm_virtual_network" "wwe_ga_uat" {
+  name                = "vnet-wwe-${local.app_type}-uat-eastus2"
+  resource_group_name = "rg-wwe-uat"
+  location            = "eastus2"
 
-#   delegation {
-#     name = "delegation"
+  address_space = ["172.22.35.192/26"]
+  lifecycle {
+    ignore_changes = [
+      ddos_protection_plan,
+      subnet,
+      dns_servers,
+      tags
+    ]
+  }
+}
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "dashboard" {
-#   name                 = "snet-dashboard"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.dashboard_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
 
-#   delegation {
-#     name = "delegation"
+resource "azurerm_subnet" "uat_shared" {
+  name                 = "shared-subnet-uat"
+  resource_group_name  = "rg-wwe-uat"
+  virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
+  address_prefixes     = ["172.22.39.0/27"]
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
+  delegation {
+    name = "delegation"
+    service_delegation {
+      name     = "Microsoft.Web/serverFarms"
+      actions  = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
 
-# resource "azurerm_subnet" "carthandoff" {
-#   name                 = "snet-carthandoff"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.carthandoff_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+resource "azurerm_subnet" "uat_agw_subnet" {
+  name                 = "snet_agw_uat"
+  resource_group_name  = "rg-wwe-uat"
+  virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
+  address_prefixes     = ["172.22.35.224/27"]
 
-#   delegation {
-#     name = "delegation"
+  lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
+}
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
 
-# resource "azurerm_subnet" "classifying" {
-#   name                 = "snet-classifying"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.classifying_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
 
-#   delegation {
-#     name = "delegation"
+# ------------------UAT(centralus)--------------------------------
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
+resource "azurerm_virtual_network" "wwe_ga_uat" {
+  name                = "vnet-wwe-${local.app_type}-uat-centralus"
+  resource_group_name = "rg-wwe-uat"
+  location            = "centralus"
 
-# resource "azurerm_subnet" "webjobs" {
-#   name                 = "snet-webjobs"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.webjobs_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+  address_space = ["172.22.39.0/26"]
+  lifecycle {
+    ignore_changes = [
+      ddos_protection_plan,
+      subnet,
+      dns_servers,
+      tags
+    ]
+  }
+}
 
-#   delegation {
-#     name = "delegation"
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "globalcheckout" {
-#   name                 = "snet-globalcheckout"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.globalcheckout_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
+resource "azurerm_subnet" "uat_shared" {
+  name                 = "shared-subnet-uat"
+  resource_group_name  = "rg-wwe-uat"
+  virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
+  address_prefixes     = ["172.22.39.0/27"]
 
-#   delegation {
-#     name = "delegation"
+  delegation {
+    name = "delegation"
+    service_delegation {
+      name     = "Microsoft.Web/serverFarms"
+      actions  = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+}
 
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
+resource "azurerm_subnet" "uat_agw_subnet" {
+  name                 = "snet_agw_uat"
+  resource_group_name  = "rg-wwe-uat"
+  virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
+  address_prefixes     = ["172.22.39.32/27"]
 
-# resource "azurerm_subnet" "hangfire" {
-#   name                 = "snet-hangfire"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.hangfire_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
-
-#   delegation {
-#     name = "delegation"
-
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-
-# resource "azurerm_subnet" "shopifyintegrationws" {
-#   name                 = "snet-shopifyintegrationws"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.shopifyintegrationws_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
-
-#   delegation {
-#     name = "delegation"
-
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-
-# resource "azurerm_subnet" "tracking" {
-#   name                 = "snet-tracking"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.tracking_address_space]
-#   lifecycle {
-#     ignore_changes = [
-#      #delegation
-#     ]
-#   }
-
-#   delegation {
-#     name = "delegation"
-
-#     service_delegation {
-#       name = "Microsoft.Web/serverFarms"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
-#     }
-#   }
-# }
-# resource "azurerm_subnet" "iaas" {
-#   name                 = "snet-iaas"
-#   resource_group_name  = "rg-wwe-${local.environment_sanitized}"
-#   virtual_network_name = azurerm_virtual_network.wwe_ga.name
-#   address_prefixes     = [var.iaas_address_space]
-# }
+  lifecycle {
+    ignore_changes = [
+     delegation
+    ]
+  }
+}
