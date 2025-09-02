@@ -47,7 +47,7 @@ resource "azurerm_subnet" "agw_subnet" {
 
 # ------------------UAT(eastus2)--------------------------------
 
-resource "azurerm_virtual_network" "wwe_ga_uat" {
+resource "azurerm_virtual_network" "wwe_ga_uat_eastus2" {
   name                = "vnet-wwe-${local.app_type}-uat-eastus2"
   resource_group_name = "rg-wwe-uat"
   location            = "eastus2"
@@ -64,7 +64,7 @@ resource "azurerm_virtual_network" "wwe_ga_uat" {
 }
 
 
-resource "azurerm_subnet" "uat_shared" {
+resource "azurerm_subnet" "uat_shared_eastus2" {
   name                 = "shared-subnet-uat"
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
@@ -79,7 +79,7 @@ resource "azurerm_subnet" "uat_shared" {
   }
 }
 
-resource "azurerm_subnet" "uat_agw_subnet" {
+resource "azurerm_subnet" "uat_agw_subnet_eastus2" {
   name                 = "snet_agw_uat"
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
@@ -96,7 +96,7 @@ resource "azurerm_subnet" "uat_agw_subnet" {
 
 # ------------------UAT(centralus)--------------------------------
 
-resource "azurerm_virtual_network" "wwe_ga_uat" {
+resource "azurerm_virtual_network" "wwe_ga_uat_centralus" {
   name                = "vnet-wwe-${local.app_type}-uat-centralus"
   resource_group_name = "rg-wwe-uat"
   location            = "centralus"
@@ -113,7 +113,7 @@ resource "azurerm_virtual_network" "wwe_ga_uat" {
 }
 
 
-resource "azurerm_subnet" "uat_shared" {
+resource "azurerm_subnet" "uat_shared_centralus" {
   name                 = "shared-subnet-uat"
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
@@ -128,7 +128,7 @@ resource "azurerm_subnet" "uat_shared" {
   }
 }
 
-resource "azurerm_subnet" "uat_agw_subnet" {
+resource "azurerm_subnet" "uat_agw_subnet_centralus" {
   name                 = "snet_agw_uat"
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
