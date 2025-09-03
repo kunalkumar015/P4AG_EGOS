@@ -229,6 +229,131 @@ resource "azurerm_cdn_frontdoor_origin" "egos-egosapi" {
   weight                         = 1000
 }
 
+# ase2-wwe-egos-dao-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "egos-dao" {
+  name                           = "origin-egos-dao-eastus2"
+  host_name                      = "ase2-wwe-egos-dao-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-egos-dao-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_dao.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-egos-egos-tracking-api-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "egos-tracking-api" {
+  name                           = "origin-egos-tracking-api-eastus2"
+  host_name                      = "ase2-wwe-egos-egos-tracking-api-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-egos-egos-tracking-api-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_tracking_api.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-egos-nuget-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "egos-nuget" {
+  name                           = "origin-egos-nuget-eastus2"
+  host_name                      = "ase2-wwe-egos-nuget-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-egos-nuget-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_nuget.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-ga-classifying-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "ga-classifying" {
+  name                           = "origin-ga-classifying-eastus2"
+  host_name                      = "ase2-wwe-ga-classifying-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-ga-classifying-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_classifying.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-ga-dashboard-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "ga-dashboard" {
+  name                           = "origin-ga-dashboard-eastus2"
+  host_name                      = "ase2-wwe-ga-dashboard-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-ga-dashboard-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_dashboard.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-ga-label-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "ga-label" {
+  name                           = "origin-ga-label-eastus2"
+  host_name                      = "ase2-wwe-ga-label-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-ga-label-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_label.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-ga-prince-pdf2-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "ga-prince-pdf2" {
+  name                           = "origin-ga-prince-pdf2-eastus2"
+  host_name                      = "ase2-wwe-ga-prince-pdf2-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-ga-prince-pdf2-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_prince_pdf2.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-ga-webservices-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "ga-webservices" {
+  name                           = "origin-ga-webservices-eastus2"
+  host_name                      = "ase2-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-ga-webservices-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_webservices.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
+
+# ase2-wwe-ga-webjobs-dev-eastus2
+resource "azurerm_cdn_frontdoor_origin" "ga-webjobs" {
+  name                           = "origin-ga-webjobs-eastus2"
+  host_name                      = "ase2-wwe-ga-webjobs-dev-eastus2.azurewebsites.net"
+  origin_host_header             = "ase2-wwe-ga-webjobs-dev-eastus2.azurewebsites.net"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_webjobs.id
+  certificate_name_check_enabled = true
+  enabled                        = true
+  http_port                      = 80
+  https_port                     = 443
+  priority                       = 1
+  weight                         = 1
+}
 
 
 
@@ -464,6 +589,185 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_shop" {
   }
 }
 
+resource "azurerm_cdn_frontdoor_origin_group" "egos_dao" {
+  name                                                      = "egos-dao"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "egos_tracking_api" {
+  name                                                      = "egos-tracking-api"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "egos_nuget" {
+  name                                                      = "egos-nuget"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Http"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "ga_classifying" {
+  name                                                      = "ga-classifying"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "ga_dashboard" {
+  name                                                      = "ga-dashboard"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "ga_label" {
+  name                                                      = "ga-label"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "ga_prince_pdf2" {
+  name                                                      = "ga-prince-pdf2"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "ga_webservices" {
+  name                                                      = "ga-webservices"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "ga_webjobs" {
+  name                                                      = "ga-webjobs"
+  cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
+  session_affinity_enabled                                  = false
+
+  health_probe {
+    interval_in_seconds = 100
+    path                = "/"
+    protocol            = "Https"
+    request_type        = "HEAD"
+  }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 50
+    sample_size                        = 4
+    successful_samples_required        = 3
+  }
+}
 
 
 
@@ -525,22 +829,6 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
   supported_protocols             = ["Http", "Https"]
 }
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_shop" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-wwe"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-shop"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-shop"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
 
 # __generated__ by Terraform
 resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
@@ -678,6 +966,20 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
   supported_protocols             = ["Http", "Https"]
 }
 
+#------------------------frontdoor waf---------------------------------------
+
+resource "azurerm_cdn_frontdoor_firewall_policy" "waf_policy" {
+  name                = "afdWafPolicy"
+  resource_group_name = var.resource_group_name
+  sku_name            = "Premium_AzureFrontDoor"
+  mode                = "Prevention"
+
+  managed_rule {
+    type    = "DefaultRuleSet"
+    version = "1.0"
+    action  = "Block"
+  }
+}
 
 
 
@@ -685,35 +987,35 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
 #------------------------frontdoor secrets---------------------------------------
 
 
-# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-yellow-wweconomy-ups-com-latest"
+# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
 resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_yellow_wweconomy_ups_com_latest" {
   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-  name                     = "kv-wwe-dev-eastus2-yellow-wweconomy-ups-com-latest"
+  name                     = "kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
   secret {
     customer_certificate {
-      key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/yellow-wweconomy-ups-com"
+      key_vault_certificate_id = "https://kv2-wwe-dev-eastus2-v3.vault.azure.net/certificates/yellow-wweconomy-ups-com"
     }
   }
 }
 
-# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-tradedirect-latest"
+# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-tradedirect-latest"
 resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_tradedirect_latest" {
   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-  name                     = "kv-wwe-dev-eastus2-tradedirect-latest"
+  name                     = "kv2-wwe-dev-eastus2-v3-tradedirect-latest"
   secret {
     customer_certificate {
-      key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/tradedirect"
+      key_vault_certificate_id = "https://kv2-wwe-dev-eastus2-v3.vault.azure.net/certificates/tradedirect"
     }
   }
 }
 
-# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv-wwe-dev-eastus2-wwe-dev-latest"
+# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-wwe-dev-latest"
 resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-  name                     = "kv-wwe-dev-eastus2-wwe-dev-latest"
+  name                     = "kv2-wwe-dev-eastus2-v3-wwe-dev-latest"
   secret {
     customer_certificate {
-      key_vault_certificate_id = "https://kv-wwe-dev-eastus2.vault.azure.net/certificates/wwe-dev"
+      key_vault_certificate_id = "https://kv2-wwe-dev-eastus2-v3.vault.azure.net/certificates/wwe-dev"
     }
   }
 }

@@ -15,7 +15,12 @@ variable "app_services" {
     "ase2-wwe-ga-hangfire-dev-eastus2",
     "ase2-wwe-ga-label-dev-eastus2",
     "ase2-wwe-ga-prince-pdf2-dev-eastus2",
-    "ase2-wwe-ga-shopifyintegrationws-dev-eastus2"
+    "ase2-wwe-ga-shopifyintegrationws-dev-eastus2",
+    "ase2-wwe-ga-webservices-dev-eastus2",
+    "ase2-wwe-ga-tracking-dev-eastus2",
+    "ase2-wwe-ga-webjobs-dev-eastus2"
+
+
   ]
 }
 
