@@ -1,36 +1,36 @@
 
-module "afd" {
-  source                  = "../modules/afd"
-  afd_profile_name        = "afd-webapp-dev-profile"
-  afd_endpoint_name       = "afd-webapp-dev-endpoint"
-  afd_sku                 = "Standard_AzureFrontDoor"
-  origin_group_name       = "webapp-dev-origin-group"
-  origin_name             = "webapp-dev-origin"
-  origin_hostname         = "ase22-wwe-egos-egosapi-dev-eastus2.azurewebsites.net"  
-  route_name              = "webapp-dev-route"
-  resource_group_name     = var.resource_group_name
-  location                = var.location
+# module "afd" {
+#   source                  = "../modules/afd"
+#   afd_profile_name        = "afd-dev-profile"
+#   afd_endpoint_name       = "ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+#   afd_sku                 = "Standard_AzureFrontDoor"
+#   origin_group_name       = "webapp-dev-origin-group"
+#   origin_name             = "webapp-dev-origin"
+#   origin_hostname         = "ase22-wwe-egos-egosapi-dev-eastus2.azurewebsites.net"  
+#   route_name              = "webapp-dev-route"
+#   resource_group_name     = var.resource_group_name
+#   location                = var.location
 
-  # Required inputs
-  organization_suffix     = "wwe"
-  kv_secret_version       = "b043036676834a6182952d9d5fce5fa6"
-  custom_domain_hostname  = "yellow.wweconomy.ups.com"   //gfegosapi.wweconomy.ups.com         
-  app_type                = "egos"
-  custom_domain_name      = "egosapp-dev-custom-domain" //yellow.wweconomy.ups.com
-  tenant_id               = var.tenant_id
-  profile_name            = "afd-webapp-dev-profile"
-  waf_policy_id           = var.waf_policy_id
-  kv_id                   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.KeyVault/vaults/kv2-wwe-dev-eastus2-v3"
-  waf_policies            = var.waf_policies
-  resource_group          = var.resource_group_name
-  endpoint_name           = "afd-webapp-dev-endpoint"
-  kv_secret_name          = "afd-secret-dev"
-  secret_name             = "dev-cert-eastus2"
-  region                  = var.location
-  security_policy_name    = "afd-webapp-dev-security-policy"
-  environment             = "dev"
-  depends_on = [module.keyvault]
-}
+#   # Required inputs
+#   organization_suffix     = "wwe"
+#   kv_secret_version       = "b043036676834a6182952d9d5fce5fa6"
+#   custom_domain_hostname  = "yellow.wweconomy.ups.com"   //gfegosapi.wweconomy.ups.com         
+#   app_type                = "egos"
+#   custom_domain_name      = "egosapp-dev-custom-domain" //yellow.wweconomy.ups.com
+#   tenant_id               = var.tenant_id
+#   profile_name            = "afd-webapp-dev-profile"
+#   waf_policy_id           = var.waf_policy_id
+#   kv_id                   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.KeyVault/vaults/kv2-wwe-dev-eastus2-v3"
+#   waf_policies            = var.waf_policies
+#   resource_group          = var.resource_group_name
+#   endpoint_name           = "afd-webapp-dev-endpoint"
+#   kv_secret_name          = "afd-secret-dev"
+#   secret_name             = "dev-cert-eastus2"
+#   region                  = var.location
+#   security_policy_name    = "afd-webapp-dev-security-policy"
+#   environment             = "dev"
+#   depends_on = [module.keyvault]
+# }
 
 
 
@@ -56,12 +56,6 @@ resource "azurerm_cdn_frontdoor_endpoint" "fde" {
   name                     = "ep-afd-wwe-dev-akezd5a3hcd9a0ce"
   tags                     = {}
 }
-
-
-
-
-
-
 
 
 #------------------------origins---------------------------------------
