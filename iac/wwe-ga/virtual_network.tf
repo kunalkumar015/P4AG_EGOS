@@ -48,7 +48,7 @@ resource "azurerm_subnet" "agw_subnet" {
 resource "azurerm_subnet" "pep_subnet" {//"agw_subnet" 
   name                 = "snet_pep_webapps"//"snet_agw"
   resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.wwe_egos.name
+  virtual_network_name = azurerm_virtual_network.wwe_ga.name
   address_prefixes     = [var.pep_webapps_address_space]
 
   lifecycle {
