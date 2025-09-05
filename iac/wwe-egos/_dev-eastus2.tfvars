@@ -23,11 +23,11 @@
 
 tenant_id                      = "e7520e4d-d5a0-488d-9e9f-949faae7dce8"
 subscription_id                = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
-vnet_address_space             = "10.235.89.128/27"
+vnet_address_space             = ["10.235.89.128/27", "10.235.100.32/27"]
 shared_subnet_address          = "10.235.89.128/28"
 //webapps_subnet_address         = "10.235.89.128/28"
 //privateendpoints_address_space = "10.235.89.128/28"//"10.235.89.144/29"//merge this with webapp
-pe_snet_address_space          = "10.235.89.144/28" 
+pe_snet_address_space          = ["10.235.89.144/28", "10.235.100.32/27"] 
 app_sku                        = "B2"
 app_type                       = "egos"
 account_replication_type       = "LRS"

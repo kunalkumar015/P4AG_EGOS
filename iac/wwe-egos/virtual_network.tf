@@ -3,7 +3,7 @@ resource "azurerm_virtual_network" "wwe_egos" {
   resource_group_name = "rg-wwe-${local.environment_sanitized}"
   location            = data.azurerm_resource_group.resource_group.location
 
-  address_space = [var.vnet_address_space]
+  address_space = var.vnet_address_space
   lifecycle {
     ignore_changes = [
       ddos_protection_plan,
@@ -37,7 +37,7 @@ resource "azurerm_subnet" "pe_subnet" {//"agw_subnet"
   name                 = "snet_pe"//"snet_agw"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.wwe_egos.name
-  address_prefixes     = [var.pe_snet_address_space]
+  address_prefixes     = var.pe_snet_address_space
 
   lifecycle {
     ignore_changes = [
