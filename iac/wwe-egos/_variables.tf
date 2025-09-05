@@ -16,6 +16,7 @@ variable "tenant_id" {
 variable "subscription_id" {
   type = string
 }
+
 variable "vnet_address_space" {
   type = list(string)
 }
