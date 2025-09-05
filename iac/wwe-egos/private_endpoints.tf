@@ -30,7 +30,7 @@ resource "azurerm_private_endpoint" "app_service_pe" {
   name                = "pep-${each.key}"
   location            = "eastus2"
   resource_group_name = "rg-wwe-dev"
-  subnet_id           = var.subnet_id
+  subnet_id           = var.pep_webapps_address_space_id
 
   private_service_connection {
     name                           = "psc-${each.key}"

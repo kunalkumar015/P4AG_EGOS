@@ -135,7 +135,11 @@ variable "custom_domain_hostname" {
 variable "key_vault_rg"{}
 variable "key_vault_name"{}
 variable "pe_snet_address_space"{}
+variable "pep_webapps_address_space"{}
 variable "sql_admin_password" {}
+variable "pep_webapps_address_space_id" {
+  
+}
 # variable "nuget_address_space" {
 #   type = string
 # }
