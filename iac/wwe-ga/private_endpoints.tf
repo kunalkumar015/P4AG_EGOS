@@ -8,9 +8,19 @@ variable "app_services" {
     "ase2-wwe-egos-opstrackingwebapi-dev-eastus2",
     "ase2-wwe-egos-tradedirect-dev-eastus2",
     "ase2-wwe-egos-webservices-dev-eastus2",
-    "ase2-wwe-egos-dao-dev-eastus2",
-    "ase2-wwe-egos-dashboard-dev-eastus2"
-   
+    "ase2-wwe-ga-carthandoff-dev-eastus2",
+    "ase2-wwe-ga-classifying-dev-eastus2",
+    "ase2-wwe-ga-dashboard-dev-eastus2",
+    "ase2-wwe-ga-globalcheckout-dev-eastus2",
+    "ase2-wwe-ga-hangfire-dev-eastus2",
+    "ase2-wwe-ga-label-dev-eastus2",
+    "ase2-wwe-ga-prince-pdf2-dev-eastus2",
+    "ase2-wwe-ga-shopifyintegrationws-dev-eastus2",
+    "ase2-wwe-ga-webservices-dev-eastus2",
+    "ase2-wwe-ga-tracking-dev-eastus2",
+    "ase2-wwe-ga-webjobs-dev-eastus2"
+
+
   ]
 }
 

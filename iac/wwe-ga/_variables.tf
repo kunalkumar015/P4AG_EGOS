@@ -67,6 +67,8 @@ variable "shared_subnet_address" {
   type = string
 }
 
+variable "pep_webapps_address_space"{}
+variable "pep_webapps_address_space_id"{}
 variable "app_name" {
   type        = string
   description = "(required) appS name for deployment"
