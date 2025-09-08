@@ -4,7 +4,7 @@ resource "azurerm_virtual_network" "wwe_ga" {
   resource_group_name = "rg-wwe-${local.environment_sanitized}"
   location            = data.azurerm_resource_group.resource_group.location
 
-  address_space = [var.vnet_address_space]
+  address_space = var.vnet_address_space
   lifecycle {
     ignore_changes = [
       ddos_protection_plan,

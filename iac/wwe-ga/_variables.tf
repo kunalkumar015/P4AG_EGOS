@@ -14,7 +14,7 @@ variable "subscription_id" {
   type = string
 }
 variable "vnet_address_space" {
-  type = string
+  type = list(string)
 }
 # variable "privateendpoints_address_space" {
 #   type = string
