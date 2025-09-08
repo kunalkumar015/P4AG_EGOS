@@ -1,13 +1,6 @@
 variable "app_services" {
   type = list(string)
   default = [
-    "ase2-wwe-egos-egos-tracking-api-dev-eastus2",
-    "ase2-wwe-egos-egosapi-dev-eastus2",
-    "ase2-wwe-egos-hangfire-dev-eastus2",
-    "ase2-wwe-egos-nuget-dev-eastus2",
-    "ase2-wwe-egos-opstrackingwebapi-dev-eastus2",
-    "ase2-wwe-egos-tradedirect-dev-eastus2",
-    "ase2-wwe-egos-webservices-dev-eastus2",
     "ase2-wwe-ga-carthandoff-dev-eastus2",
     "ase2-wwe-ga-classifying-dev-eastus2",
     "ase2-wwe-ga-dashboard-dev-eastus2",
@@ -19,7 +12,6 @@ variable "app_services" {
     "ase2-wwe-ga-webservices-dev-eastus2",
     "ase2-wwe-ga-tracking-dev-eastus2",
     "ase2-wwe-ga-webjobs-dev-eastus2"
-
 
   ]
 }
