@@ -23,7 +23,7 @@
 
 
 subscription_id                = "b09bcb9d-e055-4950-a9dd-2ab6002ef86c"
-vnet_address_space             = ["10.235.89.160/27", "10.235.100.48/28"]
+vnet_address_space             = "10.235.89.160/27"
 shared_subnet_address         = "10.235.89.160/28"
 //privateendpoints_address_space = "10.235.89.176/29"
 pep_webapps_address_space      = "10.235.100.48/28"
