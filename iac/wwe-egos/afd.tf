@@ -351,7 +351,6 @@ resource "azurerm_cdn_frontdoor_origin" "ga-webjobs" {
 
 
 
-
 #------------------------origin_groups---------------------------------------
 
 
