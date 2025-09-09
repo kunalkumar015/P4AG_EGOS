@@ -1,13 +1,13 @@
 
 # ------------------UAT(eastus2)--------------------------------
 
-resource "azurerm_virtual_network" "wwe_ga_uat_eastus2" {
+resource "azurerm_virtual_network" "wwe_egos_uat_eastus2" {
   name                = "vnet-wwe-${local.app_type}-uat-eastus2"
   provider             = azurerm.uat
   resource_group_name = "rg-wwe-uat"
   location            = "eastus2"
 
-  address_space = ["172.22.35.192/26"]
+  address_space = ["172.22.35.192/27"]
   lifecycle {
     ignore_changes = [
       ddos_protection_plan,
@@ -20,11 +20,11 @@ resource "azurerm_virtual_network" "wwe_ga_uat_eastus2" {
 
 
 resource "azurerm_subnet" "uat_shared_eastus2" {
-  name                 = "shared-subnet-uat"
+  name                 = "webapps-subnet-uat-eastus2"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
-  address_prefixes     = ["172.22.39.0/27"]
+  address_prefixes     = ["172.22.35.192/28"]
 
   delegation {
     name = "delegation"
@@ -35,12 +35,12 @@ resource "azurerm_subnet" "uat_shared_eastus2" {
   }
 }
 
-resource "azurerm_subnet" "uat_agw_subnet_eastus2" {
-  name                 = "snet_agw_uat"
+resource "azurerm_subnet" "uat_pe_subnet_eastus2" {
+  name                 = "snet_pep_uat_eastus2"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
-  address_prefixes     = ["172.22.35.224/27"]
+  address_prefixes     = ["172.22.35.208/28"]
 
   lifecycle {
     ignore_changes = [
@@ -59,7 +59,7 @@ resource "azurerm_virtual_network" "wwe_ga_uat_centralus" {
   resource_group_name = "rg-wwe-uat"
   location            = "centralus"
 
-  address_space = ["172.22.39.0/26"]
+  address_space = ["172.22.39.0/27"]
   lifecycle {
     ignore_changes = [
       ddos_protection_plan,
@@ -72,11 +72,11 @@ resource "azurerm_virtual_network" "wwe_ga_uat_centralus" {
 
 
 resource "azurerm_subnet" "uat_shared_centralus" {
-  name                 = "shared-subnet-uat"
+  name                 = "webapps-subnet-uat-centralus"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
-  address_prefixes     = ["172.22.39.0/27"]
+  address_prefixes     = ["172.22.39.0/28"]
 
   delegation {
     name = "delegation"
@@ -88,11 +88,11 @@ resource "azurerm_subnet" "uat_shared_centralus" {
 }
 
 resource "azurerm_subnet" "uat_agw_subnet_centralus" {
-  name                 = "snet_agw_uat"
+  name                 = "snet_shared_uat"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
-  address_prefixes     = ["172.22.39.32/27"]
+  address_prefixes     = ["172.22.39.16/28"]
 
   lifecycle {
     ignore_changes = [
