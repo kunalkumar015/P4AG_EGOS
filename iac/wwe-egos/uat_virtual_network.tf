@@ -20,7 +20,7 @@ resource "azurerm_virtual_network" "wwe_egos_uat_eastus2" {
 
 
 resource "azurerm_subnet" "uat_shared_eastus2" {
-  name                 = "webapps-subnet-uat-eastus2"
+  name                 = "webapp-shared-subnet-uat-eastus2"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
@@ -36,7 +36,7 @@ resource "azurerm_subnet" "uat_shared_eastus2" {
 }
 
 resource "azurerm_subnet" "uat_pe_subnet_eastus2" {
-  name                 = "snet_pep_uat_eastus2"
+  name                 = "pep_snet_uat_eastus2"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-eastus2"
@@ -53,7 +53,7 @@ resource "azurerm_subnet" "uat_pe_subnet_eastus2" {
 
 # ------------------UAT(centralus)--------------------------------
 
-resource "azurerm_virtual_network" "wwe_ga_uat_centralus" {
+resource "azurerm_virtual_network" "wwe_egos_uat_centralus" {
   name                = "vnet-wwe-${local.app_type}-uat-centralus"
   provider             = azurerm.uat
   resource_group_name = "rg-wwe-uat"
@@ -72,7 +72,7 @@ resource "azurerm_virtual_network" "wwe_ga_uat_centralus" {
 
 
 resource "azurerm_subnet" "uat_shared_centralus" {
-  name                 = "webapps-subnet-uat-centralus"
+  name                 = "webapp-shared-subnet-uat-centralus"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
@@ -87,8 +87,8 @@ resource "azurerm_subnet" "uat_shared_centralus" {
   }
 }
 
-resource "azurerm_subnet" "uat_agw_subnet_centralus" {
-  name                 = "snet_shared_uat"
+resource "azurerm_subnet" "uat_pe_subnet_centralus" {
+  name                 = "pep_snet_uat_centralus"
   provider             = azurerm.uat
   resource_group_name  = "rg-wwe-uat"
   virtual_network_name = "vnet-wwe-${local.app_type}-uat-centralus"
