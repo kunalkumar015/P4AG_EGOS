@@ -868,7 +868,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_api" {
   enabled                         = true
   forwarding_protocol             = "HttpsOnly"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-egos-api"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -885,7 +885,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-nuget"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -902,7 +902,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-ga-addinfo"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -920,7 +920,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-ga-hangfire"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -937,7 +937,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-egos-tracking"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -954,7 +954,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-egos-hangfire"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -971,7 +971,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-ga-globalcheckout"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -988,7 +988,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-egos-dashboard"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -1005,7 +1005,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-egos-tradedirect"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Https"]
@@ -1022,7 +1022,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-ga-tracking"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
@@ -1039,7 +1039,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
   enabled                         = true
   forwarding_protocol             = "MatchRequest"
   https_redirect_enabled          = true
-  link_to_default_domain          = false
+  link_to_default_domain          = true
   name                            = "rt-egos-webservices"
   patterns_to_match               = ["/*"]
   supported_protocols             = ["Http", "Https"]
