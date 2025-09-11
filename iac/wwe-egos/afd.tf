@@ -72,6 +72,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-dashboard" {
   origin_host_header             = "ase2-wwe-egos-dashboard-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_dashboard
+  ]
 }
 
 resource "azurerm_cdn_frontdoor_origin" "egos-tracking" {
@@ -85,6 +89,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-tracking" {
   origin_host_header             = "ase2-wwe-egos-opstrackingwebapi-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_tracking
+  ]
 }
 
 resource "azurerm_cdn_frontdoor_origin" "egos-webservices" {
@@ -98,6 +106,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-webservices" {
   origin_host_header             = "ase2-wwe-egos-webservices-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_webservices
+  ]
 }
 
 resource "azurerm_cdn_frontdoor_origin" "egos-hangfire" {
@@ -111,6 +123,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-hangfire" {
   origin_host_header             = "ase2-wwe-egos-hangfire-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_hangfire
+  ]
 }
 
 
@@ -126,6 +142,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-shop" {
   origin_host_header             = "ase2-wwe-ga-shopifyintegrationws-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_shop
+  ]
 }
 
 # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-tracking/origins/origin-ga-tracking-eastus2"
@@ -140,6 +160,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-tracking" {
   origin_host_header             = "ase2-wwe-ga-tracking-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_tracking
+  ]
 }
 
 # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-globalcheckout/origins/origin-ga-globalcheckout-eastus2"
@@ -154,6 +178,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-globalcheckout" {
   origin_host_header             = "ase2-wwe-ga-globalcheckout-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_globalcheckout
+  ]
 }
 
 resource "azurerm_cdn_frontdoor_origin" "ga-addinfo" { #ga-carthandoff
@@ -167,6 +195,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-addinfo" { #ga-carthandoff
   origin_host_header             = "ase2-wwe-ga-carthandoff-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_addinfo
+  ]
 }
 
 resource "azurerm_cdn_frontdoor_origin" "ga-hangfire" {
@@ -180,6 +212,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-hangfire" {
   origin_host_header             = "ase2-wwe-ga-hangfire-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_hangfire
+  ]
 }
 
 resource "azurerm_cdn_frontdoor_origin" "egos-tradedirect" {
@@ -193,6 +229,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-tradedirect" {
   origin_host_header             = "ase2-wwe-egos-tradedirect-dev-eastus2.azurewebsites.net"
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_tradedirect
+  ]
 }
 
 # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/nuget/origins/origin-shared-nuget-eastus2"
@@ -206,7 +246,12 @@ resource "azurerm_cdn_frontdoor_origin" "nuget" {
   name                           = "origin-shared-nuget-eastus2"
   origin_host_header             = "ase2-wwe-shared-nuget-dev-eastus2.azurewebsites.net"
   priority                       = 2
-  weight                         = 1000
+  weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.nuget
+  ]
+
 }
 
 # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-egosapi/origins/origin-egos-egosapi-dev-eastus2"
@@ -220,7 +265,11 @@ resource "azurerm_cdn_frontdoor_origin" "egos-egosapi" {
   name                           = "origin-egos-egosapi-dev-eastus2"
   origin_host_header             = "ase2-wwe-egos-egosapi-dev-eastus2.azurewebsites.net"
   priority                       = 1
-  weight                         = 1000
+  weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_egosapi
+  ]
 }
 
 # ase2-wwe-egos-dao-dev-eastus2
@@ -235,6 +284,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-dao" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_dao
+  ]
 }
 
 # ase2-wwe-egos-egos-tracking-api-dev-eastus2
@@ -249,6 +302,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-tracking-api" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_tracking_api
+  ]
 }
 
 # ase2-wwe-egos-nuget-dev-eastus2
@@ -263,6 +320,10 @@ resource "azurerm_cdn_frontdoor_origin" "egos-nuget" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.egos_nuget
+  ]
 }
 
 # ase2-wwe-ga-classifying-dev-eastus2
@@ -277,6 +338,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-classifying" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_classifying
+  ]
 }
 
 # ase2-wwe-ga-dashboard-dev-eastus2
@@ -291,6 +356,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-dashboard" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_dashboard
+  ]
 }
 
 # ase2-wwe-ga-label-dev-eastus2
@@ -305,6 +374,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-label" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_label
+  ]
 }
 
 # ase2-wwe-ga-prince-pdf2-dev-eastus2
@@ -319,6 +392,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-prince-pdf2" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_prince_pdf2
+  ]
 }
 
 # ase2-wwe-ga-webservices-dev-eastus2
@@ -333,6 +410,11 @@ resource "azurerm_cdn_frontdoor_origin" "ga-webservices" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_webservices
+  ]
+
 }
 
 # ase2-wwe-ga-webjobs-dev-eastus2
@@ -347,6 +429,10 @@ resource "azurerm_cdn_frontdoor_origin" "ga-webjobs" {
   https_port                     = 443
   priority                       = 1
   weight                         = 1
+
+  depends_on = [
+    azurerm_cdn_frontdoor_origin_group.ga_webjobs
+  ]
 }
 
 
