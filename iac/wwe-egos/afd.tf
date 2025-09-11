@@ -47,15 +47,15 @@ resource "azurerm_cdn_frontdoor_profile" "fd" {
 
 }
 
-# #------------------------frontdoor endpoint---------------------------------------
+#------------------------frontdoor endpoint---------------------------------------
 
 
-# resource "azurerm_cdn_frontdoor_endpoint" "fde" {
-#   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   enabled                  = true
-#   name                     = "ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   tags                     = {}
-# }
+resource "azurerm_cdn_frontdoor_endpoint" "fde" {
+  cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  enabled                  = true
+  name                     = "endpoint-afd-wwe-dev"
+  tags                     = {}
+}
 
 
 # #------------------------origins---------------------------------------
