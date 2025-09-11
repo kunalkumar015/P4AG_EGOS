@@ -448,7 +448,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_hangfire" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/Schedule"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -467,7 +467,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_globalcheckout" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/v1"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -486,7 +486,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "egos_webservices" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/Help/Api/POST-api-EmailNotifications-CreateOrUpdatePrealert"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -505,7 +505,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "egos_dashboard" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/Account/Account"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -524,7 +524,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "egos_tradedirect" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/Help/Api/POST-api-TDCreateParcel"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -543,7 +543,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "egos_egosapi" {
   session_affinity_enabled                                  = true
   health_probe {
     interval_in_seconds = 100
-    path                = "/Help/Examples"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -581,7 +581,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_tracking" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/en/merchant-claims"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -619,7 +619,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "egos_hangfire" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/Account/Login"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -657,7 +657,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_shop" {
   session_affinity_enabled                                  = false
   health_probe {
     interval_in_seconds = 100
-    path                = "/v1"
+    path                = "/"
     protocol            = "Https"
     request_type        = "HEAD"
   }
@@ -672,7 +672,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "egos_dao" {
   name                                                      = "egos-dao"
   cdn_frontdoor_profile_id                                  = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
   restore_traffic_time_to_healed_or_new_endpoint_in_minutes = 0
-  session_affinity_enabled                                  = false
+  session_affinity_enabled                                  = true
 
   health_probe {
     interval_in_seconds = 100
@@ -855,195 +855,199 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_webjobs" {
 
 
 
-# # --------------------------frontdoor_route-------------------------------------
+# --------------------------frontdoor_route-------------------------------------
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_api" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-yellow-wweconomy-ups-com-e6ee"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-egosapi"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "HttpsOnly"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-api"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_egos_api" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-yellow-wweconomy-ups-com-e6ee"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-egosapi"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos_api.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "HttpsOnly"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-egos-api"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/nuget"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-nuget"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/nuget"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.nuget.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-nuget"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-addinfo"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-addinfo"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-addinfo"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.ga_addinfo.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-ga-addinfo"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-hangfire"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-hangfire"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-hangfire"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.ga_hangfire.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-ga-hangfire"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tracking"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-tracking"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tracking"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos_tracking.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-egos-tracking"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-hangfire"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-hangfire"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-hangfire"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos_hangfire.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-egos-hangfire"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-globalcheckout"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-globalcheckout"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-globalcheckout"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.ga_globalcheckout.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-ga-globalcheckout"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-dashboard"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-dashboard"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-dashboard"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos_dashboard.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-egos-dashboard"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tradedirect"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-tradedirect"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-tradedirect"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos_tradedirect.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-egos-tradedirect"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-tracking"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-ga-tracking"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/ga-tracking"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos_tracking.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-ga-tracking"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
 
-# # __generated__ by Terraform
-# resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
-#   cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-yellow-wweconomy-ups-com"]
-#   cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
-#   cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-webservices"
-#   cdn_frontdoor_origin_ids        = []
-#   cdn_frontdoor_origin_path       = ""
-#   cdn_frontdoor_rule_set_ids      = []
-#   enabled                         = true
-#   forwarding_protocol             = "MatchRequest"
-#   https_redirect_enabled          = true
-#   link_to_default_domain          = false
-#   name                            = "rt-egos-webservices"
-#   patterns_to_match               = ["/*"]
-#   supported_protocols             = ["Http", "Https"]
-# }
+# __generated__ by Terraform
+resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
+  cdn_frontdoor_custom_domain_ids = ["/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-yellow-wweconomy-ups-com"]
+  cdn_frontdoor_endpoint_id       = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/afdEndpoints/ep-afd-wwe-dev-akezd5a3hcd9a0ce"
+  cdn_frontdoor_origin_group_id   = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/originGroups/egos-webservices"
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos_webservices.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                         = true
+  forwarding_protocol             = "MatchRequest"
+  https_redirect_enabled          = true
+  link_to_default_domain          = false
+  name                            = "rt-egos-webservices"
+  patterns_to_match               = ["/*"]
+  supported_protocols             = ["Http", "Https"]
+}
+
+
+
+
 
 # #------------------------frontdoor waf---------------------------------------
 
