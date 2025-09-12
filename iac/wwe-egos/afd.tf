@@ -859,7 +859,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_webjobs" {
 resource "azurerm_cdn_frontdoor_route" "rt_egos_api" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_egosapi.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos_egosapi.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-egosapi.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -889,7 +889,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
 resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_addinfo.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga_addinfo.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga-addinfo.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -904,7 +904,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
 resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_hangfire.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga_hangfire.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga-hangfire.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -919,7 +919,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
 resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_tracking.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos_tracking.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-tracking.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -934,7 +934,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
 resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_hangfire.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos_hangfire.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-hangfire.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -949,7 +949,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
 resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_globalcheckout.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga_globalcheckout.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga-globalcheckout.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -964,7 +964,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
 resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_dashboard.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos_dashboard.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-dashboard.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -979,7 +979,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
 resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_tradedirect.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos_tradedirect.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-tradedirect.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -994,7 +994,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
 resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_tracking.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos_tracking.id] # check if correct origin used
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-tracking.id] # check if correct origin used
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
@@ -1009,7 +1009,7 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
 resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_webservices.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos_webservices.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-webservices.id]
   cdn_frontdoor_origin_path     = ""
   cdn_frontdoor_rule_set_ids    = []
   enabled                       = true
