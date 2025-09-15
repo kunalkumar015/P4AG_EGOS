@@ -6,7 +6,6 @@ locals {
   subnet_name            = "webapp-shared-subnet-uat-eastus2"
   sku_name               = "P1v2"
   environment            = "uat"
-  environment_sanitized  = "uat"
   apps = [
     "dashboard",
     "webservices",
