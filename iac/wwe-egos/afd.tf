@@ -41,7 +41,7 @@ data "azurerm_key_vault" "kv" {
 
 data "azurerm_key_vault_certificate" "yellow_cert" {
   name         = "yellow-wweconomy-ups-com"
-  key_vault_id = data.azurerm_key_vault.kv.id
+  key_vault_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.KeyVault/vaults/kv2-wwe-dev-eastus2-v3"
 }
 
 
@@ -1340,6 +1340,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_yellow_wweconomy_ups
     }
   }
 }
+
 
 # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-tradedirect-latest"
 resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_tradedirect_latest" {
