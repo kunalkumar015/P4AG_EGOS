@@ -1146,12 +1146,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-nuget"
   patterns_to_match              = ["/nuget/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.nuget.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
@@ -1163,12 +1163,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-ga-addinfo"
   patterns_to_match              = ["/ga-addinfo/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_addinfo.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
@@ -1180,12 +1180,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-ga-hangfire"
   patterns_to_match              = ["/ga-hangfire/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_hangfire.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
@@ -1197,12 +1197,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-egos-tracking"
   patterns_to_match              = ["/egos-tracking/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_tracking.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
@@ -1214,12 +1214,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-egos-hangfire"
   patterns_to_match              = ["/egos-hangfire/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_hangfire.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
@@ -1231,12 +1231,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-ga-globalcheckout"
   patterns_to_match              = ["/ga-globalcheckout/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_globalcheckout.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
@@ -1248,12 +1248,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-egos-dashboard"
   patterns_to_match              = ["/egos-dashboard/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_dashboard.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
@@ -1265,12 +1265,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-egos-tradedirect"
   patterns_to_match              = ["/egos-tradedirect/*"]
   supported_protocols            = ["Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_tradedirect.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
@@ -1282,12 +1282,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-ga-tracking"
   patterns_to_match              = ["/ga-tracking/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_tracking.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
@@ -1299,12 +1299,12 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
   enabled                        = true
   forwarding_protocol            = "MatchRequest"
   https_redirect_enabled         = true
-  link_to_default_domain         = false
+  link_to_default_domain         = true
   name                           = "rt-egos-webservices"
   patterns_to_match              = ["/egos-webservices/*"]
   supported_protocols            = ["Http", "Https"]
 
-  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_webservices.id]
+  cdn_frontdoor_custom_domain_ids = []
 }
 
 
