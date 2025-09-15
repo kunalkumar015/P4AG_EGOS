@@ -1309,59 +1309,59 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
 
 
 
-# #------------------------frontdoor waf---------------------------------------
+#------------------------frontdoor waf---------------------------------------
 
-# resource "azurerm_cdn_frontdoor_firewall_policy" "waf_policy" {
-#   name                = "afdWafPolicy"
-#   resource_group_name = var.resource_group_name
-#   sku_name            = "Premium_AzureFrontDoor"
-#   mode                = "Prevention"
+resource "azurerm_cdn_frontdoor_firewall_policy" "waf_policy" {
+  name                = "afdWafPolicy"
+  resource_group_name = var.resource_group_name
+  sku_name            = "Premium_AzureFrontDoor"
+  mode                = "Prevention"
 
-#   managed_rule {
-#     type    = "DefaultRuleSet"
-#     version = "1.0"
-#     action  = "Block"
-#   }
-# }
-
-
+  managed_rule {
+    type    = "DefaultRuleSet"
+    version = "1.0"
+    action  = "Block"
+  }
+}
 
 
-# #------------------------frontdoor secrets---------------------------------------
 
 
-# # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
-# resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_yellow_wweconomy_ups_com_latest" {
-#   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
-#   secret {
-#     customer_certificate {
-#       key_vault_certificate_id = "https://kv2-wwe-dev-eastus2-v3.vault.azure.net/certificates/yellow-wweconomy-ups-com"
-#     }
-#   }
-# }
+#------------------------frontdoor secrets---------------------------------------
 
-# # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-tradedirect-latest"
-# resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_tradedirect_latest" {
-#   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "kv2-wwe-dev-eastus2-v3-tradedirect-latest"
-#   secret {
-#     customer_certificate {
-#       key_vault_certificate_id = "https://kv2-wwe-dev-eastus2-v3.vault.azure.net/certificates/tradedirect"
-#     }
-#   }
-# }
 
-# # __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-wwe-dev-latest"
-# resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
-#   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-#   name                     = "kv2-wwe-dev-eastus2-v3-wwe-dev-latest"
-#   secret {
-#     customer_certificate {
-#       key_vault_certificate_id = "https://kv2-wwe-dev-eastus2-v3.vault.azure.net/certificates/wwe-dev"
-#     }
-#   }
-# }
+# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
+resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_yellow_wweconomy_ups_com_latest" {
+  cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  name                     = "kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
+  secret {
+    customer_certificate {
+      key_vault_certificate_id = data.azurerm_key_vault_certificate.yellow_cert.id
+    }
+  }
+}
+
+# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-tradedirect-latest"
+resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_tradedirect_latest" {
+  cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  name                     = "kv2-wwe-dev-eastus2-v3-tradedirect-latest"
+  secret {
+    customer_certificate {
+      key_vault_certificate_id = data.azurerm_key_vault_certificate.yellow_cert.id
+    }
+  }
+}
+
+# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-wwe-dev-latest"
+resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
+  cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
+  name                     = "kv2-wwe-dev-eastus2-v3-wwe-dev-latest"
+  secret {
+    customer_certificate {
+      key_vault_certificate_id = data.azurerm_key_vault_certificate.yellow_cert.id
+    }
+  }
+}
 
 
 
