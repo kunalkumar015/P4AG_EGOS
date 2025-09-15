@@ -862,259 +862,259 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_webjobs" {
 
 
 
-# --------------------------custom_domain-------------------------------------
+# # --------------------------custom_domain-------------------------------------
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_dashboard" {
-  name                      = "egos-dashboard-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-dashboard.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_dashboard" {
+#   name                      = "egos-dashboard-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-dashboard.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking" {
-  name                      = "egos-tracking-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-tracking.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking" {
+#   name                      = "egos-tracking-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-tracking.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_webservices" {
-  name                      = "egos-webservices-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-webservices.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_webservices" {
+#   name                      = "egos-webservices-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-webservices.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_globalcheckout" {
-  name                      = "ga-globalcheckout-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-globalcheckout.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_globalcheckout" {
+#   name                      = "ga-globalcheckout-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-globalcheckout.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "nuget" {
-  name                      = "nuget-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "nuget.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "nuget" {
+#   name                      = "nuget-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "nuget.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_addinfo" {
-  name                      = "ga-addinfo-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-addinfo.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_addinfo" {
+#   name                      = "ga-addinfo-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-addinfo.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_tradedirect" {
-  name                      = "egos-tradedirect-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-tradedirect.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_tradedirect" {
+#   name                      = "egos-tradedirect-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-tradedirect.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_hangfire" {
-  name                      = "ga-hangfire-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-hangfire.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_hangfire" {
+#   name                      = "ga-hangfire-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-hangfire.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_hangfire" {
-  name                      = "egos-hangfire-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-hangfire.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_hangfire" {
+#   name                      = "egos-hangfire-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-hangfire.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_egosapi" {
-  name                      = "egos-egosapi-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-egosapi.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_egosapi" {
+#   name                      = "egos-egosapi-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-egosapi.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_dao" {
-  name                      = "egos-dao-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-dao.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_dao" {
+#   name                      = "egos-dao-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-dao.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking_api" {
-  name                      = "egos-tracking-api-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-tracking-api.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking_api" {
+#   name                      = "egos-tracking-api-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-tracking-api.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "egos_nuget" {
-  name                      = "egos-nuget-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "egos-nuget.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "egos_nuget" {
+#   name                      = "egos-nuget-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "egos-nuget.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_classifying" {
-  name                      = "ga-classifying-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-classifying.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_classifying" {
+#   name                      = "ga-classifying-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-classifying.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_dashboard" {
-  name                      = "ga-dashboard-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-dashboard.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_dashboard" {
+#   name                      = "ga-dashboard-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-dashboard.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_label" {
-  name                      = "ga-label-yellow"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-label.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_label" {
+#   name                      = "ga-label-yellow"
+#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-label.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_prince_pdf2" {
-  name                      = "ga-prince-pdf2-yellow"
-  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-prince-pdf2.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_prince_pdf2" {
+#   name                      = "ga-prince-pdf2-yellow"
+#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-prince-pdf2.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_webservices" {
-  name                      = "ga-webservices-yellow"
-  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-webservices.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_webservices" {
+#   name                      = "ga-webservices-yellow"
+#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-webservices.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_webjobs" {
-  name                      = "ga-webjobs-yellow"
-  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-webjobs.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_webjobs" {
+#   name                      = "ga-webjobs-yellow"
+#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-webjobs.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_shop" {
-  name                      = "ga-shop-yellow"
-  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-shop.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_shop" {
+#   name                      = "ga-shop-yellow"
+#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-shop.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "ga_tracking" {
-  name                      = "ga-tracking-yellow"
-  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-  host_name                 = "ga-tracking.yellow.wweconomy.ups.com"
+# resource "azurerm_cdn_frontdoor_custom_domain" "ga_tracking" {
+#   name                      = "ga-tracking-yellow"
+#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+#   host_name                 = "ga-tracking.yellow.wweconomy.ups.com"
 
-  tls {
-    certificate_type        = "CustomerCertificate"
-    minimum_tls_version     = "TLS12"
-    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-  }
-}
+#   tls {
+#     certificate_type        = "CustomerCertificate"
+#     minimum_tls_version     = "TLS12"
+#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+#   }
+# }
 
 
 
