@@ -6,18 +6,18 @@ resource "azurerm_network_security_group" "uat_shared_nsg_eastus2" {
   location            = "eastus2"
   resource_group_name = "rg-wwe-uat"
 
-  security_rule {
-    name                       = "Allow-HTTP-Inbound"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*" #"80"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-    description                = "Allow HTTP from Internet"
-  }
+#   security_rule {
+#     name                       = "Allow-HTTP-Inbound"
+#     priority                   = 100
+#     direction                  = "Inbound"
+#     access                     = "Allow"
+#     protocol                   = "Tcp"
+#     source_port_range          = "*"
+#     destination_port_range     = "80"
+#     source_address_prefix      = "*"
+#     destination_address_prefix = "*"
+#     description                = "Allow HTTP from Internet"
+#   }
 
   security_rule {
     name                       = "Allow-HTTPS-Inbound"
@@ -26,7 +26,7 @@ resource "azurerm_network_security_group" "uat_shared_nsg_eastus2" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "*" #"443"
+    destination_port_range     = "443"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
     description                = "Allow HTTPS from Internet"
@@ -39,7 +39,7 @@ resource "azurerm_network_security_group" "uat_shared_nsg_eastus2" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "*"# "443"
+    destination_port_range     = "443"
     source_address_prefix      = "AzureLoadBalancer"
     destination_address_prefix = "VirtualNetwork"
     description                = "Allow App Gateway access to backend WebApps"
