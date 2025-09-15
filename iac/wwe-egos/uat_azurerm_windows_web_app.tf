@@ -1,7 +1,3 @@
-provider "azurerm" {
-  alias   = "uat"
-  features {}
-}
 
 locals {
   region                 = "eastus2"
@@ -9,10 +5,8 @@ locals {
   vnet_name              = "vnet-wwe-egos-uat-eastus2"
   subnet_name            = "webapp-shared-subnet-uat-eastus2"
   sku_name               = "P1v2"
-  app_type               = "egos"
   environment            = "uat"
   environment_sanitized  = "uat"
-  region_sanitized       = "eastus2"
   apps = [
     "dashboard",
     "webservices",
