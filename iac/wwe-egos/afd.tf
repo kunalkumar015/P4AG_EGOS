@@ -32,11 +32,23 @@
 #   depends_on = [module.keyvault]
 # }
 
+# ------------------------kv for custom domian---------------------------------------
+
+data "azurerm_key_vault" "kv" {
+  name                = "kv2-wwe-dev-eastus2-v3"
+  resource_group_name = "rg-wwe-dev"
+}
+
+data "azurerm_key_vault_certificate" "yellow_cert" {
+  name         = "yellow-wweconomy-ups-com"
+  key_vault_id = data.azurerm_key_vault.kv.id
+}
+
 
 
 # ------------------------frontdoor profile---------------------------------------
 
-resource "azurerm_cdn_frontdoor_profile" "fd" {
+resource "azurerm_cdn_frontdoor_profile" "afd" {
   name                     = "afd-wwe-dev"
   resource_group_name      = var.resource_group_name
   response_timeout_seconds = 60
@@ -850,6 +862,259 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_webjobs" {
 
 
 
+# --------------------------custom_domain-------------------------------------
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_dashboard" {
+  name                      = "egos-dashboard-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-dashboard.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking" {
+  name                      = "egos-tracking-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-tracking.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_webservices" {
+  name                      = "egos-webservices-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-webservices.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_globalcheckout" {
+  name                      = "ga-globalcheckout-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-globalcheckout.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "nuget" {
+  name                      = "nuget-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "nuget.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_addinfo" {
+  name                      = "ga-addinfo-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-addinfo.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_tradedirect" {
+  name                      = "egos-tradedirect-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-tradedirect.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_hangfire" {
+  name                      = "ga-hangfire-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-hangfire.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_hangfire" {
+  name                      = "egos-hangfire-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-hangfire.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_egosapi" {
+  name                      = "egos-egosapi-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-egosapi.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_dao" {
+  name                      = "egos-dao-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-dao.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking_api" {
+  name                      = "egos-tracking-api-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-tracking-api.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_nuget" {
+  name                      = "egos-nuget-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-nuget.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_classifying" {
+  name                      = "ga-classifying-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-classifying.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_dashboard" {
+  name                      = "ga-dashboard-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-dashboard.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_label" {
+  name                      = "ga-label-yellow"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-label.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_prince_pdf2" {
+  name                      = "ga-prince-pdf2-yellow"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-prince-pdf2.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_webservices" {
+  name                      = "ga-webservices-yellow"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-webservices.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_webjobs" {
+  name                      = "ga-webjobs-yellow"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-webjobs.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_shop" {
+  name                      = "ga-shop-yellow"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-shop.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_tracking" {
+  name                      = "ga-tracking-yellow"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-tracking.yellow.wweconomy.ups.com"
+
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
+  }
+}
 
 
 
@@ -869,157 +1134,179 @@ resource "azurerm_cdn_frontdoor_route" "rt_egos_api" {
   name                          = "rt-egos-api"
   patterns_to_match             = ["/egos-api/*"]
   supported_protocols           = ["Http", "Https"]
+  # No custom domain linked here, keeps link_to_default_domain true
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_nuget" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.nuget.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.nuget.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-nuget"
-  patterns_to_match             = ["/nuget/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.nuget.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.nuget.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-nuget"
+  patterns_to_match              = ["/nuget/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.nuget.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_addinfo" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_addinfo.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga-addinfo.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-ga-addinfo"
-  patterns_to_match             = ["/ga-addinfo/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.ga_addinfo.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.ga-addinfo.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-ga-addinfo"
+  patterns_to_match              = ["/ga-addinfo/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_addinfo.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_hangfire" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_hangfire.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga-hangfire.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-ga-hangfire"
-  patterns_to_match             = ["/ga-hangfire/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.ga_hangfire.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.ga-hangfire.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-ga-hangfire"
+  patterns_to_match              = ["/ga-hangfire/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_hangfire.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_tracking" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_tracking.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-tracking.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-egos-tracking"
-  patterns_to_match             = ["/egos-tracking/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.egos_tracking.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos-tracking.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-egos-tracking"
+  patterns_to_match              = ["/egos-tracking/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_tracking.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_hangfire" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_hangfire.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-hangfire.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-egos-hangfire"
-  patterns_to_match             = ["/egos-hangfire/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.egos_hangfire.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos-hangfire.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-egos-hangfire"
+  patterns_to_match              = ["/egos-hangfire/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_hangfire.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_globalcheckout" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_globalcheckout.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.ga-globalcheckout.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-ga-globalcheckout"
-  patterns_to_match             = ["/ga-globalcheckout/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.ga_globalcheckout.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.ga-globalcheckout.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-ga-globalcheckout"
+  patterns_to_match              = ["/ga-globalcheckout/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_globalcheckout.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_dashboard" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_dashboard.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-dashboard.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-egos-dashboard"
-  patterns_to_match             = ["/egos-dashboard/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.egos_dashboard.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos-dashboard.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-egos-dashboard"
+  patterns_to_match              = ["/egos-dashboard/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_dashboard.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_tradedirect" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_tradedirect.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-tradedirect.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-egos-tradedirect"
-  patterns_to_match             = ["/egos-tradedirect/*"]
-  supported_protocols           = ["Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.egos_tradedirect.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos-tradedirect.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-egos-tradedirect"
+  patterns_to_match              = ["/egos-tradedirect/*"]
+  supported_protocols            = ["Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_tradedirect.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_ga_tracking" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.ga_tracking.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-tracking.id] # check if correct origin used
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-ga-tracking"
-  patterns_to_match             = ["/ga-tracking/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.ga_tracking.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos-tracking.id] # Double-check origin correctness!
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-ga-tracking"
+  patterns_to_match              = ["/ga-tracking/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.ga_tracking.id]
 }
 
 resource "azurerm_cdn_frontdoor_route" "rt_egos_webservices" {
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.fde.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.egos_webservices.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.egos-webservices.id]
-  cdn_frontdoor_origin_path     = ""
-  cdn_frontdoor_rule_set_ids    = []
-  enabled                       = true
-  forwarding_protocol           = "MatchRequest"
-  https_redirect_enabled        = true
-  link_to_default_domain        = false
-  name                          = "rt-egos-webservices"
-  patterns_to_match             = ["/egos-webservices/*"]
-  supported_protocols           = ["Http", "Https"]
+  cdn_frontdoor_endpoint_id       = azurerm_cdn_frontdoor_endpoint.fde.id
+  cdn_frontdoor_origin_group_id   = azurerm_cdn_frontdoor_origin_group.egos_webservices.id
+  cdn_frontdoor_origin_ids        = [azurerm_cdn_frontdoor_origin.egos-webservices.id]
+  cdn_frontdoor_origin_path       = ""
+  cdn_frontdoor_rule_set_ids      = []
+  enabled                        = true
+  forwarding_protocol            = "MatchRequest"
+  https_redirect_enabled         = true
+  link_to_default_domain         = false
+  name                           = "rt-egos-webservices"
+  patterns_to_match              = ["/egos-webservices/*"]
+  supported_protocols            = ["Http", "Https"]
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.egos_webservices.id]
 }
+
 
 
 # #------------------------frontdoor waf---------------------------------------

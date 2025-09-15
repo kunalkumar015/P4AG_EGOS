@@ -95,7 +95,7 @@ resource "azurerm_windows_web_app" "dashboard" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "dashboard" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_dashboard" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.dashboard.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -154,7 +154,7 @@ resource "azurerm_windows_web_app" "webservices" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "webservices" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_webservices" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.webservices.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -215,7 +215,7 @@ resource "azurerm_windows_web_app" "tradedirect" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "tradedirect" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_tradedirect" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.tradedirect.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -278,7 +278,7 @@ resource "azurerm_windows_web_app" "opstrackingwebapi" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "opstrackingwebapi" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_opstrackingwebapi" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.opstrackingwebapi.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -339,7 +339,7 @@ resource "azurerm_windows_web_app" "dao" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "dao" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_dao" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.dao.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -400,7 +400,7 @@ resource "azurerm_windows_web_app" "egosapi" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "egosapi" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_egosapi" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.egosapi.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -459,7 +459,7 @@ resource "azurerm_windows_web_app" "hangfire" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "hangfire" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_hangfire" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.hangfire.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -518,7 +518,7 @@ resource "azurerm_windows_web_app" "nuget" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "nuget" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_nuget" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.nuget.id
   subnet_id      = data.azurerm_subnet.shared.id
@@ -577,7 +577,7 @@ resource "azurerm_windows_web_app" "egos_tracking_api" {
   }
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "egos_tracking_api" {
+resource "azurerm_app_service_virtual_network_swift_connection" "uat_egos_tracking_api" {
   provider       = azurerm.uat
   app_service_id = azurerm_windows_web_app.egos_tracking_api.id
   subnet_id      = data.azurerm_subnet.shared.id
