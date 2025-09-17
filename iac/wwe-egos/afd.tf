@@ -14,9 +14,9 @@
 #   # Required inputs
 #   organization_suffix     = "wwe"
 #   kv_secret_version       = "b043036676834a6182952d9d5fce5fa6"
-#   custom_domain_hostname  = "yellow.wweconomy.ups.com"   //gfegosapi.wweconomy.ups.com         
+#   custom_domain_hostname  = "orange.wweconomy.ups.com"   //gfegosapi.wweconomy.ups.com         
 #   app_type                = "egos"
-#   custom_domain_name      = "egosapp-dev-custom-domain" //yellow.wweconomy.ups.com
+#   custom_domain_name      = "egosapp-dev-custom-domain" //orange.wweconomy.ups.com
 #   tenant_id               = var.tenant_id
 #   profile_name            = "afd-webapp-dev-profile"
 #   waf_policy_id           = var.waf_policy_id
@@ -39,8 +39,8 @@ data "azurerm_key_vault" "kv" {
   resource_group_name = "rg-wwe-dev"
 }
 
-data "azurerm_key_vault_certificate" "yellow_cert" {
-  name         = "yellow-wweconomy-ups-com"
+data "azurerm_key_vault_certificate" "orange_cert" {
+  name         = "orange-wweconomy"
   key_vault_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.KeyVault/vaults/kv2-wwe-dev-eastus2-v3"
 }
 
@@ -862,259 +862,259 @@ resource "azurerm_cdn_frontdoor_origin_group" "ga_webjobs" {
 
 
 
-# # --------------------------custom_domain-------------------------------------
+# --------------------------custom_domain-------------------------------------
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_dashboard" {
-#   name                      = "egos-dashboard-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-dashboard.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_dashboard" {
+  name                      = "egos-dashboard-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-dashboard.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking" {
-#   name                      = "egos-tracking-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-tracking.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking" {
+  name                      = "egos-tracking-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-tracking.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_webservices" {
-#   name                      = "egos-webservices-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-webservices.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_webservices" {
+  name                      = "egos-webservices-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-webservices.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_globalcheckout" {
-#   name                      = "ga-globalcheckout-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-globalcheckout.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_globalcheckout" {
+  name                      = "ga-globalcheckout-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-globalcheckout.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "nuget" {
-#   name                      = "nuget-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "nuget.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "nuget" {
+  name                      = "nuget-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "nuget.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_addinfo" {
-#   name                      = "ga-addinfo-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-addinfo.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_addinfo" {
+  name                      = "ga-addinfo-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-addinfo.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_tradedirect" {
-#   name                      = "egos-tradedirect-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-tradedirect.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_tradedirect" {
+  name                      = "egos-tradedirect-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-tradedirect.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_hangfire" {
-#   name                      = "ga-hangfire-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-hangfire.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_hangfire" {
+  name                      = "ga-hangfire-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-hangfire.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_hangfire" {
-#   name                      = "egos-hangfire-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-hangfire.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_hangfire" {
+  name                      = "egos-hangfire-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-hangfire.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_egosapi" {
-#   name                      = "egos-egosapi-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-egosapi.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_egosapi" {
+  name                      = "egos-egosapi-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-egosapi.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_dao" {
-#   name                      = "egos-dao-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-dao.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_dao" {
+  name                      = "egos-dao-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-dao.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking_api" {
-#   name                      = "egos-tracking-api-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-tracking-api.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_tracking_api" {
+  name                      = "egos-tracking-api-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-tracking-api.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "egos_nuget" {
-#   name                      = "egos-nuget-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "egos-nuget.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "egos_nuget" {
+  name                      = "egos-nuget-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "egos-nuget.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_classifying" {
-#   name                      = "ga-classifying-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-classifying.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_classifying" {
+  name                      = "ga-classifying-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-classifying.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_dashboard" {
-#   name                      = "ga-dashboard-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-dashboard.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_dashboard" {
+  name                      = "ga-dashboard-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-dashboard.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_label" {
-#   name                      = "ga-label-yellow"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-label.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_label" {
+  name                      = "ga-label-orange"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-label.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_prince_pdf2" {
-#   name                      = "ga-prince-pdf2-yellow"
-#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-prince-pdf2.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_prince_pdf2" {
+  name                      = "ga-prince-pdf2-orange"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-prince-pdf2.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_webservices" {
-#   name                      = "ga-webservices-yellow"
-#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-webservices.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_webservices" {
+  name                      = "ga-webservices-orange"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-webservices.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_webjobs" {
-#   name                      = "ga-webjobs-yellow"
-#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-webjobs.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_webjobs" {
+  name                      = "ga-webjobs-orange"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-webjobs.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_shop" {
-#   name                      = "ga-shop-yellow"
-#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-shop.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_shop" {
+  name                      = "ga-shop-orange"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-shop.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_custom_domain" "ga_tracking" {
-#   name                      = "ga-tracking-yellow"
-#   cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
-#   host_name                 = "ga-tracking.yellow.wweconomy.ups.com"
+resource "azurerm_cdn_frontdoor_custom_domain" "ga_tracking" {
+  name                      = "ga-tracking-orange"
+  cdn_frontdoor_profile_id   = azurerm_cdn_frontdoor_profile.afd.id
+  host_name                 = "ga-tracking.orange.wweconomy.ups.com"
 
-#   tls {
-#     certificate_type        = "CustomerCertificate"
-#     minimum_tls_version     = "TLS12"
-#     cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.yellow_cert.secret_id
-#   }
-# }
+  tls {
+    certificate_type        = "CustomerCertificate"
+    minimum_tls_version     = "TLS12"
+    cdn_frontdoor_secret_id = data.azurerm_key_vault_certificate.orange_cert.secret_id
+  }
+}
 
 
 
@@ -1330,13 +1330,13 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "waf_policy" {
 #------------------------frontdoor secrets---------------------------------------
 
 
-# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
-resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_yellow_wweconomy_ups_com_latest" {
+# __generated__ by Terraform from "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourcegroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/secrets/kv2-wwe-dev-eastus2-v3-orange-wweconomy-latest"
+resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_orange_wweconomy_ups_com_latest" {
   cdn_frontdoor_profile_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev"
-  name                     = "kv2-wwe-dev-eastus2-v3-yellow-wweconomy-ups-com-latest"
+  name                     = "kv2-wwe-dev-eastus2-v3-orange-wweconomy-latest"
   secret {
     customer_certificate {
-      key_vault_certificate_id = data.azurerm_key_vault_certificate.yellow_cert.id
+      key_vault_certificate_id = data.azurerm_key_vault_certificate.orange_cert.id
     }
   }
 }
@@ -1348,7 +1348,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_tradedirect_latest" 
   name                     = "kv2-wwe-dev-eastus2-v3-tradedirect-latest"
   secret {
     customer_certificate {
-      key_vault_certificate_id = data.azurerm_key_vault_certificate.yellow_cert.id
+      key_vault_certificate_id = data.azurerm_key_vault_certificate.orange_cert.id
     }
   }
 }
@@ -1359,15 +1359,10 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
   name                     = "kv2-wwe-dev-eastus2-v3-wwe-dev-latest"
   secret {
     customer_certificate {
-      key_vault_certificate_id = data.azurerm_key_vault_certificate.yellow_cert.id
+      key_vault_certificate_id = data.azurerm_key_vault_certificate.orange_cert.id
     }
   }
 }
-
-
-
-
-
 
 
 
@@ -1384,7 +1379,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/logs-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/logs-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1401,7 +1396,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-webservices-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1418,7 +1413,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-yellow-wweconomy-ups-com-e6ee"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egosapi-orange-wweconomy-e6ee"
 #         }
 #       }
 #     }
@@ -1435,7 +1430,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-tracking-api-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1452,7 +1447,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-addinfo-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1469,7 +1464,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-dashboard-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1486,7 +1481,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/egos-hangfire-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1503,7 +1498,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1520,7 +1515,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-shop-globalcheckout-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1537,7 +1532,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/nuget-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1554,7 +1549,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-hangfire-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1571,7 +1566,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/ga-tracking-orange-wweconomy"
 #         }
 #       }
 #     }
@@ -1588,7 +1583,7 @@ resource "azurerm_cdn_frontdoor_secret" "kv_wwe_dev_eastus2_wwe_dev_latest" {
 #       association {
 #         patterns_to_match = ["/*"]
 #         domain {
-#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-yellow-wweconomy-ups-com"
+#           cdn_frontdoor_domain_id = "/subscriptions/b09bcb9d-e055-4950-a9dd-2ab6002ef86c/resourceGroups/rg-wwe-dev/providers/Microsoft.Cdn/profiles/afd-wwe-dev/customDomains/tradedirect-orange-wweconomy"
 #         }
 #       }
 #     }
